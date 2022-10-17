@@ -1979,6 +1979,13 @@ strip-json-comments@^3.1.0, strip-json-comments@^3.1.1:
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-3.1.1.tgz#31f1281b3832630434831c310c01cccda8cbe006"
   integrity sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==
 
+supabase-ui-svelte@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/supabase-ui-svelte/-/supabase-ui-svelte-0.1.1.tgz#d2034e3e2b0520a31da38b92b57871a706c0bd55"
+  integrity sha512-tDnkU2ma2C8gmwBTr476FFeckt1kHxOxParTfrHLFtOkb30MuBABQ6zAE8ytImF12v3VGuSSniOB9cAYKaSxJA==
+  dependencies:
+    svelte-feather-icons "^3.3.0"
+
 supports-color@^7.1.0:
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-7.2.0.tgz#1b7dcdcb32b8138801b3e478ba6a51caa89648da"
@@ -2005,6 +2012,13 @@ svelte-check@^2.7.1:
     svelte-preprocess "^4.0.0"
     typescript "*"
 
+svelte-feather-icons@^3.3.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/svelte-feather-icons/-/svelte-feather-icons-3.6.0.tgz#1763dcecda9c28885ebfd76f71eb52fe0942c30b"
+  integrity sha512-pdRmJwrYUxTI00uTJvGtrMoWXI56n4iX+7fBuxVG/TdBtnqZ8RlGPPvgXmH9+yGOMvWOF5SbZ7h4I+FiORbs2A==
+  dependencies:
+    svelte "^3.38.2"
+
 svelte-hmr@^0.15.0:
   version "0.15.0"
   resolved "https://registry.yarnpkg.com/svelte-hmr/-/svelte-hmr-0.15.0.tgz#c8304b5dd33f006415329d91470761d19417a324"
@@ -2022,7 +2036,7 @@ svelte-preprocess@^4.0.0, svelte-preprocess@^4.10.7:
     sorcery "^0.10.0"
     strip-indent "^3.0.0"
 
-svelte@^3.44.0:
+svelte@^3.38.2, svelte@^3.44.0:
   version "3.52.0"
   resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.52.0.tgz#08259eff20904c63882b66a5d409a55e8c6743b8"
   integrity sha512-FxcnEUOAVfr10vDU5dVgJN19IvqeHQCS1zfe8vayTfis9A2t5Fhx+JDe5uv/C3j//bB1umpLJ6quhgs9xyUbCQ==
