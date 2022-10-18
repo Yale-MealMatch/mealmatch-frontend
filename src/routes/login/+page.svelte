@@ -1,5 +1,7 @@
 <script lang="ts">
 	import Logo from '$lib/Logo.svelte';
+	import {Envelope} from '@steeze-ui/heroicons';
+	import {Icon} from '@steeze-ui/svelte-icon';
 	import AuthCard from './AuthCard.svelte';
 </script>
 
@@ -26,41 +28,10 @@
 							name="email"
 							type="email"
 							autocomplete="email"
+							placeholder="Your email address"
 							required
 							class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
 						/>
-					</div>
-				</div>
-
-				<div>
-					<label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-					<div class="mt-1">
-						<input
-							id="password"
-							name="password"
-							type="password"
-							autocomplete="current-password"
-							required
-							class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-						/>
-					</div>
-				</div>
-
-				<div class="flex items-center justify-between">
-					<div class="flex items-center">
-						<input
-							id="remember-me"
-							name="remember-me"
-							type="checkbox"
-							class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-						/>
-						<label for="remember-me" class="ml-2 block text-sm text-gray-900">Remember me</label>
-					</div>
-
-					<div class="text-sm">
-						<a href="#" class="font-medium text-indigo-600 hover:text-indigo-500"
-							>Forgot your password?</a
-						>
 					</div>
 				</div>
 
@@ -68,8 +39,10 @@
 					<button
 						type="submit"
 						class="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-						>Sign in</button
 					>
+						<Icon src={Envelope} theme="outline" class="block h-5 w-5" aria-hidden="true"  />
+						Send Magic Link
+					</button>
 				</div>
 			</form>
 
