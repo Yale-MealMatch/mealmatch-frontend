@@ -5,7 +5,7 @@ const config = {
 		extend: {}
 	},
 
-	plugins: ['@tailwindcss/forms']
+	plugins: [require('@tailwindcss/forms')]
 };
 
 module.exports = config;
