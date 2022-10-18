@@ -1,12 +1,16 @@
 <script lang="ts">
+	import GoogleIcon from '$lib/GoogleIcon.svelte';
 	import Logo from '$lib/Logo.svelte';
-	import {supabase} from '$lib/supabaseClient';
-	import {Envelope} from '@steeze-ui/heroicons';
-	import {Icon} from '@steeze-ui/svelte-icon';
+	import { supabase } from '$lib/supabaseClient';
+	import { Envelope } from '@steeze-ui/heroicons';
+	import { Icon } from '@steeze-ui/svelte-icon';
 	import AuthCard from './AuthCard.svelte';
 	const signInWithGoogle = async () => {
-		const {data, error} = await supabase.auth.signInWithOAuth({provider: 'google'});
-	}
+		const { data, error } = await supabase.auth.signInWithOAuth({
+			provider: 'google',
+			options: { redirectTo: `${window.location.origin}/form` }
+		});
+	};
 </script>
 
 <div class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -44,7 +48,7 @@
 						type="submit"
 						class="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
 					>
-						<Icon src={Envelope} theme="outline" class="block h-5 w-5" aria-hidden="true"  />
+						<Icon src={Envelope} theme="outline" class="block h-5 w-5" aria-hidden="true" />
 						Send Magic Link
 					</button>
 				</div>
@@ -66,7 +70,7 @@
 							on:click={signInWithGoogle}
 							class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50"
 						>
-							<iconify-icon icon="ant-design:google-outlined" height="1.25rem" aria-hidden="true" ></iconify-icon>
+							<GoogleIcon />
 							<span>Sign in with Google</span>
 						</button>
 					</div>
