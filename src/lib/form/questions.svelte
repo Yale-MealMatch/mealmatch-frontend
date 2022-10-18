@@ -1,6 +1,5 @@
 <script lang="ts" context="module">
 import type {Question} from "./types"
-import BioDescription from './BioDescription.svelte'
 
 export const questions: Question[] = [
 	{
