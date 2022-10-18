@@ -18,7 +18,7 @@
 	const navigation = [
 		{ name: 'Dashboard', href: '/', current: true },
 		{ name: 'Login', href: '/login', current: false },
-		{ name: 'Projects', href: '#', current: false },
+		{ name: 'Form', href: '/form', current: false },
 		{ name: 'Calendar', href: '#', current: false }
 	];
 </script>
