@@ -7,12 +7,14 @@
 	import type { Question } from '$lib/form/types';
 
 	export let question: Question;
+	let value: string | string[] = '';
+	$: console.log(value);
 </script>
 
 <div class="rounded-lg border border-gray-200 p-6 shadow-md">
 	<FormHeader title={question.label} description={question.description} />
-	{#if question.type === 'radio'}<FormRadioGroup {question} /> {/if}
-	{#if question.type === 'checkboxes'}<FormCheckboxes {question} /> {/if}
-	{#if question.type === 'input'}<FormInput {question} /> {/if}
-	{#if question.type === 'textarea'}<FormTextArea {question} /> {/if}
+	{#if question.type === 'radio'}<FormRadioGroup {question} bind:value={value} on:input /> {/if}
+	{#if question.type === 'checkboxes'}<FormCheckboxes {question} bind:value={value} /> {/if}
+	{#if question.type === 'input'}<FormInput {question} bind:value={value} /> {/if}
+	{#if question.type === 'textarea'}<FormTextArea {question} bind:value={value} /> {/if}
 </div>

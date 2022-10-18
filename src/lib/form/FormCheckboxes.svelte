@@ -2,6 +2,7 @@
 	import type { FormCheckboxes } from '$lib/form/types';
 
 	export let question: FormCheckboxes;
+	export let value: string | string[] = '';
 </script>
 
 <fieldset class="space-y-5">
@@ -12,7 +13,9 @@
 				<input
 					id={option.label}
 					aria-describedby={option.label}
-					name={option.label}
+					name={question.name}
+					value={option.label}
+					bind:group={question.name}
 					type="checkbox"
 					class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
 				/>

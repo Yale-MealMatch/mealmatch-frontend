@@ -2,7 +2,7 @@
 	import type { FormInput } from '$lib/form/types';
 
 	export let question: FormInput;
-	let input = '';
+	export let value: string | string[] = '';
 </script>
 
 <div>
@@ -16,7 +16,7 @@
 			id={question.name}
 			class="block w-full border-0 border-b border-transparent bg-gray-50 focus:border-rose-600 focus:ring-0 sm:text-sm"
 			placeholder={question.placeholder}
-			bind:value={input}
+			bind:value={value}
 		/>
 	</div>
 </div>
