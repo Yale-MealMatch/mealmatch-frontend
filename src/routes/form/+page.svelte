@@ -1,10 +1,10 @@
 <script lang="ts">
-	import FormDivider from 'src/routes/form/components/FormDivider.svelte';
-	import FormGroup from 'src/routes/form/components/FormGroup.svelte';
-	import NextButton from 'src/routes/form/components/NextButton.svelte';
-	import PreviousButton from 'src/routes/form/components/PreviousButton.svelte';
-	import {questions} from 'src/routes/form/questions';
-	import type {Question} from 'src/routes/form/types';
+	import FormDivider from '$lib/form/FormDivider.svelte';
+	import FormGroup from '$lib/form/FormGroup.svelte';
+	import NextButton from '$lib/form/NextButton.svelte';
+	import PreviousButton from '$lib/form/PreviousButton.svelte';
+	import {questions} from '$lib/form/questions';
+	import type {Question} from '$lib/form/types';
 
 	let currentQuestionIndex = 0;
 	const previousSlide = () => {

@@ -1,5 +1,5 @@
-import Description from '@rgossiaux/svelte-headlessui/components/description/Description.svelte';
-import type {Question} from 'src/routes/form/types';
+import type {Question} from "./types.d"
+import Description from './Description.svelte'
 
 export const questions: Question[] = [
 	{

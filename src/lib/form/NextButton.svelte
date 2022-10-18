@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { questions } from 'src/routes/form/questions';
+	import {questions} from "$lib/form/questions";
 
 	export let currentQuestionIndex: number;
 	export let nextSlide: () => void;

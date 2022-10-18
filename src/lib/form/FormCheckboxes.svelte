@@ -1,5 +1,7 @@
 <script lang="ts">
-	import type {FormCheckboxes} from "src/routes/form/types";
+	import type {FormCheckboxes} from "$lib/form/types";
+
+
 	export let question: FormCheckboxes;
 </script>
     <fieldset class="space-y-5">
