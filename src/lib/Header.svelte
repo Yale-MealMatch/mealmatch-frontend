@@ -35,13 +35,13 @@
 				<div class="flex-shrink-0">
 					<img
 						class="block h-8 w-auto lg:hidden"
-						src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-						alt="Your Company"
+						src="/logo.jpg"
+						alt="MealMatch"
 					/>
 					<img
 						class="hidden h-8 w-auto lg:block"
-						src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-						alt="Your Company"
+						src="/logo.jpg"
+						alt="MealMatch"
 					/>
 				</div>
 				<div class="hidden lg:ml-6 lg:block">
