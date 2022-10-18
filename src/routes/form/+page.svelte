@@ -5,7 +5,6 @@
 	import PreviousButton from 'src/routes/form/components/PreviousButton.svelte';
 	import {questions} from 'src/routes/form/questions';
 	import type {Question} from 'src/routes/form/types';
-	import { onMount } from 'svelte';
 
 	let currentQuestionIndex = 0;
 	const previousSlide = () => {
