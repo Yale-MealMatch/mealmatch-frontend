@@ -11,7 +11,7 @@
           <div class="flex h-5 items-center">
             <input
               id={option.label}
-              aria-describedby="comments-description"
+              aria-describedby={option.label}
               name={option.label}
               type="checkbox"
               class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
