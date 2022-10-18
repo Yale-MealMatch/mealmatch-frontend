@@ -28,6 +28,7 @@
 			.single();
 		if (error) throw new Error(error.message);
 		console.log(data);
+		return data
 	};
 
 	const postUserData = async (data: any) => {
