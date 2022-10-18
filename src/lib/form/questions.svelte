@@ -1,5 +1,6 @@
-import type {Question} from "./types.d"
-import Description from './Description.svelte'
+<script lang="ts" context="module">
+import type {Question} from "./types"
+import BioDescription from './BioDescription.svelte'
 
 export const questions: Question[] = [
 	{
@@ -59,7 +60,8 @@ export const questions: Question[] = [
 		type: 'textarea',
 		name: 'bio',
 		label: 'Personal description (75 words max, optional)',
-		description: Description,
+		description: BioDescription,
 		placeholder: 'I like to be'
 	}
 ];
+</script>

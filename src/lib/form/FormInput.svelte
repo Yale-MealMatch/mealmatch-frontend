@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type {FormInput} from "src/routes/form/types";
+	import type {FormInput} from "$lib/form/types";
 
 	export let question: FormInput;
   let input = '';

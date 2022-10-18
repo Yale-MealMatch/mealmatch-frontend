@@ -39,7 +39,7 @@ type FormTextArea =
   type: 'textarea';
   name: string;
   label: string;
-  description: string | typeof import('./Description.svelte');
+  description: string | typeof SvelteComponent;
   placeholder: string;
 }
 

@@ -3,7 +3,7 @@
 	import FormGroup from '$lib/form/FormGroup.svelte';
 	import NextButton from '$lib/form/NextButton.svelte';
 	import PreviousButton from '$lib/form/PreviousButton.svelte';
-	import {questions} from '$lib/form/questions';
+	import {questions} from '$lib/form/questions.svelte';
 	import type {Question} from '$lib/form/types';
 
 	let currentQuestionIndex = 0;
