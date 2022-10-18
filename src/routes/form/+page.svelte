@@ -58,9 +58,7 @@
 				<div class="hidden md:-mb-px md:flex">
 					{#each questions as _question, index}
 						<button
-							class={`${
-								index === currentQuestionIndex ? 'border-rose-500 text-rose-600' : ''
-							} inline-flex items-center border-b-2 border-transparent px-4 py-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700`}
+							class="{ index === currentQuestionIndex ? 'border-rose-500 text-rose-600' : '' } inline-flex items-center border-b-2 border-transparent px-4 py-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
 							on:click={() => jumpSlide(index)}
 						>
 							{index + 1}
