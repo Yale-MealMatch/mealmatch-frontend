@@ -1,5 +1,6 @@
 <script lang="ts">
-  import Logo from './Logo.svelte';
+	import Logo from './Logo.svelte';
+	import { page } from '$app/stores';
 
 	import {
 		Disclosure,
@@ -10,9 +11,16 @@
 		MenuItem,
 		MenuItems
 	} from '@rgossiaux/svelte-headlessui';
-	import {Icon} from '@steeze-ui/svelte-icon'
-	import {Bars3, MagnifyingGlass, XMark} from '@steeze-ui/heroicons'
+	import { Icon } from '@steeze-ui/svelte-icon';
+	import { Bars3, MagnifyingGlass, XMark } from '@steeze-ui/heroicons';
+	import { onMount } from 'svelte';
 
+	const navigation = [
+		{ name: 'Dashboard', href: '/', current: true },
+		{ name: 'Login', href: '/login', current: false },
+		{ name: 'Projects', href: '#', current: false },
+		{ name: 'Calendar', href: '#', current: false }
+	];
 </script>
 
 <!--
@@ -41,24 +49,16 @@
 				<div class="hidden lg:ml-6 lg:block">
 					<div class="flex space-x-4">
 						<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-						<a href="#" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
-							>Dashboard</a
-						>
-						<a
-							href="#"
-							class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-							>Team</a
-						>
-						<a
-							href="#"
-							class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-							>Projects</a
-						>
-						<a
-							href="#"
-							class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-							>Calendar</a
-						>
+						{#each navigation as item}
+							<a
+								href={item.href}
+								class={$page.url.pathname === item.href
+									? 'rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white'
+									: 'rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white'}
+							>
+								{item.name}
+							</a>
+						{/each}
 					</div>
 				</div>
 			</div>
@@ -67,7 +67,12 @@
 					<label for="search" class="sr-only">Search</label>
 					<div class="relative">
 						<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-							<Icon src={MagnifyingGlass} theme='solid' class="h-5 w-5 text-gray-400" aria-hidden="true" />
+							<Icon
+								src={MagnifyingGlass}
+								theme="solid"
+								class="h-5 w-5 text-gray-400"
+								aria-hidden="true"
+							/>
 						</div>
 						<input
 							id="search"
@@ -86,9 +91,9 @@
 				>
 					<span class="sr-only">Open main menu</span>
 					{#if open}
-						<Icon src={XMark} theme='outline' class="block h-6 w-6" aria-hidden="true" />
+						<Icon src={XMark} theme="outline" class="block h-6 w-6" aria-hidden="true" />
 					{:else}
-						<Icon src={Bars3} theme='outline' class="block h-6 w-6" aria-hidden="true" />
+						<Icon src={Bars3} theme="outline" class="block h-6 w-6" aria-hidden="true" />
 					{/if}
 				</DisclosureButton>
 			</div>
@@ -130,22 +135,22 @@
 								<MenuItem let:active>
 									<a
 										href="#"
-										class:bg-gray-100="{active}" class="block px-4 py-2 text-sm text-gray-700"
-										>Your Profile</a
+										class:bg-gray-100={active}
+										class="block px-4 py-2 text-sm text-gray-700">Your Profile</a
 									>
 								</MenuItem>
 								<MenuItem let:active>
 									<a
 										href="#"
-										class:bg-gray-100="{active}" class="block px-4 py-2 text-sm text-gray-700"
-										>Settings</a
+										class:bg-gray-100={active}
+										class="block px-4 py-2 text-sm text-gray-700">Settings</a
 									>
 								</MenuItem>
 								<MenuItem let:active>
 									<a
 										href="#"
-										class:bg-gray-100="{active}" class="block px-4 py-2 text-sm text-gray-700"
-										>Sign out</a
+										class:bg-gray-100={active}
+										class="block px-4 py-2 text-sm text-gray-700">Sign out</a
 									>
 								</MenuItem>
 							</MenuItems>
