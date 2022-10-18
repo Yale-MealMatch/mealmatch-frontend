@@ -22,7 +22,11 @@
             {option.label}
             </label>
             <span id="comments-description" class="text-gray-500">
-              <span class="sr-only">{option.label}</span>{option.subtitle}</span>
+              <span class="sr-only">{option.label}</span>
+              {#if option.subtitle}
+              {option.subtitle}
+              {/if}
+            </span>
           </div>
         </div>
       {/each}
