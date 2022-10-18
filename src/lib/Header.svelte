@@ -15,27 +15,12 @@
 	import { Bars3, MagnifyingGlass, XMark, BellAlert, Bell } from '@steeze-ui/heroicons';
 
 	const navigation = [
-		{ name: 'Dashboard', href: '/', current: true },
-		{ name: 'Login', href: '/login', current: false },
-		{ name: 'Form', href: '/form', current: false },
-		{ name: 'Calendar', href: '#', current: false }
+		{ name: 'Dashboard', href: '/' },
+		{ name: 'Login', href: '/login' },
+		{ name: 'Form', href: '/form' },
+		{ name: 'Calendar', href: '#' }
 	];
 </script>
-
-<!--
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
--->
 
 <Disclosure as="nav" class="bg-gray-800" let:open>
 	<div class="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
