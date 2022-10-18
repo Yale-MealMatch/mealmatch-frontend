@@ -61,7 +61,7 @@ export const questions: Question[] = [
 		label: 'Personal description (75 words max, optional)',
 		description: `<p>
 	Based on your answer to this question, we will try to match you with someone you are compatible
-	with. If you choose not to answer it, we will match you randomly.{' '}
+	with. If you choose not to answer it, we will match you randomly.
 </p>
 <strong>If you answer this question, your response will be shown to your match.</strong>
 <div>
