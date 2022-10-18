@@ -1,4 +1,6 @@
 <script lang="ts">
+  import Logo from './Logo.svelte';
+
 	import {
 		Disclosure,
 		DisclosureButton,
@@ -33,16 +35,8 @@
 		<div class="relative flex h-16 items-center justify-between">
 			<div class="flex items-center px-2 lg:px-0">
 				<div class="flex-shrink-0">
-					<img
-						class="block h-8 w-auto lg:hidden"
-						src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-						alt="Your Company"
-					/>
-					<img
-						class="hidden h-8 w-auto lg:block"
-						src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-						alt="Your Company"
-					/>
+					<Logo class="block h-8 w-auto lg:hidden" />
+					<Logo class="hidden h-8 w-auto lg:block" />
 				</div>
 				<div class="hidden lg:ml-6 lg:block">
 					<div class="flex space-x-4">
