@@ -1,9 +1,8 @@
 <script lang="ts">
-	import {questions} from "src/routes/form/questions";
+	import { questions } from 'src/routes/form/questions';
 
-
-	  export let currentQuestionIndex: number;
-  export let nextSlide: () => void;
+	export let currentQuestionIndex: number;
+	export let nextSlide: () => void;
 </script>
 
 {#if currentQuestionIndex === questions.length - 1}
