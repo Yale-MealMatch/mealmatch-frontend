@@ -16,7 +16,7 @@ export const questions: Question[] = [
 	},
 	{
 		type: 'checkboxes',
-		name: 'year',
+		name: 'year_match',
 		label: 'What year(s) would you like to match with?',
 		description: 'We will try to match you with someone within your preferences.',
 		options: [
@@ -35,7 +35,7 @@ export const questions: Question[] = [
 	},
 	{
 		type: 'checkboxes',
-		name: 'pronouns',
+		name: 'pronouns_match',
 		label: 'Match me with someone with ___ pronouns.',
 		description: 'We will try our best!',
 		options: [{ label: 'he/him' }, { label: 'she/her' }, { label: 'other' }]
@@ -49,7 +49,7 @@ export const questions: Question[] = [
 	},
 	{
 		type: 'input',
-		name: 'phone',
+		name: 'nickname',
 		label: 'Create a nickname:',
 		description:
 			"Your match will refer to you by your nickname before meeting in person. Don't use your real name. ",
