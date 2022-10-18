@@ -11,8 +11,8 @@
 
 <div class="rounded-lg border border-gray-200 p-6 shadow-md">
 	<FormHeader title={question.label} description={question.description} />
-	{#if question.type === 'radio'}<FormRadioGroup {question} />; {/if}
-	{#if question.type === 'checkboxes'}<FormCheckboxes {question} />; {/if}
-	{#if question.type === 'input'}<FormInput {question} />; {/if}
-	{#if question.type === 'textarea'}<FormTextArea {question} />; {/if}
+	{#if question.type === 'radio'}<FormRadioGroup {question} /> {/if}
+	{#if question.type === 'checkboxes'}<FormCheckboxes {question} /> {/if}
+	{#if question.type === 'input'}<FormInput {question} /> {/if}
+	{#if question.type === 'textarea'}<FormTextArea {question} /> {/if}
 </div>
