@@ -1,8 +1,8 @@
 <script lang="ts">
-	import FormDivider from 'src/routes/form/FormDivider.svelte';
-	import FormGroup from 'src/routes/form/FormGroup.svelte';
-	import NextButton from 'src/routes/form/NextButton.svelte';
-	import PreviousButton from 'src/routes/form/PreviousButton.svelte';
+	import FormDivider from 'src/routes/form/components/FormDivider.svelte';
+	import FormGroup from 'src/routes/form/components/FormGroup.svelte';
+	import NextButton from 'src/routes/form/components/NextButton.svelte';
+	import PreviousButton from 'src/routes/form/components/PreviousButton.svelte';
 	import {questions} from 'src/routes/form/questions';
 	import type {Question} from 'src/routes/form/types';
 	import { onMount } from 'svelte';
