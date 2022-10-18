@@ -47,6 +47,8 @@
 			queryClient.invalidateQueries('userData');
 		}
 	});
+
+	let value: string | string[] = '';
 </script>
 
 <div class="mt-10 sm:mt-0">
