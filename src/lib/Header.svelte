@@ -12,7 +12,7 @@
 		MenuItems
 	} from '@rgossiaux/svelte-headlessui';
 	import { Icon } from '@steeze-ui/svelte-icon';
-	import { Bars3, MagnifyingGlass, XMark } from '@steeze-ui/heroicons';
+	import { Bars3, MagnifyingGlass, XMark, BellAlert, Bell } from '@steeze-ui/heroicons';
 
 	const navigation = [
 		{ name: 'Dashboard', href: '/', current: true },
@@ -103,7 +103,7 @@
 						class="flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
 					>
 						<span class="sr-only">View notifications</span>
-						<!-- <BellIcon class="h-6 w-6" aria-hidden="true" /> -->
+						<Icon src={BellAlert} theme="solid" class="h-6 w-6" aria-hidden="true" />
 					</button>
 
 					<!-- Profile dropdown -->
@@ -206,6 +206,7 @@
 					class="ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
 				>
 					<span class="sr-only">View notifications</span>
+					<Icon src={BellAlert} class="h-6 w-6" aria-hidden="true" />
 					<!-- <BellIcon class="h-6 w-6" aria-hidden="true" /> -->
 				</button>
 			</div>
