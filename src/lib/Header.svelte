@@ -12,31 +12,15 @@
 		MenuItems
 	} from '@rgossiaux/svelte-headlessui';
 	import { Icon } from '@steeze-ui/svelte-icon';
-	import { Bars3, MagnifyingGlass, XMark } from '@steeze-ui/heroicons';
-	import { onMount } from 'svelte';
+	import { Bars3, MagnifyingGlass, XMark, BellAlert, Bell } from '@steeze-ui/heroicons';
 
 	const navigation = [
-		{ name: 'Dashboard', href: '/', current: true },
-		{ name: 'Login', href: '/login', current: false },
-		{ name: 'Form', href: '/form', current: false },
-		{ name: 'Calendar', href: '#', current: false }
+		{ name: 'Dashboard', href: '/' },
+		{ name: 'Login', href: '/login' },
+		{ name: 'Form', href: '/form' },
+		{ name: 'Calendar', href: '#' }
 	];
 </script>
-
-<!--
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
--->
 
 <Disclosure as="nav" class="bg-gray-800" let:open>
 	<div class="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
@@ -104,7 +88,7 @@
 						class="flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
 					>
 						<span class="sr-only">View notifications</span>
-						<!-- <BellIcon class="h-6 w-6" aria-hidden="true" /> -->
+						<Icon src={BellAlert} theme="solid" class="h-6 w-6" aria-hidden="true" />
 					</button>
 
 					<!-- Profile dropdown -->
@@ -207,6 +191,7 @@
 					class="ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
 				>
 					<span class="sr-only">View notifications</span>
+					<Icon src={BellAlert} class="h-6 w-6" aria-hidden="true" />
 					<!-- <BellIcon class="h-6 w-6" aria-hidden="true" /> -->
 				</button>
 			</div>
