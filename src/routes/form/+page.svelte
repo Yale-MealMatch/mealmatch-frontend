@@ -5,6 +5,8 @@
 	import PreviousButton from '$lib/form/PreviousButton.svelte';
 	import { questions } from '$lib/form/questions';
 	import type { Question } from '$lib/form/types';
+	import { supabase } from '$lib/supabaseClient';
+	import { useQuery, useMutation, useQueryClient } from '@sveltestack/svelte-query';
 
 	let currentQuestionIndex = 0;
 	const previousSlide = () => {
@@ -15,9 +17,41 @@
 	};
 	const jumpSlide = (index: number) => (currentQuestionIndex = index);
 	$: question = questions[currentQuestionIndex] as Question;
+	
+
+	const queryClient = useQueryClient();
+
+	const fetchUserData = async () => {
+		const { data, error } = await supabase
+			.from('responses')
+			.select('*')
+			.eq('id', 'efc5ce68-2799-49fa-b7b4-ed05ae8de252')
+			.single();
+		if (error) throw new Error(error.message);
+		console.log(data);
+	};
+	
+	const postUserData = async (data: any) => {
+		const { error } = await supabase
+			.from('responses')
+			.upsert(data)
+			.eq('id', 'efc5ce68-2799-49fa-b7b4-ed05ae8de252');
+		if (error) throw new Error(error.message);
+	};
+	// Queries
+	const queryResult = useQuery('userData', fetchUserData);
+	// Mutations
+	const mutation = useMutation(postUserData, {
+		onSuccess: () => {
+			// Invalidate and refetch
+			queryClient.invalidateQueries('userData');
+		}
+	});
+
 </script>
 
 <main class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+	{$queryResult.data}
 	<div class="mt-10 sm:mt-0">
 		<div class="overflow-hidden shadow sm:rounded-md">
 			<div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
