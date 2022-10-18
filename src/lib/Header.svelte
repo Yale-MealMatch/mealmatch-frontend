@@ -13,7 +13,6 @@
 	} from '@rgossiaux/svelte-headlessui';
 	import { Icon } from '@steeze-ui/svelte-icon';
 	import { Bars3, MagnifyingGlass, XMark } from '@steeze-ui/heroicons';
-	import { onMount } from 'svelte';
 
 	const navigation = [
 		{ name: 'Dashboard', href: '/', current: true },
