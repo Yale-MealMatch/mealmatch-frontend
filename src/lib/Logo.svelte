@@ -1,4 +1,4 @@
 <script lang="ts">
-</script> 
+</script>
 
-<img src="/logo.jpg" alt="MealMatch" class={$$props.class || ''}/>
+<img src="/logo.jpg" alt="MealMatch" class={$$props.class || ''} />

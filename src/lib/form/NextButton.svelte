@@ -1,5 +1,5 @@
 <script lang="ts">
-	import {questions} from "$lib/form/questions.svelte";
+	import { questions } from '$lib/form/questions.svelte';
 
 	export let currentQuestionIndex: number;
 	export let nextSlide: () => void;

@@ -4,7 +4,7 @@
 	import FormCheckboxes from './FormCheckboxes.svelte';
 	import FormInput from './FormInput.svelte';
 	import FormTextArea from './FormTextArea.svelte';
-	import type {Question} from '$lib/form/types';
+	import type { Question } from '$lib/form/types';
 
 	export let question: Question;
 </script>
