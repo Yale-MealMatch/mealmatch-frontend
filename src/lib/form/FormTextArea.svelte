@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { FormTextArea } from 'src/routes/form/types';
+	import type {FormTextArea} from "$lib/form/types";
 
 	export let question: FormTextArea;
 	let input = '';
