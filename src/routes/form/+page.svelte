@@ -29,7 +29,6 @@
 			.eq('id', 'efc5ce68-2799-49fa-b7b4-ed05ae8de252')
 			.single();
 		if (error) throw new Error(error.message);
-		console.log(data);
 		return data
 	};
 
@@ -53,6 +52,7 @@
 	let value: string | string[] = '';
 </script>
 
+{question.name}
 <div class="mt-10 sm:mt-0">
 	<div class="overflow-hidden shadow sm:rounded-md">
 		<div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
@@ -78,9 +78,9 @@
 			{#if $queryResult.isLoading}
 				<FormGroup {question} />
 			{:else if $queryResult.isError}
-				<!-- <div class="text-red-500">{$queryResult.error.message}</div> -->
+				<div class="text-red-500">{$queryResult.error.message}</div>
 			{:else}
-				<FormGroup {question} />
+				<FormGroup {question} bind:value={value}/>
 			{/if}
 			<FormDivider />
 		</div>
