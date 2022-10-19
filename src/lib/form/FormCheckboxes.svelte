@@ -3,6 +3,7 @@
 
 	export let question: FormCheckboxes;
 	export let value: string | string[] = '';
+	$: console.log(value)
 </script>
 
 <fieldset class="space-y-5">
@@ -15,7 +16,7 @@
 					aria-describedby={option.label}
 					name={question.name}
 					value={option.value}
-					bind:group={question.name}
+					bind:group={value}
 					type="checkbox"
 					class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
 				/>
