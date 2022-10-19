@@ -13,7 +13,7 @@
 
 <div class="rounded-lg border border-gray-200 p-6 shadow-md">
 	<FormHeader title={question.label} description={question.description} />
-	{#if question.type === 'radio'}<FormRadioGroup {question} bind:value on:input /> {/if}
+	{#if question.type === 'radio'}<FormRadioGroup {question} bind:value /> {/if}
 	{#if question.type === 'checkboxes'}<FormCheckboxes {question} bind:value /> {/if}
 	{#if question.type === 'input'}<FormInput {question} bind:value /> {/if}
 	{#if question.type === 'textarea'}<FormTextArea {question} bind:value /> {/if}
