@@ -1,5 +1,5 @@
 type SelectOption = {
-	label: string;
+	label: string | number;
 	subtitle?: string;
 	right?: string;
 };
