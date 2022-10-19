@@ -106,7 +106,7 @@
 			{:else if $queryResult.isError}
 				<div class="text-red-500">{$queryResult.error.message}</div>
 			{:else}
-				<FormGroup {question} bind:value />
+				<FormGroup {question} bind:value={responses[question.name]} />
 			{/if}
 			<FormDivider />
 		</div>
