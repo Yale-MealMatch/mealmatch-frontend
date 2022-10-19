@@ -25,7 +25,7 @@
 
 	const queryClient = useQueryClient();
 
-	const fetchUserData = async () => {
+	const getUserResponses = async () => {
 		const { data, error } = await supabase
 			.from('responses')
 			.select('*')
@@ -35,7 +35,31 @@
 		return data;
 	};
 
-	const postUserData = async (data: any) => {
+	type Responses = {
+		id: string;
+		timestamp: string;
+		year: number;
+		year_match: number[];
+		pronouns: string;
+		pronouns_match: string[];
+		phone: null;
+		nickname: null;
+		bio: null;
+	};
+
+	const responses: Responses = {
+		id: 'efc5ce68-2799-49fa-b7b4-ed05ae8de252',
+		timestamp: '2022-10-18T22:27:39.200684+00:00',
+		year: 2027,
+		year_match: [2024],
+		pronouns: 'he/him',
+		pronouns_match: ['he/him'],
+		phone: null,
+		nickname: null,
+		bio: null
+	};
+
+	const postUserResponses = async (data: any) => {
 		const { error } = await supabase
 			.from('responses')
 			.upsert(data)
@@ -43,12 +67,12 @@
 		if (error) throw new Error(error.message);
 	};
 	// Queries
-	const queryResult = useQuery('userData', fetchUserData);
+	const queryResult = useQuery('userResponses', getUserResponses);
 	// Mutations
-	const mutation = useMutation(postUserData, {
+	const mutation = useMutation(postUserResponses, {
 		onSuccess: () => {
 			// Invalidate and refetch
-			queryClient.invalidateQueries('userData');
+			queryClient.invalidateQueries('userResponses');
 		}
 	});
 
