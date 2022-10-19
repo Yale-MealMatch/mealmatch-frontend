@@ -37,18 +37,6 @@
 		return data as definitions['responses'];
 	};
 
-	type Responses = {
-		id: string;
-		timestamp: string;
-		year: number;
-		year_match: number[];
-		pronouns: string;
-		pronouns_match: string[];
-		phone: null;
-		nickname: null;
-		bio: null;
-	};
-
 	const responses: definitions['responses'] = {
 		id: 'efc5ce68-2799-49fa-b7b4-ed05ae8de252',
 		timestamp: '2022-10-18T22:27:39.200684+00:00',
@@ -56,9 +44,9 @@
 		year_match: [2024],
 		pronouns: 'he/him',
 		pronouns_match: ['he/him'],
-		phone: null,
-		nickname: null,
-		bio: null
+		phone: "",
+		nickname: "",
+		bio: ""
 	};
 
 	const postUserResponses = async (data: definitions['responses']) => {
