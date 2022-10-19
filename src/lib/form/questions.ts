@@ -1,4 +1,3 @@
-
 import type { Question } from './types';
 
 export const questions: Question[] = [
@@ -8,10 +7,14 @@ export const questions: Question[] = [
 		label: 'What year are you?',
 		description: '',
 		options: [
-			{ label: 'First-year' },
-			{ label: 'Sophomore' },
-			{ label: 'Junior' },
-			{ label: 'Senior' }
+			{ label: 2024 },
+			{ label: 2025 },
+			{ label: 2026 },
+			{ label: 2027 }
+			// { label: 'First-year' },
+			// { label: 'Sophomore' },
+			// { label: 'Junior' },
+			// { label: 'Senior' }
 		]
 	},
 	{
@@ -20,10 +23,14 @@ export const questions: Question[] = [
 		label: 'What year(s) would you like to match with?',
 		description: 'We will try to match you with someone within your preferences.',
 		options: [
-			{ label: 'First-year' },
-			{ label: 'Sophomore' },
-			{ label: 'Junior' },
-			{ label: 'Senior' }
+			{ label: 2024 },
+			{ label: 2025 },
+			{ label: 2026 },
+			{ label: 2027 }
+			// { label: 'First-year' },
+			// { label: 'Sophomore' },
+			// { label: 'Junior' },
+			// { label: 'Senior' }
 		]
 	},
 	{
@@ -31,7 +38,7 @@ export const questions: Question[] = [
 		name: 'pronouns',
 		label: 'What are your pronouns?',
 		description: 'Your pronouns will be provided to your match for ease of communication.',
-			options: [{ label: 'he/him' }, { label: 'she/her' }, { label: 'other' }]
+		options: [{ label: 'he/him' }, { label: 'she/her' }, { label: 'other' }]
 	},
 	{
 		type: 'checkboxes',
@@ -45,7 +52,7 @@ export const questions: Question[] = [
 		name: 'phone',
 		label: 'What is your phone number?',
 		description: 'Your number will be provided to your match for ease of communication.',
-			placeholder: '1234567890'
+		placeholder: '1234567890'
 	},
 	{
 		type: 'input',
@@ -77,4 +84,3 @@ export const questions: Question[] = [
 		placeholder: 'I like to be'
 	}
 ];
-
