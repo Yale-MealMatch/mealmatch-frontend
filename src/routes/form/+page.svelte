@@ -17,7 +17,10 @@
 		$mutation.mutate({ id: 'efc5ce68-2799-49fa-b7b4-ed05ae8de252', [question.name]: value });
 		if (currentQuestionIndex < questions.length - 1) currentQuestionIndex++;
 	};
-	const jumpSlide = (index: number) => (currentQuestionIndex = index);
+	const jumpSlide = (index: number) => {
+		$mutation.mutate({ id: 'efc5ce68-2799-49fa-b7b4-ed05ae8de252', [question.name]: value });
+		currentQuestionIndex = index;
+	};
 	$: question = questions[currentQuestionIndex] as Question;
 
 	const queryClient = useQueryClient();
@@ -29,7 +32,7 @@
 			.eq('id', 'efc5ce68-2799-49fa-b7b4-ed05ae8de252')
 			.single();
 		if (error) throw new Error(error.message);
-		return data
+		return data;
 	};
 
 	const postUserData = async (data: any) => {
@@ -80,7 +83,7 @@
 			{:else if $queryResult.isError}
 				<div class="text-red-500">{$queryResult.error.message}</div>
 			{:else}
-				<FormGroup {question} bind:value={value}/>
+				<FormGroup {question} bind:value />
 			{/if}
 			<FormDivider />
 		</div>
