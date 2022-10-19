@@ -14,7 +14,7 @@
 					id={option.label}
 					aria-describedby={option.label}
 					name={question.name}
-					value={option.label}
+					value={option.value}
 					bind:group={question.name}
 					type="checkbox"
 					class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"

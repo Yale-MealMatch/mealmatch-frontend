@@ -24,7 +24,7 @@
 	<RadioGroupLabel class="sr-only">{question.name}</RadioGroupLabel>
 	<div class="-space-y-px rounded-md bg-white">
 		{#each question.options as option, index}
-			<RadioGroupOption value={option.label} let:checked let:active>
+			<RadioGroupOption value={option.value} let:checked let:active>
 				<div
 					class="{roundTopAndBottom(index)} {checkedClasses(
 						checked
