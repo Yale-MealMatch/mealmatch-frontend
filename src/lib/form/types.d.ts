@@ -1,7 +1,7 @@
 type SelectOption = {
-	label: string | number;
+	label: string;
+	value: string | number;
 	subtitle?: string;
-	right?: string;
 };
 
 type FormCheckboxesOption = SelectOption;

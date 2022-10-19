@@ -7,14 +7,10 @@ export const questions: Question[] = [
 		label: 'What year are you?',
 		description: '',
 		options: [
-			{ label: 2024 },
-			{ label: 2025 },
-			{ label: 2026 },
-			{ label: 2027 }
-			// { label: 'First-year' },
-			// { label: 'Sophomore' },
-			// { label: 'Junior' },
-			// { label: 'Senior' }
+			{ label: 'First-year', value: 2024 },
+			{ label: 'Sophomore', value: 2025 },
+			{ label: 'Junior', value: 2026 },
+			{ label: 'Senior', value: 2027 }
 		]
 	},
 	{
@@ -23,14 +19,10 @@ export const questions: Question[] = [
 		label: 'What year(s) would you like to match with?',
 		description: 'We will try to match you with someone within your preferences.',
 		options: [
-			{ label: 2024 },
-			{ label: 2025 },
-			{ label: 2026 },
-			{ label: 2027 }
-			// { label: 'First-year' },
-			// { label: 'Sophomore' },
-			// { label: 'Junior' },
-			// { label: 'Senior' }
+			{ label: 'First-year', value: 2024 },
+			{ label: 'Sophomore', value: 2025 },
+			{ label: 'Junior', value: 2026 },
+			{ label: 'Senior', value: 2027 }
 		]
 	},
 	{
@@ -38,14 +30,22 @@ export const questions: Question[] = [
 		name: 'pronouns',
 		label: 'What are your pronouns?',
 		description: 'Your pronouns will be provided to your match for ease of communication.',
-		options: [{ label: 'he/him' }, { label: 'she/her' }, { label: 'other' }]
+		options: [
+			{ label: 'he/him', value: 'he/him' },
+			{ label: 'she/her', value: 'she/her' },
+			{ label: 'other', value: 'other' }
+		]
 	},
 	{
 		type: 'checkboxes',
 		name: 'pronouns_match',
 		label: 'Match me with someone with ___ pronouns.',
 		description: 'We will try our best!',
-		options: [{ label: 'he/him' }, { label: 'she/her' }, { label: 'other' }]
+		options: [
+			{ label: 'he/him', value: 'he/him' },
+			{ label: 'she/her', value: 'she/her' },
+			{ label: 'other', value: 'other' }
+		]
 	},
 	{
 		type: 'input',
