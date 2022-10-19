@@ -10,9 +10,11 @@
 
 	let currentQuestionIndex = 0;
 	const previousSlide = () => {
+		$mutation.mutate({ id: 'efc5ce68-2799-49fa-b7b4-ed05ae8de252', [question.name]: value });
 		if (currentQuestionIndex > 0) currentQuestionIndex--;
 	};
 	const nextSlide = () => {
+		$mutation.mutate({ id: 'efc5ce68-2799-49fa-b7b4-ed05ae8de252', [question.name]: value });
 		if (currentQuestionIndex < questions.length - 1) currentQuestionIndex++;
 	};
 	const jumpSlide = (index: number) => (currentQuestionIndex = index);
