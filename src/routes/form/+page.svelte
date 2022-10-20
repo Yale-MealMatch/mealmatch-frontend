@@ -7,24 +7,18 @@
 	import type { Question } from '$lib/form/types';
 	import type { definitions } from '$lib/types/supabase';
 	import type { PageData } from '.svelte-kit/types/src/routes/$types';
-	import {postUserResponses} from './+page';
+	import { postUserResponses } from './+page';
 
 	export let data: { responses: definitions['responses'] };
-	let responses = data.responses;
+	let { responses } = data;
 	let currentQuestionIndex = 0;
 
-	const previousSlide = () => {
-		if (currentQuestionIndex > 0) currentQuestionIndex--;
-	};
-	const nextSlide = () => {
-		if (currentQuestionIndex < questions.length - 1) currentQuestionIndex++;
-	};
-	const jumpSlide = (index: number) => {
-		currentQuestionIndex = index;
-	};
+	const previousSlide = () => currentQuestionIndex--;
+	const nextSlide = () => currentQuestionIndex++;
+	const jumpSlide = (index: number) => (currentQuestionIndex = index);
 
 	$: question = questions[currentQuestionIndex] as Question;
-	$: postUserResponses(responses)
+	$: postUserResponses(responses);
 </script>
 
 <div class="mt-10 sm:mt-0">
