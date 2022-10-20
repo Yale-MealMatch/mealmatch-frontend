@@ -8,7 +8,7 @@
 	} from '@rgossiaux/svelte-headlessui';
 
 	export let question: FormRadio;
-	let selected = '';
+	export let value: string | string[] = '';
 	const roundTopAndBottom = (index: number) => {
 		if (index === 0) return 'rounded-tl-md rounded-tr-md';
 		if (index === question.options.length - 1) return 'rounded-bl-md rounded-br-md';
@@ -20,11 +20,11 @@
 	};
 </script>
 
-<RadioGroup value={selected} on:change={(e) => (selected = e.detail)}>
+<RadioGroup value={value} on:change={(e) => (value = e.detail)}>
 	<RadioGroupLabel class="sr-only">{question.name}</RadioGroupLabel>
 	<div class="-space-y-px rounded-md bg-white">
 		{#each question.options as option, index}
-			<RadioGroupOption value={option} let:checked let:active>
+			<RadioGroupOption value={option.value} let:checked let:active>
 				<div
 					class="{roundTopAndBottom(index)} {checkedClasses(
 						checked
@@ -42,7 +42,9 @@
 						<RadioGroupLabel
 							as="span"
 							class="{checked ? 'text-indigo-900' : 'text-gray-900'} block text-sm font-medium"
-							>{option.label}</RadioGroupLabel
+							>
+							{option.label}
+							</RadioGroupLabel
 						>
 						{#if option.subtitle}
 							<RadioGroupDescription

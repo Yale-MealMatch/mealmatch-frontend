@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { FormTextArea } from 'src/routes/form/types';
+	import type {FormTextArea} from "$lib/form/types";
 
 	export let question: FormTextArea;
-	let input = '';
+	export let value: string | string[] = '';
 </script>
 
 <div>
@@ -16,7 +16,7 @@
 			id={question.name}
 			class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
 			placeholder={question.placeholder}
-			bind:value={input}
+			bind:value={value}
 		/>
 	</div>
 </div>

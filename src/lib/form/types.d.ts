@@ -1,7 +1,7 @@
 type SelectOption = {
 	label: string;
+	value: string | number;
 	subtitle?: string;
-	right?: string;
 };
 
 type FormCheckboxesOption = SelectOption;
@@ -9,7 +9,7 @@ type FormRadioSelectOption = SelectOption;
 
 type FormRadio = {
 	type: 'radio';
-	name: string;
+	name: keyof definitions['responses'];
 	label: string;
 	description: string;
 	options: FormRadioSelectOption[];
@@ -17,7 +17,7 @@ type FormRadio = {
 
 type FormCheckboxes = {
 	type: 'checkboxes';
-	name: string;
+	name: keyof definitions['responses'];
 	label: string;
 	description: string;
 	options: FormCheckboxesOption[];
@@ -25,7 +25,7 @@ type FormCheckboxes = {
 
 type FormInput = {
 	type: 'input';
-	name: string;
+	name: keyof definitions['responses'];
 	label: string;
 	description: string;
 	placeholder: string;
@@ -34,7 +34,7 @@ type FormInput = {
 // Description can be a string or a Svelte component
 type FormTextArea = {
 	type: 'textarea';
-	name: string;
+	name: keyof definitions['responses'];
 	label: string;
 	description: string | typeof SvelteComponent;
 	placeholder: string;
