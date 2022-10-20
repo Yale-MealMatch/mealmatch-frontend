@@ -1,7 +1,6 @@
 <script lang="ts">
 	import FormCheckboxes from '$lib/form/FormCheckboxes.svelte';
 	import FormDivider from '$lib/form/FormDivider.svelte';
-	import FormGroup from '$lib/form/FormGroup.svelte';
 	import FormHeader from '$lib/form/FormHeader.svelte';
 	import FormInput from '$lib/form/FormInput.svelte';
 	import FormRadioGroup from '$lib/form/FormRadioGroup.svelte';

@@ -19,14 +19,19 @@
 			type="text"
 			name={question.name}
 			id={question.name}
-			class="{isError ? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500' : 'bg-gray-50 focus:border-rose-600'} block w-full border-0 border-b border-transparent focus:ring-0 sm:text-sm"
+			class="{isError
+				? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500'
+				: 'bg-gray-50 focus:border-rose-600'} block w-full border-0 border-b border-transparent focus:ring-0 sm:text-sm"
 			placeholder={question.placeholder}
 			bind:value
 		/>
 		{#if isError}
-		<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
-			<Icon src={ExclamationCircle} class="h-5 w-5 text-red-500" aria-hidden="true" />
-		</div>
+			<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+				<Icon src={ExclamationCircle} class="h-5 w-5 text-red-500" aria-hidden="true" />
+			</div>
 		{/if}
 	</div>
+	{#if isError}
+		<p class="mt-2 text-sm text-red-600" id="email-error">{question.errorMessage}</p>
+	{/if}
 </div>
