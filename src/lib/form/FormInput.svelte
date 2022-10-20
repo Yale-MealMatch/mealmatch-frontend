@@ -8,6 +8,9 @@
 
 	const { validationFunction } = question;
 	$: isError = !validationFunction(value);
+	$: errorClasses = isError
+				? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500'
+				: 'bg-gray-50 focus:border-rose-600'
 </script>
 
 <div>
@@ -19,9 +22,7 @@
 			type="text"
 			name={question.name}
 			id={question.name}
-			class="{isError
-				? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500'
-				: 'bg-gray-50 focus:border-rose-600'} block w-full border-0 border-b border-transparent focus:ring-0 sm:text-sm"
+			class="{errorClasses} block w-full border-0 border-b border-transparent focus:ring-0 sm:text-sm"
 			placeholder={question.placeholder}
 			bind:value
 		/>
