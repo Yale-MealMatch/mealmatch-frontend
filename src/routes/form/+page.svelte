@@ -5,68 +5,26 @@
 	import PreviousButton from '$lib/form/PreviousButton.svelte';
 	import { questions } from '$lib/form/questions';
 	import type { Question } from '$lib/form/types';
-	import { supabase } from '$lib/supabaseClient';
-	import type {definitions} from '$lib/types/supabase';
-	import type {PostgrestError} from '@supabase/supabase-js';
-	import { useQuery, useMutation, useQueryClient } from '@sveltestack/svelte-query';
+	import type { definitions } from '$lib/types/supabase';
+	import type { PageData } from '.svelte-kit/types/src/routes/$types';
+	import {postUserResponses} from './+page';
 
+	export let data: { responses: definitions['responses'] };
+	let responses = data.responses;
 	let currentQuestionIndex = 0;
+
 	const previousSlide = () => {
-		$mutation.mutate({ id: 'efc5ce68-2799-49fa-b7b4-ed05ae8de252', [question.name]: value });
 		if (currentQuestionIndex > 0) currentQuestionIndex--;
 	};
 	const nextSlide = () => {
-		$mutation.mutate({ id: 'efc5ce68-2799-49fa-b7b4-ed05ae8de252', [question.name]: value });
 		if (currentQuestionIndex < questions.length - 1) currentQuestionIndex++;
 	};
 	const jumpSlide = (index: number) => {
-		$mutation.mutate({ id: 'efc5ce68-2799-49fa-b7b4-ed05ae8de252', [question.name]: value });
 		currentQuestionIndex = index;
 	};
+
 	$: question = questions[currentQuestionIndex] as Question;
-
-	const queryClient = useQueryClient();
-
-	const getUserResponses = async () => {
-		const { data, error } = await supabase
-			.from('responses')
-			.select('*')
-			.eq('id', 'efc5ce68-2799-49fa-b7b4-ed05ae8de252')
-			.single();
-		if (error) throw new Error(error.message);
-		return data as definitions['responses'];
-	};
-
-	const responses: definitions['responses'] = {
-		id: 'efc5ce68-2799-49fa-b7b4-ed05ae8de252',
-		timestamp: '2022-10-18T22:27:39.200684+00:00',
-		year: 2027,
-		year_match: [2024],
-		pronouns: 'he/him',
-		pronouns_match: ['he/him'],
-		phone: "",
-		nickname: "",
-		bio: ""
-	};
-
-	const postUserResponses = async (data: definitions['responses']) => {
-		const { error } = await supabase
-			.from('responses')
-			.upsert(data)
-			.eq('id', 'efc5ce68-2799-49fa-b7b4-ed05ae8de252');
-		if (error) throw new Error(error.message);
-	};
-	// Queries
-	const queryResult = useQuery('userResponses', getUserResponses);
-	// Mutations
-	const mutation = useMutation(postUserResponses, {
-		onSuccess: () => {
-			// Invalidate and refetch
-			queryClient.invalidateQueries('userResponses');
-		}
-	});
-
-	let value: string | string[] = '';
+	$: postUserResponses(responses)
 </script>
 
 <div class="mt-10 sm:mt-0">
@@ -91,13 +49,13 @@
 			</nav>
 		</div>
 		<div class="space-y-6 bg-white px-4 py-5 sm:p-6">
-			{#if $queryResult.isLoading}
+			<!-- {#if $queryResult.isLoading}
 				<FormGroup {question} />
 			{:else if $queryResult.isError}
 				<div class="text-red-500">{$queryResult.error.message}</div>
-			{:else}
-				<FormGroup {question} bind:value={responses[question.name]} />
-			{/if}
+			{:else if $queryResult.data} -->
+			<FormGroup {question} bind:value={responses[question.name]} />
+			<!-- {/if} -->
 			<FormDivider />
 		</div>
 	</div>
