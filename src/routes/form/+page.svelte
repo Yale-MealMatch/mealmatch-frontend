@@ -10,6 +10,7 @@
 	import { questions } from '$lib/form/questions';
 	import type { Question } from '$lib/form/types';
 	import type { definitions } from '$lib/types/supabase';
+	import {isError} from '@sveltestack/svelte-query';
 	import { postUserResponses } from './+page';
 
 	export let data: { responses: definitions['responses'] };
@@ -24,6 +25,10 @@
 
 	$: console.log(responses[question.name]);
 	$: postUserResponses(responses);
+	
+	const handleIsError = (event: {detail: {isError: boolean;};}) => {
+		console.log(event.detail.isError);
+	}
 </script>
 
 <div class="mt-10 sm:mt-0">
@@ -57,10 +62,10 @@
 					<FormCheckboxes {question} bind:value={responses[question.name]} />
 				{/if}
 				{#if question.type === 'input'}
-					<FormInput {question} bind:value={responses[question.name]} />
+					<FormInput {question} bind:value={responses[question.name]} on:isError={handleIsError}/>
 				{/if}
 				{#if question.type === 'textarea'}
-					<FormTextArea {question} bind:value={responses[question.name]} />
+					<FormTextArea {question} bind:value={responses[question.name]} on:isError={handleIsError} />
 				{/if}
 			</div>
 
