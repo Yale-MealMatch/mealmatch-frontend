@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type {FormTextArea} from "$lib/form/types";
+	import type { FormTextArea } from '$lib/form/types';
 
 	export let question: FormTextArea;
 	export let value: string = '';
@@ -7,12 +7,12 @@
 	const { validationFunction } = question;
 	$: isError = !validationFunction(value);
 	$: errorClasses = isError
-				? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500'
-				: 'bg-gray-50 focus:border-indigo-600'
+		? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500'
+		: 'bg-gray-50 focus:border-indigo-600';
 </script>
 
 <div>
-	<label for={question.name} class="block text-sm font-medium text-gray-700 sr-only">
+	<label for={question.name} class="sr-only block text-sm font-medium text-gray-700">
 		{question.label}
 	</label>
 	<div class="mt-1">
@@ -22,7 +22,7 @@
 			id={question.name}
 			class="{errorClasses} block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
 			placeholder={question.placeholder}
-			bind:value={value}
+			bind:value
 		/>
 	</div>
 	{#if isError}
