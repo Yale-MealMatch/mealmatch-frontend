@@ -5,6 +5,9 @@
 
 	export let question: FormInput;
 	export let value: string | string[] = '';
+
+	export let validationFunction: (input: typeof value) => boolean = () => true;
+	$: isError = !validationFunction(value);
 </script>
 
 <div>
@@ -16,7 +19,7 @@
 			type="text"
 			name={question.name}
 			id={question.name}
-			class="block w-full border-0 border-b border-transparent bg-gray-50 focus:border-rose-600 focus:ring-0 sm:text-sm"
+			class="{isError ? 'border-red-300 pr-10 text-red-900 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500' : ''} block w-full border-0 border-b border-transparent bg-gray-50 focus:border-rose-600 focus:ring-0 sm:text-sm"
 			placeholder={question.placeholder}
 			bind:value
 		/>
