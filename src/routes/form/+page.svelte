@@ -49,11 +49,27 @@
 		</div>
 		<div class="space-y-6 bg-white px-4 py-5 sm:p-6">
 			<div class="rounded-lg border border-gray-200 p-6 shadow-md">
-			<FormHeader title={question.label} description={question.description} />
-				{#if question.type === 'radio'}<FormRadioGroup {question} bind:value={responses[question.name]} /> {/if}
-				{#if question.type === 'checkboxes'}<FormCheckboxes {question} bind:value={responses[question.name]} /> {/if}
-				{#if question.type === 'input'}<FormInput {question} bind:value={responses[question.name]} /> {/if}
-				{#if question.type === 'textarea'}<FormTextArea {question} bind:value={responses[question.name]} /> {/if}
+				<FormHeader title={question.label} description={question.description} />
+				{#if question.type === 'radio'}<FormRadioGroup
+						{question}
+						bind:value={responses[question.name]}
+					/>
+				{/if}
+				{#if question.type === 'checkboxes'}<FormCheckboxes
+						{question}
+						bind:value={responses[question.name]}
+					/>
+				{/if}
+				{#if question.type === 'input'}<FormInput
+						{question}
+						bind:value={responses[question.name]}
+					/>
+				{/if}
+				{#if question.type === 'textarea'}<FormTextArea
+						{question}
+						bind:value={responses[question.name]}
+					/>
+				{/if}
 			</div>
 
 			<FormDivider />

@@ -9,12 +9,12 @@
 	const { validationFunction } = question;
 	$: isError = !validationFunction(value);
 	$: errorClasses = isError
-				? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500'
-				: 'bg-gray-50 focus:border-indigo-600'
+		? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500'
+		: 'bg-gray-50 focus:border-indigo-600';
 </script>
 
 <div>
-	<label for={question.name} class="block text-sm font-medium text-gray-700 sr-only">
+	<label for={question.name} class="sr-only block text-sm font-medium text-gray-700">
 		{question.label}
 	</label>
 	<div class="relative mt-1 border-b border-gray-300 focus-within:border-rose-600">
