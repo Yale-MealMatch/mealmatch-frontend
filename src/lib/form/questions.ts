@@ -7,10 +7,10 @@ export const questions: Question[] = [
 		label: 'What year are you?',
 		description: '',
 		options: [
-			{ label: 'First-year', value: 2024 },
+			{ label: 'First-year', value: 2026 },
 			{ label: 'Sophomore', value: 2025 },
-			{ label: 'Junior', value: 2026 },
-			{ label: 'Senior', value: 2027 }
+			{ label: 'Junior', value: 2024 },
+			{ label: 'Senior', value: 2023 }
 		]
 	},
 	{
@@ -19,10 +19,10 @@ export const questions: Question[] = [
 		label: 'What year(s) would you like to match with?',
 		description: 'We will try to match you with someone within your preferences.',
 		options: [
-			{ label: 'First-year', value: 2024 },
+			{ label: 'First-year', value: 2026 },
 			{ label: 'Sophomore', value: 2025 },
-			{ label: 'Junior', value: 2026 },
-			{ label: 'Senior', value: 2027 }
+			{ label: 'Junior', value: 2024 },
+			{ label: 'Senior', value: 2023 }
 		]
 	},
 	{
