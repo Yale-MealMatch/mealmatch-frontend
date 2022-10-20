@@ -52,7 +52,8 @@ export const questions: Question[] = [
 		name: 'phone',
 		label: 'What is your phone number?',
 		description: 'Your number will be provided to your match for ease of communication.',
-		placeholder: '1234567890'
+		placeholder: '1234567890',
+		validationFunction: (value) => /^\d{10}$/.test(value)
 	},
 	{
 		type: 'input',
@@ -60,7 +61,8 @@ export const questions: Question[] = [
 		label: 'Create a nickname:',
 		description:
 			"Your match will refer to you by your nickname before meeting in person. Don't use your real name. ",
-		placeholder: 'Your answer'
+		placeholder: 'Your answer',
+		validationFunction: (value) => value.length > 0
 	},
 	{
 		type: 'textarea',
@@ -81,6 +83,7 @@ export const questions: Question[] = [
 		<p>Please don't include any information that directly reveals who you are.</p>
 		</div>
 		`,
-		placeholder: 'I like to be'
+		placeholder: 'I like to be',
+		validationFunction: () => true
 	}
 ];

@@ -4,9 +4,9 @@
 	import { ExclamationCircle } from '@steeze-ui/heroicons';
 
 	export let question: FormInput;
-	export let value: string | string[] = '';
+	export let value: string = '';
 
-	export let validationFunction: (input: typeof value) => boolean = () => true;
+	const { validationFunction } = question;
 	$: isError = !validationFunction(value);
 </script>
 
@@ -19,12 +19,14 @@
 			type="text"
 			name={question.name}
 			id={question.name}
-			class="{isError ? 'border-red-300 pr-10 text-red-900 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500' : ''} block w-full border-0 border-b border-transparent bg-gray-50 focus:border-rose-600 focus:ring-0 sm:text-sm"
+			class="{isError ? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500' : 'bg-gray-50 focus:border-rose-600'} block w-full border-0 border-b border-transparent focus:ring-0 sm:text-sm"
 			placeholder={question.placeholder}
 			bind:value
 		/>
+		{#if isError}
 		<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
 			<Icon src={ExclamationCircle} class="h-5 w-5 text-red-500" aria-hidden="true" />
 		</div>
+		{/if}
 	</div>
 </div>

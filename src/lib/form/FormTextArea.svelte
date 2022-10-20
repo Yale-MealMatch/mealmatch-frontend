@@ -2,7 +2,10 @@
 	import type {FormTextArea} from "$lib/form/types";
 
 	export let question: FormTextArea;
-	export let value: string | string[] = '';
+	export let value: string = '';
+
+	const { validationFunction } = question;
+	$: isError = !validationFunction(value);
 </script>
 
 <div>
