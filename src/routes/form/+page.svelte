@@ -1,6 +1,11 @@
 <script lang="ts">
+	import FormCheckboxes from '$lib/form/FormCheckboxes.svelte';
 	import FormDivider from '$lib/form/FormDivider.svelte';
 	import FormGroup from '$lib/form/FormGroup.svelte';
+	import FormHeader from '$lib/form/FormHeader.svelte';
+	import FormInput from '$lib/form/FormInput.svelte';
+	import FormRadioGroup from '$lib/form/FormRadioGroup.svelte';
+	import FormTextArea from '$lib/form/FormTextArea.svelte';
 	import NextButton from '$lib/form/NextButton.svelte';
 	import PreviousButton from '$lib/form/PreviousButton.svelte';
 	import { questions } from '$lib/form/questions';
@@ -18,6 +23,7 @@
 	const nextSlide = () => currentQuestionIndex++;
 	const jumpSlide = (index: number) => (currentQuestionIndex = index);
 
+	$: console.log(responses[question.name]);
 	$: postUserResponses(responses);
 </script>
 
@@ -43,7 +49,14 @@
 			</nav>
 		</div>
 		<div class="space-y-6 bg-white px-4 py-5 sm:p-6">
-			<FormGroup {question} bind:value={responses[question.name]} />
+			<div class="rounded-lg border border-gray-200 p-6 shadow-md">
+			<FormHeader title={question.label} description={question.description} />
+				{#if question.type === 'radio'}<FormRadioGroup {question} bind:value={responses[question.name]} /> {/if}
+				{#if question.type === 'checkboxes'}<FormCheckboxes {question} bind:value={responses[question.name]} /> {/if}
+				{#if question.type === 'input'}<FormInput {question} bind:value={responses[question.name]} /> {/if}
+				{#if question.type === 'textarea'}<FormTextArea {question} bind:value={responses[question.name]} /> {/if}
+			</div>
+
 			<FormDivider />
 		</div>
 	</div>
