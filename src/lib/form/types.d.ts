@@ -1,3 +1,5 @@
+import type { definitions } from '$lib/types/supabase';
+
 type SelectOption = {
 	label: string;
 	value: string | number;
