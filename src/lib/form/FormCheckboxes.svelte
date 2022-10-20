@@ -3,7 +3,6 @@
 
 	export let question: FormCheckboxes;
 	export let value: string | string[] = '';
-	$: console.log(value)
 </script>
 
 <fieldset class="space-y-5">
