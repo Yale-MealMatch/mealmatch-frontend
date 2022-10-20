@@ -6,18 +6,18 @@
 	import { questions } from '$lib/form/questions';
 	import type { Question } from '$lib/form/types';
 	import type { definitions } from '$lib/types/supabase';
-	import type { PageData } from '.svelte-kit/types/src/routes/$types';
 	import { postUserResponses } from './+page';
 
 	export let data: { responses: definitions['responses'] };
 	let { responses } = data;
+
 	let currentQuestionIndex = 0;
+	$: question = questions[currentQuestionIndex] as Question;
 
 	const previousSlide = () => currentQuestionIndex--;
 	const nextSlide = () => currentQuestionIndex++;
 	const jumpSlide = (index: number) => (currentQuestionIndex = index);
 
-	$: question = questions[currentQuestionIndex] as Question;
 	$: postUserResponses(responses);
 </script>
 
@@ -43,13 +43,7 @@
 			</nav>
 		</div>
 		<div class="space-y-6 bg-white px-4 py-5 sm:p-6">
-			<!-- {#if $queryResult.isLoading}
-				<FormGroup {question} />
-			{:else if $queryResult.isError}
-				<div class="text-red-500">{$queryResult.error.message}</div>
-			{:else if $queryResult.data} -->
 			<FormGroup {question} bind:value={responses[question.name]} />
-			<!-- {/if} -->
 			<FormDivider />
 		</div>
 	</div>
