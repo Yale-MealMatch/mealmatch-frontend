@@ -1,10 +1,27 @@
-<script>
+<script lang="ts">
 	import Footer from '$lib/Footer.svelte';
 	import Header from '$lib/Header.svelte';
 	import '../app.postcss';
 	import { QueryClient, QueryClientProvider } from '@sveltestack/svelte-query';
 
 	const queryClient = new QueryClient();
+	
+	// From https://github.com/supabase/auth-helpers/blob/main/packages/sveltekit/README.md 
+	import { invalidate } from '$app/navigation';
+	import { onMount } from 'svelte';
+	import {supabaseClient} from '$lib/db';
+
+	onMount(() => {
+		const {
+			data: { subscription }
+		} = supabaseClient.auth.onAuthStateChange(() => {
+			invalidate('supabase:auth');
+		});
+
+		return () => {
+			subscription.unsubscribe();
+		};
+	});
 </script>
 
 <!-- TODO: Update Head -->

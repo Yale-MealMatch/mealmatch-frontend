@@ -1,4 +1,4 @@
-import { supabaseClient } from '$lib/supabaseClient';
+import { supabaseClient } from '$lib/db';
 import type { definitions } from '$lib/types/supabase';
 
 const getUserResponses = async () => {
