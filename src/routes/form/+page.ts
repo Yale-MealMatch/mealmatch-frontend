@@ -1,8 +1,8 @@
-import { supabase } from '$lib/supabaseClient';
+import { supabaseClient } from '$lib/supabaseClient';
 import type { definitions } from '$lib/types/supabase';
 
 const getUserResponses = async () => {
-	const { data, error } = await supabase
+	const { data, error } = await supabaseClient
 		.from('responses')
 		.select('*')
 		.eq('id', 'efc5ce68-2799-49fa-b7b4-ed05ae8de252')
@@ -12,7 +12,7 @@ const getUserResponses = async () => {
 };
 
 export const postUserResponses = async (data: definitions['responses']) => {
-	const { error } = await supabase
+	const { error } = await supabaseClient
 		.from('responses')
 		.upsert(data)
 		.eq('id', 'efc5ce68-2799-49fa-b7b4-ed05ae8de252');
