@@ -12,7 +12,7 @@
 	import type { definitions } from '$lib/types/supabase';
 	import { postUserResponses } from './+page';
 
-	export let data: { responses: definitions['responses'][] };
+	export let data: { responses: definitions['responses'] };
 	let { responses } = data;
 
 	let currentQuestionIndex = 0;
