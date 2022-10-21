@@ -62,17 +62,17 @@
 						<span class="bg-white px-2 text-gray-500">Or continue with</span>
 					</div>
 				</div>
+			</div>
 
-				<div class="mt-6 gap-3">
-					<div>
-						<button
-							on:click={signInWithGoogle}
-							class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50"
-						>
-							<GoogleIcon />
-							<span>Sign in with Google</span>
-						</button>
-					</div>
+			<div class="mt-6 gap-3">
+				<div>
+					<button
+						on:click={signInWithGoogle}
+						class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50"
+					>
+						<GoogleIcon />
+						<span>Sign in with Google</span>
+					</button>
 				</div>
 			</div>
 		</div>
