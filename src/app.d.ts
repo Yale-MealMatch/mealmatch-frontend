@@ -4,7 +4,7 @@
 declare namespace App {
 	// From https://github.com/supabase/auth-helpers/blob/main/packages/sveltekit/README.md
 	interface Supabase {
-	Database: import('./DatabaseDefinitions').Database;
+	Database: import('./lib/types/DatabaseDefinitions').Database;
 		SchemaName: 'public';
 	}
 	
