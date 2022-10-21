@@ -9,10 +9,10 @@
 	import PreviousButton from '$lib/form/PreviousButton.svelte';
 	import { questions } from '$lib/form/questions';
 	import type { Question } from '$lib/form/types';
-	import type { definitions } from '$lib/types/supabase';
 	import { postUserResponses } from './+page';
+	import type { PageData } from './$types';
 
-	export let data: { responses: definitions['responses'] };
+	export let data: PageData;
 	let { responses } = data;
 
 	let currentQuestionIndex = 0;
