@@ -1,11 +1,11 @@
 <script lang="ts">
 	import GoogleIcon from '$lib/GoogleIcon.svelte';
 	import Logo from '$lib/Logo.svelte';
-	import { supabase } from '$lib/supabaseClient';
+	import { supabaseClient } from '$lib/db';
 	import { Envelope } from '@steeze-ui/heroicons';
 	import { Icon } from '@steeze-ui/svelte-icon';
 	const signInWithGoogle = async () => {
-		const { data, error } = await supabase.auth.signInWithOAuth({
+		const { data, error } = await supabaseClient.auth.signInWithOAuth({
 			provider: 'google',
 			options: { redirectTo: `${window.location.origin}/form` }
 		});
