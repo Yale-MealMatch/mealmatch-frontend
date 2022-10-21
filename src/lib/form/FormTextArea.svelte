@@ -3,7 +3,7 @@
 	import {createEventDispatcher} from 'svelte';
 
 	export let question: FormTextArea;
-	export let value: string = '';
+	export let value: string | string[] | number | number[] | null = '';
 
 	const { validationFunction } = question;
 	$: isError = !validationFunction(value);
