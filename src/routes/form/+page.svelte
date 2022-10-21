@@ -10,6 +10,7 @@
 	import { questions } from '$lib/form/questions';
 	import type { Question } from '$lib/form/types';
 	import type { definitions } from '$lib/types/supabase';
+	import {isError} from '@sveltestack/svelte-query';
 	import { postUserResponses } from './+page';
 
 	export let data: { responses: definitions['responses'] };
@@ -24,6 +25,10 @@
 
 	$: console.log(responses[question.name]);
 	$: postUserResponses(responses);
+	
+	const handleIsError = (event: {detail: {isError: boolean;};}) => {
+		console.log(event.detail.isError);
+	}
 </script>
 
 <div class="mt-10 sm:mt-0">
@@ -50,25 +55,17 @@
 		<div class="space-y-6 bg-white px-4 py-5 sm:p-6">
 			<div class="rounded-lg border border-gray-200 p-6 shadow-md">
 				<FormHeader title={question.label} description={question.description} />
-				{#if question.type === 'radio'}<FormRadioGroup
-						{question}
-						bind:value={responses[question.name]}
-					/>
+				{#if question.type === 'radio'}
+					<FormRadioGroup {question} bind:value={responses[question.name]} />
 				{/if}
-				{#if question.type === 'checkboxes'}<FormCheckboxes
-						{question}
-						bind:value={responses[question.name]}
-					/>
+				{#if question.type === 'checkboxes'}
+					<FormCheckboxes {question} bind:value={responses[question.name]} />
 				{/if}
-				{#if question.type === 'input'}<FormInput
-						{question}
-						bind:value={responses[question.name]}
-					/>
+				{#if question.type === 'input'}
+					<FormInput {question} bind:value={responses[question.name]} on:isError={handleIsError}/>
 				{/if}
-				{#if question.type === 'textarea'}<FormTextArea
-						{question}
-						bind:value={responses[question.name]}
-					/>
+				{#if question.type === 'textarea'}
+					<FormTextArea {question} bind:value={responses[question.name]} on:isError={handleIsError} />
 				{/if}
 			</div>
 
