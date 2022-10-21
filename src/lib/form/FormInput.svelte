@@ -19,7 +19,7 @@
 	<label for={question.name} class="sr-only block text-sm font-medium text-gray-700">
 		{question.label}
 	</label>
-	<div class="relative mt-1 border-b border-gray-300 focus-within:border-rose-600">
+	<div class="relative mt-1 border-b border-gray-300">
 		<input
 			type="text"
 			name={question.name}
