@@ -4,7 +4,6 @@
 	import { supabase } from '$lib/supabaseClient';
 	import { Envelope } from '@steeze-ui/heroicons';
 	import { Icon } from '@steeze-ui/svelte-icon';
-	import AuthCard from './AuthCard.svelte';
 	const signInWithGoogle = async () => {
 		const { data, error } = await supabase.auth.signInWithOAuth({
 			provider: 'google',
