@@ -10,7 +10,6 @@
 	import { questions } from '$lib/form/questions';
 	import type { Question } from '$lib/form/types';
 	import type { definitions } from '$lib/types/supabase';
-	import {isError} from '@sveltestack/svelte-query';
 	import { postUserResponses } from './+page';
 
 	export let data: { responses: definitions['responses'] };
@@ -19,15 +18,17 @@
 	let currentQuestionIndex = 0;
 	$: question = questions[currentQuestionIndex] as Question;
 
-	const previousSlide = () => currentQuestionIndex--;
-	const nextSlide = () => currentQuestionIndex++;
-	const jumpSlide = (index: number) => (currentQuestionIndex = index);
+	const previousSlide = () => isError ? '' : currentQuestionIndex--;
+	const nextSlide = () => isError ? '' : currentQuestionIndex++;
+	const jumpSlide = (index: number) => (isError ? '' : currentQuestionIndex = index);
 
 	$: console.log(responses[question.name]);
 	$: postUserResponses(responses);
 	
-	const handleIsError = (event: {detail: {isError: boolean;};}) => {
-		console.log(event.detail.isError);
+	let isError: boolean = false;
+	const handleIsError = ({detail: {isError: updateValue}}: {detail: {isError: boolean}}) => {
+		isError = updateValue;
+		console.log("🚀 ~ file: +page.svelte ~ line 31 ~ handleIsError ~ isError", isError)
 	}
 </script>
 
