@@ -18,18 +18,16 @@
 	let currentQuestionIndex = 0;
 	$: question = questions[currentQuestionIndex] as Question;
 
-	const previousSlide = () => isError ? '' : currentQuestionIndex--;
-	const nextSlide = () => isError ? '' : currentQuestionIndex++;
-	const jumpSlide = (index: number) => (isError ? '' : currentQuestionIndex = index);
+	const previousSlide = () => (isError ? '' : currentQuestionIndex--);
+	const nextSlide = () => (isError ? '' : currentQuestionIndex++);
+	const jumpSlide = (index: number) => (isError ? '' : (currentQuestionIndex = index));
 
 	$: console.log(responses[question.name]);
 	$: postUserResponses(responses);
-	
+
 	let isError: boolean = false;
-	const handleIsError = ({detail: {isError: updateValue}}: {detail: {isError: boolean}}) => {
-		isError = updateValue;
-		console.log("🚀 ~ file: +page.svelte ~ line 31 ~ handleIsError ~ isError", isError)
-	}
+	const handleIsError = ({ detail: { isError: updateValue } }: { detail: { isError: boolean } }) =>
+		(isError = updateValue);
 </script>
 
 <div class="mt-10 sm:mt-0">
@@ -63,10 +61,14 @@
 					<FormCheckboxes {question} bind:value={responses[question.name]} />
 				{/if}
 				{#if question.type === 'input'}
-					<FormInput {question} bind:value={responses[question.name]} on:isError={handleIsError}/>
+					<FormInput {question} bind:value={responses[question.name]} on:isError={handleIsError} />
 				{/if}
 				{#if question.type === 'textarea'}
-					<FormTextArea {question} bind:value={responses[question.name]} on:isError={handleIsError} />
+					<FormTextArea
+						{question}
+						bind:value={responses[question.name]}
+						on:isError={handleIsError}
+					/>
 				{/if}
 			</div>
 
