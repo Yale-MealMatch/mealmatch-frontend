@@ -8,7 +8,7 @@
 	} from '@rgossiaux/svelte-headlessui';
 
 	export let question: FormRadio;
-	export let value: string | string[] = '';
+	export let value: string | string[] | number | number[] | null = '';
 	const roundTopAndBottom = (index: number) => {
 		if (index === 0) return 'rounded-tl-md rounded-tr-md';
 		if (index === question.options.length - 1) return 'rounded-bl-md rounded-br-md';

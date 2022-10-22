@@ -2,7 +2,7 @@
 	import type { FormCheckboxes } from '$lib/form/types';
 
 	export let question: FormCheckboxes;
-	export let value: string | string[] = '';
+	export let value: string | string[] | number | number[] | null = '';
 </script>
 
 <fieldset class="space-y-5">

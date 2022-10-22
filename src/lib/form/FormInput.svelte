@@ -5,7 +5,7 @@
 	import {createEventDispatcher} from 'svelte';
 
 	export let question: FormInput;
-	export let value: string = '';
+	export let value: string | string[] | number | number[] | null = '';
 
 	$: isError = !question.validationFunction(value);
 	$: errorClasses = isError

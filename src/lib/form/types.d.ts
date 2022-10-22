@@ -1,4 +1,4 @@
-import type { definitions } from '$lib/types/supabase';
+import type { Database } from "$lib/types/DatabaseDefinitions";
 
 type SelectOption = {
 	label: string;
@@ -11,7 +11,7 @@ type FormRadioSelectOption = SelectOption;
 
 type FormRadio = {
 	type: 'radio';
-	name: keyof definitions['responses'];
+	name: keyof Database['public']['Tables']['responses']['Row'];
 	label: string;
 	description: string;
 	options: FormRadioSelectOption[];
@@ -19,7 +19,7 @@ type FormRadio = {
 
 type FormCheckboxes = {
 	type: 'checkboxes';
-	name: keyof definitions['responses'];
+	name: keyof Database['public']['Tables']['responses']['Row'];
 	label: string;
 	description: string;
 	options: FormCheckboxesOption[];
@@ -27,7 +27,7 @@ type FormCheckboxes = {
 
 type FormInput = {
 	type: 'input';
-	name: keyof definitions['responses'];
+	name: keyof Database['public']['Tables']['responses']['Row'];
 	label: string;
 	description: string;
 	placeholder: string;
@@ -38,7 +38,7 @@ type FormInput = {
 // Description can be a string or a Svelte component
 type FormTextArea = {
 	type: 'textarea';
-	name: keyof definitions['responses'];
+	name: keyof Database['public']['Tables']['responses']['Row'];
 	label: string;
 	description: string | typeof SvelteComponent;
 	placeholder: string;
