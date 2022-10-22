@@ -1,17 +1,13 @@
 <script lang="ts">
 	import type { FormTextArea } from '$lib/form/types';
-	import {createEventDispatcher} from 'svelte';
 
 	export let question: FormTextArea;
-	export let value: string | string[] | number | number[] | null = '';
+	export let value: string = '';
+	$: isError = !question.validationFunction(value);
 
-	const { validationFunction } = question;
-	$: isError = !validationFunction(value);
 	$: errorClasses = isError
 		? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500'
 		: 'bg-gray-50 focus:border-indigo-600';
-	const dispatch = createEventDispatcher();
-	$: dispatch('isError', { isError })
 </script>
 
 <div>

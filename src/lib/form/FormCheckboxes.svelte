@@ -1,8 +1,11 @@
 <script lang="ts">
 	import type { FormCheckboxes } from '$lib/form/types';
+	import {XCircle} from '@steeze-ui/heroicons';
+	import {Icon} from '@steeze-ui/svelte-icon';
 
 	export let question: FormCheckboxes;
-	export let value: string | string[] | number | number[] | null = '';
+	export let value: string[] = [];
+	$: isError = !question.validationFunction(value);
 </script>
 
 <fieldset class="space-y-5">
@@ -34,3 +37,19 @@
 		</div>
 	{/each}
 </fieldset>
+
+{#if isError}
+  <div class="rounded-md bg-red-50 p-4 my-4">
+    <div class="flex">
+      <div class="flex-shrink-0">
+		<Icon src={XCircle} con class="h-5 w-5 text-red-400" aria-hidden="true" />
+      </div>
+      <div class="ml-3">
+        <h3 class="text-sm font-medium text-red-800">Error</h3>
+        <div class="mt-2 text-sm text-red-700">
+			{question.errorMessage}
+        </div>
+      </div>
+    </div>
+  </div>
+{/if}
