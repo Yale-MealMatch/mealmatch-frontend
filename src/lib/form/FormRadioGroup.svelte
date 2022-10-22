@@ -8,11 +8,10 @@
 	} from '@rgossiaux/svelte-headlessui';
 	import {XCircle} from '@steeze-ui/heroicons';
 	import {Icon} from '@steeze-ui/svelte-icon';
-	import {error} from '@sveltejs/kit';
 
 	export let question: FormRadio;
-	export let isError: boolean;
-	export let value: string | string[] | number | number[] | null = '';
+	export let value: string | number = '';
+	$: isError = !question.validationFunction(value);
 	const roundTopAndBottom = (index: number) => {
 		if (index === 0) return 'rounded-tl-md rounded-tr-md';
 		if (index === question.options.length - 1) return 'rounded-bl-md rounded-br-md';

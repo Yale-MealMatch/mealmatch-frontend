@@ -1,5 +1,4 @@
 import type { Database } from "$lib/types/DatabaseDefinitions";
-
 type SelectOption = {
 	label: string;
 	value: string | number;
@@ -15,7 +14,7 @@ type FormRadio = {
 	label: string;
 	description: string;
 	options: FormRadioSelectOption[];
-	validationFunction: (value: string | number) => boolean;
+	validationFunction: (value: string | number | undefined | null) => boolean;
 	errorMessage: string;
 };
 
@@ -25,7 +24,7 @@ type FormCheckboxes = {
 	label: string;
 	description: string;
 	options: FormCheckboxesOption[];
-	validationFunction: (value: string[] | number[]) => boolean;
+	validationFunction: (value: string[] | number[] | undefined | null) => boolean;
 	errorMessage: string;
 };
 
@@ -35,7 +34,7 @@ type FormInput = {
 	label: string;
 	description: string;
 	placeholder: string;
-	validationFunction: (value: string) => boolean;
+	validationFunction: (value: string | undefined | null) => boolean;
 	errorMessage: string;
 };
 
@@ -46,7 +45,7 @@ type FormTextArea = {
 	label: string;
 	description: string | typeof SvelteComponent;
 	placeholder: string;
-	validationFunction: (value: string) => boolean;
+	validationFunction: (value: string | undefined | null) => boolean;
 	errorMessage: string;
 };
 

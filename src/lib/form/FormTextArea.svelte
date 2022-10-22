@@ -2,8 +2,8 @@
 	import type { FormTextArea } from '$lib/form/types';
 
 	export let question: FormTextArea;
-	export let isError: boolean;
-	export let value: string | string[] | number | number[] | null = '';
+	export let value: string = '';
+	$: isError = !question.validationFunction(value);
 
 	$: errorClasses = isError
 		? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500'
