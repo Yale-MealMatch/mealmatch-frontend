@@ -8,7 +8,6 @@
 	import NextButton from '$lib/form/NextButton.svelte';
 	import PreviousButton from '$lib/form/PreviousButton.svelte';
 	import { questions } from '$lib/form/questions';
-	import type { Question } from '$lib/form/types';
 	import { postUserResponses } from './+page';
 	import type { PageData } from './$types';
 
@@ -24,9 +23,7 @@
 
 	$: if (responses) console.log(responses[currentQuestion.name]);
 	$: if (responses) postUserResponses(responses);
-
-	$: isError = !currentQuestion.validationFunction(responses?.[currentQuestion.name]);
-
+	$: isError = responses?.[currentQuestion.name] ? !currentQuestion.validationFunction(responses[currentQuestion.name]) : false;
 </script>
 
 {JSON.stringify(responses)}
@@ -60,28 +57,24 @@
 						<FormRadioGroup
 							question={currentQuestion}
 							bind:value={responses[currentQuestion.name]}
-							{isError}
 						/>
 					{/if}
 					{#if currentQuestion.type === 'checkboxes'}
 						<FormCheckboxes
 							question={currentQuestion}
 							bind:value={responses[currentQuestion.name]}
-							{isError}
 						/>
 					{/if}
 					{#if currentQuestion.type === 'input'}
 						<FormInput
 							question={currentQuestion}
 							bind:value={responses[currentQuestion.name]}
-							{isError}
 						/>
 					{/if}
 					{#if currentQuestion.type === 'textarea'}
 						<FormTextArea
 							question={currentQuestion}
 							bind:value={responses[currentQuestion.name]}
-							{isError}
 						/>
 					{/if}
 				{/if}

@@ -12,36 +12,36 @@ export interface Database {
       responses: {
         Row: {
           id: string
-          pronouns_match: string[] | null
-          year: number | null
-          year_match: number[] | null
-          pronouns: string | null
-          timestamp: string | null
-          phone: string | null
-          bio: string | null
-          nickname: string | null
+          phone: string
+          year: number
+          pronouns: string
+          timestamp: string
+          pronouns_match: string[]
+          bio: string
+          year_match: number[]
+          nickname: string
         }
         Insert: {
           id: string
-          pronouns_match?: string[] | null
-          year?: number | null
-          year_match?: number[] | null
-          pronouns?: string | null
-          timestamp?: string | null
-          phone?: string | null
-          bio?: string | null
-          nickname?: string | null
+          phone: string
+          year: number
+          pronouns: string
+          timestamp?: string
+          pronouns_match: string[]
+          bio: string
+          year_match: number[]
+          nickname: string
         }
         Update: {
           id?: string
-          pronouns_match?: string[] | null
-          year?: number | null
-          year_match?: number[] | null
-          pronouns?: string | null
-          timestamp?: string | null
-          phone?: string | null
-          bio?: string | null
-          nickname?: string | null
+          phone?: string
+          year?: number
+          pronouns?: string
+          timestamp?: string
+          pronouns_match?: string[]
+          bio?: string
+          year_match?: number[]
+          nickname?: string
         }
       }
     }
