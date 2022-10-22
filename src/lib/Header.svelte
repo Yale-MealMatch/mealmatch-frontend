@@ -13,6 +13,7 @@
 	} from '@rgossiaux/svelte-headlessui';
 	import { Icon } from '@steeze-ui/svelte-icon';
 	import { Bars3, MagnifyingGlass, XMark, BellAlert, Bell } from '@steeze-ui/heroicons';
+	import {supabaseClient} from '$lib/db';
 
 	const navigation = [
 		{ name: 'Dashboard', href: '/' },
@@ -20,6 +21,10 @@
 		{ name: 'Form', href: '/form' },
 		{ name: 'Calendar', href: '#' }
 	];
+	
+	const signOut = async () => {
+		await supabaseClient.auth.signOut();
+	};
 </script>
 
 <Disclosure as="nav" class="bg-gray-800" let:open>
@@ -131,10 +136,10 @@
 									>
 								</MenuItem>
 								<MenuItem let:active>
-									<a
-										href="#"
+									<button
+										on:click={signOut}
 										class:bg-gray-100={active}
-										class="block px-4 py-2 text-sm text-gray-700">Sign out</a
+										class="block px-4 py-2 text-sm text-gray-700">Sign out</button
 									>
 								</MenuItem>
 							</MenuItems>
