@@ -16,21 +16,21 @@
 	let responses = data.responses;
 
 	let currentQuestionIndex = 0;
-	$: currentQuestion = questions[currentQuestionIndex] as Question;
+	$: currentQuestion = questions[currentQuestionIndex];
 
 	const previousSlide = () => (isError ? '' : currentQuestionIndex--);
 	const nextSlide = () => (isError ? '' : currentQuestionIndex++);
 	const jumpSlide = (index: number) => (isError ? '' : (currentQuestionIndex = index));
 
-	$: if(responses) console.log(responses[currentQuestion.name]);
+	$: if (responses) console.log(responses[currentQuestion.name]);
 	$: if (responses) postUserResponses(responses);
 
-	let isError: boolean = false;
-	const handleIsError = ({ detail: { isError: updateValue } }: { detail: { isError: boolean } }) =>
-		(isError = updateValue);
+	$: isError = !currentQuestion.validationFunction(responses?.[currentQuestion.name]);
+
 </script>
 
 {JSON.stringify(responses)}
+{isError}
 <div class="mt-10 sm:mt-0">
 	<div class="overflow-hidden shadow sm:rounded-md">
 		<div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
@@ -55,23 +55,35 @@
 		<div class="space-y-6 bg-white px-4 py-5 sm:p-6">
 			<div class="rounded-lg border border-gray-200 p-6 shadow-md">
 				{#if responses}
-				<FormHeader title={currentQuestion.label} description={currentQuestion.description} />
-				{#if currentQuestion.type === 'radio'}
-					<FormRadioGroup question={currentQuestion} bind:value={responses[currentQuestion.name]} />
-				{/if}
-				{#if currentQuestion.type === 'checkboxes'}
-					<FormCheckboxes question={currentQuestion} bind:value={responses[currentQuestion.name]} />
-				{/if}
-				{#if currentQuestion.type === 'input'}
-					<FormInput question={currentQuestion} bind:value={responses[currentQuestion.name]} on:isError={handleIsError} />
-				{/if}
-				{#if currentQuestion.type === 'textarea'}
-					<FormTextArea
-						question={currentQuestion}
-						bind:value={responses[currentQuestion.name]}
-						on:isError={handleIsError}
-					/>
-				{/if}
+					<FormHeader title={currentQuestion.label} description={currentQuestion.description} />
+					{#if currentQuestion.type === 'radio'}
+						<FormRadioGroup
+							question={currentQuestion}
+							bind:value={responses[currentQuestion.name]}
+							{isError}
+						/>
+					{/if}
+					{#if currentQuestion.type === 'checkboxes'}
+						<FormCheckboxes
+							question={currentQuestion}
+							bind:value={responses[currentQuestion.name]}
+							{isError}
+						/>
+					{/if}
+					{#if currentQuestion.type === 'input'}
+						<FormInput
+							question={currentQuestion}
+							bind:value={responses[currentQuestion.name]}
+							{isError}
+						/>
+					{/if}
+					{#if currentQuestion.type === 'textarea'}
+						<FormTextArea
+							question={currentQuestion}
+							bind:value={responses[currentQuestion.name]}
+							{isError}
+						/>
+					{/if}
 				{/if}
 			</div>
 			<FormDivider />

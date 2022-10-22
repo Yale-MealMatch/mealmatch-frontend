@@ -2,6 +2,7 @@
 	import type { FormCheckboxes } from '$lib/form/types';
 
 	export let question: FormCheckboxes;
+	export let isError: boolean;
 	export let value: string | string[] | number | number[] | null = '';
 </script>
 

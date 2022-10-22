@@ -11,7 +11,9 @@ export const questions: Question[] = [
 			{ label: 'Sophomore', value: 2025 },
 			{ label: 'Junior', value: 2024 },
 			{ label: 'Senior', value: 2023 }
-		]
+		],
+		validationFunction: (value) => value > 0,
+		errorMessage: 'Please select a year'
 	},
 	{
 		type: 'checkboxes',
@@ -23,7 +25,9 @@ export const questions: Question[] = [
 			{ label: 'Sophomore', value: 2025 },
 			{ label: 'Junior', value: 2024 },
 			{ label: 'Senior', value: 2023 }
-		]
+		],
+		validationFunction: (value) => value.length > 0,
+		errorMessage: 'Please select at least one year'
 	},
 	{
 		type: 'radio',
@@ -34,7 +38,9 @@ export const questions: Question[] = [
 			{ label: 'he/him', value: 'he/him' },
 			{ label: 'she/her', value: 'she/her' },
 			{ label: 'other', value: 'other' }
-		]
+		],
+		validationFunction: (value) => value !== '',
+		errorMessage: 'Please select your pronouns'
 	},
 	{
 		type: 'checkboxes',
@@ -45,7 +51,9 @@ export const questions: Question[] = [
 			{ label: 'he/him', value: 'he/him' },
 			{ label: 'she/her', value: 'she/her' },
 			{ label: 'other', value: 'other' }
-		]
+		],
+		validationFunction: (value) => value.length > 0,
+		errorMessage: 'Please select at least one pronoun'
 	},
 	{
 		type: 'input',

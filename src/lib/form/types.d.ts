@@ -15,6 +15,8 @@ type FormRadio = {
 	label: string;
 	description: string;
 	options: FormRadioSelectOption[];
+	validationFunction: (value: string | number) => boolean;
+	errorMessage: string;
 };
 
 type FormCheckboxes = {
@@ -23,6 +25,8 @@ type FormCheckboxes = {
 	label: string;
 	description: string;
 	options: FormCheckboxesOption[];
+	validationFunction: (value: string[] | number[]) => boolean;
+	errorMessage: string;
 };
 
 type FormInput = {
