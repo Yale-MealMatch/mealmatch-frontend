@@ -19,7 +19,6 @@
 		{ name: 'Dashboard', href: '/' },
 		{ name: 'Login', href: '/login' },
 		{ name: 'Form', href: '/form' },
-		{ name: 'Calendar', href: '#' }
 	];
 	
 	const signOut = async () => {
