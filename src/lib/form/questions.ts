@@ -43,7 +43,7 @@ export const questions: Question[] = [
 		errorMessage: 'Please select your pronouns'
 	},
 	{
-		type: 'checkboxes',
+		type: 'radio',
 		name: 'pronouns_match',
 		label: 'Match me with someone with ___ pronouns.',
 		description: 'We will try our best!',
@@ -52,7 +52,7 @@ export const questions: Question[] = [
 			{ label: 'Same', value: 'same' },
 			{ label: 'Different', value: 'different' }
 		],
-		validationFunction: (value) => value.length > 0,
+		validationFunction: (value) => value !== '',
 		errorMessage: 'Please select at least one pronoun'
 	},
 	{
