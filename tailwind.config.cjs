@@ -10,6 +10,9 @@ const config = {
 			}
 		}
 	},
+	daisyui: {
+		themes: ["cupcake"]
+	},
 
 	plugins: [require('@tailwindcss/forms'), require("daisyui")]
 };
