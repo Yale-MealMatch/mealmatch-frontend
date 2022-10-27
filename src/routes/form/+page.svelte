@@ -26,8 +26,6 @@
 	$: isError = responses?.[currentQuestion.name] ? !currentQuestion.validationFunction(responses[currentQuestion.name]) : false;
 </script>
 
-{JSON.stringify(responses)}
-{isError}
 <div class="mt-10 sm:mt-0">
 	<div class="overflow-hidden shadow sm:rounded-md">
 		<div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
