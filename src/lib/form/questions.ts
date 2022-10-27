@@ -48,9 +48,9 @@ export const questions: Question[] = [
 		label: 'Match me with someone with ___ pronouns.',
 		description: 'We will try our best!',
 		options: [
-			{ label: 'he/him', value: 'he/him' },
-			{ label: 'she/her', value: 'she/her' },
-			{ label: 'other', value: 'other' }
+			{ label: 'Any', value: 'any' },
+			{ label: 'Same', value: 'same' },
+			{ label: 'Different', value: 'different' },
 		],
 		validationFunction: (value) => value.length > 0,
 		errorMessage: 'Please select at least one pronoun'
