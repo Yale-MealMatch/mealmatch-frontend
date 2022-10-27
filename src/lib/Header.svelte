@@ -49,7 +49,7 @@
 					</div>
 				</div>
 			</div>
-		<!--
+			<!--
 			<div class="flex flex-1 justify-center px-2 lg:ml-6 lg:justify-end">
 				<div class="w-full max-w-lg lg:max-w-xs">
 					<label for="search" class="sr-only">Search</label>
@@ -73,7 +73,7 @@
 				</div>
 			</div>
 		-->
-		<!--
+			<!--
 			<div class="flex lg:hidden">
 				<!- - Mobile menu button - ->
 				<DisclosureButton
@@ -151,7 +151,7 @@
 		-->
 		</div>
 	</div>
-<!--
+	<!--
 	<DisclosurePanel class="lg:hidden">
 		<div class="space-y-1 px-2 pt-2 pb-3">
 			{#each navigation as item (item.name)}
