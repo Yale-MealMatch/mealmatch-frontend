@@ -5,9 +5,16 @@
 	import { Envelope } from '@steeze-ui/heroicons';
 	import { Icon } from '@steeze-ui/svelte-icon';
 	const signInWithGoogle = async () => {
-		const { data, error } = await supabaseClient.auth.signInWithOAuth({
+		await supabaseClient.auth.signInWithOAuth({
 			provider: 'google',
 			options: { redirectTo: `${window.location.origin}/form` }
+		});
+	};
+	let email: string = '';
+	const signInWithMagicLink = async () => {
+		await supabaseClient.auth.signInWithOtp({
+			email,
+			options: { emailRedirectTo: `${window.location.origin}/form` }
 		});
 	};
 </script>
@@ -61,6 +68,7 @@
 							placeholder="Your email address"
 							required
 							class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-rose-500 focus:outline-none focus:ring-rose-500 sm:text-sm"
+							bind:value={email}
 						/>
 					</div>
 				</div>
@@ -69,6 +77,7 @@
 					<button
 						type="submit"
 						class="flex w-full justify-center rounded-md border border-transparent bg-rose-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2"
+						on:click={signInWithMagicLink}
 					>
 						<Icon src={Envelope} theme="outline" class="block h-5 w-5" aria-hidden="true" />
 						Send Magic Link
