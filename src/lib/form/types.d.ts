@@ -1,4 +1,4 @@
-import type { Database } from "$lib/types/DatabaseDefinitions";
+import type { Database } from '$lib/types/DatabaseDefinitions';
 type SelectOption = {
 	label: string;
 	value: string | number;
@@ -8,7 +8,7 @@ type SelectOption = {
 type FormCheckboxesOption = SelectOption;
 type FormRadioSelectOption = SelectOption;
 
-type ValidationFunction = (value: string | number | string[] | number[]) => boolean
+type ValidationFunction = (value: string | number | string[] | number[]) => boolean;
 type FormRadio = {
 	type: 'radio';
 	name: keyof Database['public']['Tables']['responses']['Row'];

@@ -23,11 +23,11 @@
 
 	$: if (responses) console.log(responses[currentQuestion.name]);
 	$: if (responses) postUserResponses(responses);
-	$: isError = responses?.[currentQuestion.name] ? !currentQuestion.validationFunction(responses[currentQuestion.name]) : false;
+	$: isError = responses?.[currentQuestion.name]
+		? !currentQuestion.validationFunction(responses[currentQuestion.name])
+		: false;
 </script>
 
-{JSON.stringify(responses)}
-{isError}
 <div class="mt-10 sm:mt-0">
 	<div class="overflow-hidden shadow sm:rounded-md">
 		<div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
@@ -66,16 +66,10 @@
 						/>
 					{/if}
 					{#if currentQuestion.type === 'input'}
-						<FormInput
-							question={currentQuestion}
-							bind:value={responses[currentQuestion.name]}
-						/>
+						<FormInput question={currentQuestion} bind:value={responses[currentQuestion.name]} />
 					{/if}
 					{#if currentQuestion.type === 'textarea'}
-						<FormTextArea
-							question={currentQuestion}
-							bind:value={responses[currentQuestion.name]}
-						/>
+						<FormTextArea question={currentQuestion} bind:value={responses[currentQuestion.name]} />
 					{/if}
 				{/if}
 			</div>
