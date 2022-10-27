@@ -20,7 +20,7 @@
 					value={option.value}
 					bind:group={value}
 					type="checkbox"
-					class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+					class="h-4 w-4 rounded border-gray-300 text-rose-600 focus:ring-rose-500"
 				/>
 			</div>
 			<div class="ml-3 text-sm">

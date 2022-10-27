@@ -18,7 +18,7 @@
 	};
 
 	const checkedClasses = (checked: boolean) => {
-		if (checked) return 'bg-indigo-50 border-indigo-200 z-10';
+		if (checked) return 'bg-rose-50 border-rose-200 z-10';
 		return 'border-gray-200';
 	};
 </script>
@@ -35,8 +35,8 @@
 				>
 					<span
 						class="mt-0.5 flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded-full border {checked
-							? 'bg-indigo-600 border-transparent'
-							: 'bg-white border-gray-300'} {active ? 'ring-2 ring-offset-2 ring-indigo-500' : ''}"
+							? 'bg-rose-600 border-transparent'
+							: 'bg-white border-gray-300'} {active ? 'ring-2 ring-offset-2 ring-rose-500' : ''}"
 						aria-hidden="true"
 					>
 						<span class="h-1.5 w-1.5 rounded-full bg-white" />
@@ -44,14 +44,14 @@
 					<span class="ml-3 flex flex-col">
 						<RadioGroupLabel
 							as="span"
-							class="{checked ? 'text-indigo-900' : 'text-gray-900'} block text-sm font-medium"
+							class="{checked ? 'text-rose-900' : 'text-gray-900'} block text-sm font-medium"
 						>
 							{option.label}
 						</RadioGroupLabel>
 						{#if option.subtitle}
 							<RadioGroupDescription
 								as="span"
-								class="{checked ? 'text-indigo-700' : 'text-gray-500'} block text-sm"
+								class="{checked ? 'text-rose-700' : 'text-gray-500'} block text-sm"
 								>{option.subtitle}</RadioGroupDescription
 							>
 						{/if}

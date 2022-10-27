@@ -9,7 +9,7 @@
 
 	$: errorClasses = isError
 		? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500'
-		: 'bg-gray-50 focus:border-indigo-600';
+		: 'bg-gray-50 focus:border-rose-600';
 </script>
 
 <div>
