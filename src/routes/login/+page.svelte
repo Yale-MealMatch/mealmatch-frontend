@@ -5,9 +5,16 @@
 	import { Envelope } from '@steeze-ui/heroicons';
 	import { Icon } from '@steeze-ui/svelte-icon';
 	const signInWithGoogle = async () => {
-		const { data, error } = await supabaseClient.auth.signInWithOAuth({
+		await supabaseClient.auth.signInWithOAuth({
 			provider: 'google',
 			options: { redirectTo: `${window.location.origin}/form` }
+		});
+	};
+	let email: string = '';
+	const signInWithMagicLink = async () => {
+		await supabaseClient.auth.signInWithOtp({
+			email,
+			options: { emailRedirectTo: `${window.location.origin}/form` }
 		});
 	};
 </script>
@@ -26,32 +33,17 @@
 
 	<div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
 		<div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-			<form class="space-y-6" action="#" method="POST">
-				<div>
-					<label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
-					<div class="mt-1">
-						<input
-							id="email"
-							name="email"
-							type="email"
-							autocomplete="email"
-							placeholder="Your email address"
-							required
-							class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-rose-500 focus:outline-none focus:ring-rose-500 sm:text-sm"
-						/>
-					</div>
-				</div>
-
+			<div class="gap-3">
 				<div>
 					<button
-						type="submit"
-						class="flex w-full justify-center rounded-md border border-transparent bg-rose-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2"
+						on:click={signInWithGoogle}
+						class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50"
 					>
-						<Icon src={Envelope} theme="outline" class="block h-5 w-5" aria-hidden="true" />
-						Send Magic Link
+						<GoogleIcon />
+						<span>Sign in with Google</span>
 					</button>
 				</div>
-			</form>
+			</div>
 
 			<div class="mt-6">
 				<div class="relative">
@@ -64,17 +56,34 @@
 				</div>
 			</div>
 
-			<div class="mt-6 gap-3">
+			<form class="mt-6 space-y-6" action="#" method="POST">
+				<div>
+					<label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
+					<div class="mt-1">
+						<input
+							id="email"
+							name="email"
+							type="email"
+							autocomplete="email"
+							placeholder="Your email address"
+							required
+							class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-rose-500 focus:outline-none focus:ring-rose-500 sm:text-sm"
+							bind:value={email}
+						/>
+					</div>
+				</div>
+
 				<div>
 					<button
-						on:click={signInWithGoogle}
-						class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50"
+						type="submit"
+						class="flex w-full justify-center rounded-md border border-transparent bg-rose-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2"
+						on:click={signInWithMagicLink}
 					>
-						<GoogleIcon />
-						<span>Sign in with Google</span>
+						<Icon src={Envelope} theme="outline" class="block h-5 w-5" aria-hidden="true" />
+						Send Magic Link
 					</button>
 				</div>
-			</div>
+			</form>
 		</div>
 	</div>
 </div>
