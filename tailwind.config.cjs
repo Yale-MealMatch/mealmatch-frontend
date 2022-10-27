@@ -10,11 +10,7 @@ const config = {
 			}
 		}
 	},
-	daisyui: {
-		themes: ["cupcake"]
-	},
-
-	plugins: [require('@tailwindcss/forms'), require("daisyui")]
+	plugins: [require('@tailwindcss/forms')]
 };
 
 module.exports = config;
