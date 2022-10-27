@@ -36,7 +36,7 @@
 				</div>
 				<div class="hidden lg:ml-6 lg:block">
 					<div class="flex space-x-4">
-						{#each navigation as item}
+						{#each navigation as item (item.name)}
 							<a
 								href={item.href}
 								class={$page.url.pathname === item.href
