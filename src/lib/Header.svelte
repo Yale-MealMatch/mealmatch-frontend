@@ -36,12 +36,12 @@
 				</div>
 				<div class="hidden lg:ml-6 lg:block">
 					<div class="flex space-x-4">
-						{#each navigation as item}
+						{#each navigation as item (item.name)}
 							<a
 								href={item.href}
-								class={$page.url.pathname === item.href
-									? 'rounded-md bg-neutral-800 px-3 py-2 text-sm font-medium text-white'
-									: 'rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-neutral-800 hover:text-white'}
+								class="rounded-md px-3 py-2 text-sm font-medium {$page.url.pathname === item.href
+									? 'bg-neutral-800 text-white'
+									: 'text-gray-300 hover:bg-neutral-800 hover:text-white'}"
 							>
 								{item.name}
 							</a>
@@ -150,31 +150,17 @@
 
 	<DisclosurePanel class="lg:hidden">
 		<div class="space-y-1 px-2 pt-2 pb-3">
-			<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-neutral-800 hover:text-white" -->
-			<DisclosureButton
-				as="a"
-				href="#"
-				class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
-				>Dashboard</DisclosureButton
-			>
-			<DisclosureButton
-				as="a"
-				href="#"
-				class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-neutral-800 hover:text-white"
-				>Team</DisclosureButton
-			>
-			<DisclosureButton
-				as="a"
-				href="#"
-				class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-neutral-800 hover:text-white"
-				>Projects</DisclosureButton
-			>
-			<DisclosureButton
-				as="a"
-				href="#"
-				class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-neutral-800 hover:text-white"
-				>Calendar</DisclosureButton
-			>
+			{#each navigation as item (item.name)}
+				<DisclosureButton
+					as="a"
+					href={item.href}
+					class="block rounded-md px-3 py-2 text-base font-medium {$page.url.pathname === item.href
+						? 'bg-neutral-800 text-white'
+						: 'text-gray-300 hover:bg-neutral-800 hover:text-white'}"
+				>
+					{item.name}
+				</DisclosureButton>
+			{/each}
 		</div>
 		<div class="border-t border-gray-700 pt-4 pb-3">
 			<div class="flex items-center px-5">
