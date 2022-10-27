@@ -23,7 +23,9 @@
 
 	$: if (responses) console.log(responses[currentQuestion.name]);
 	$: if (responses) postUserResponses(responses);
-	$: isError = responses?.[currentQuestion.name] ? !currentQuestion.validationFunction(responses[currentQuestion.name]) : false;
+	$: isError = responses?.[currentQuestion.name]
+		? !currentQuestion.validationFunction(responses[currentQuestion.name])
+		: false;
 </script>
 
 <div class="mt-10 sm:mt-0">
@@ -64,16 +66,10 @@
 						/>
 					{/if}
 					{#if currentQuestion.type === 'input'}
-						<FormInput
-							question={currentQuestion}
-							bind:value={responses[currentQuestion.name]}
-						/>
+						<FormInput question={currentQuestion} bind:value={responses[currentQuestion.name]} />
 					{/if}
 					{#if currentQuestion.type === 'textarea'}
-						<FormTextArea
-							question={currentQuestion}
-							bind:value={responses[currentQuestion.name]}
-						/>
+						<FormTextArea question={currentQuestion} bind:value={responses[currentQuestion.name]} />
 					{/if}
 				{/if}
 			</div>

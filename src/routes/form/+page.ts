@@ -2,7 +2,7 @@ import { supabaseClient } from '$lib/db';
 import { getSupabase } from '@supabase/auth-helpers-sveltekit';
 import type { PageLoad } from './$types';
 import { redirect } from '@sveltejs/kit';
-import type {Database} from '$lib/types/DatabaseDefinitions';
+import type { Database } from '$lib/types/DatabaseDefinitions';
 
 const getUserResponses = async () => {
 	const { data, error } = await supabaseClient.from('responses').select('*').maybeSingle();
@@ -10,7 +10,9 @@ const getUserResponses = async () => {
 	return data;
 };
 
-export const postUserResponses = async (data: Database['public']['Tables']['responses']['Insert']) => {
+export const postUserResponses = async (
+	data: Database['public']['Tables']['responses']['Insert']
+) => {
 	const { error } = await supabaseClient.from('responses').upsert(data);
 	if (error) throw new Error(error.message);
 };

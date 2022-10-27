@@ -13,14 +13,14 @@
 	} from '@rgossiaux/svelte-headlessui';
 	import { Icon } from '@steeze-ui/svelte-icon';
 	import { Bars3, MagnifyingGlass, XMark, BellAlert, Bell } from '@steeze-ui/heroicons';
-	import {supabaseClient} from '$lib/db';
+	import { supabaseClient } from '$lib/db';
 
 	const navigation = [
 		{ name: 'Dashboard', href: '/' },
 		{ name: 'Login', href: '/login' },
-		{ name: 'Form', href: '/form' },
+		{ name: 'Form', href: '/form' }
 	];
-	
+
 	const signOut = async () => {
 		await supabaseClient.auth.signOut();
 	};

@@ -50,7 +50,7 @@ export const questions: Question[] = [
 		options: [
 			{ label: 'Any', value: 'any' },
 			{ label: 'Same', value: 'same' },
-			{ label: 'Different', value: 'different' },
+			{ label: 'Different', value: 'different' }
 		],
 		validationFunction: (value) => value.length > 0,
 		errorMessage: 'Please select at least one pronoun'

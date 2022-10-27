@@ -1,6 +1,6 @@
-	// From https://github.com/supabase/auth-helpers/blob/main/packages/sveltekit/README.md 
+// From https://github.com/supabase/auth-helpers/blob/main/packages/sveltekit/README.md
 import { createClient } from '@supabase/auth-helpers-sveltekit';
-import { env } from '$env/dynamic/public'
+import { env } from '$env/dynamic/public';
 
 const supabaseUrl = env.PUBLIC_SUPABASE_URL;
 const supabaseAnonKey = env.PUBLIC_SUPABASE_ANON_KEY;
