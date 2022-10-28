@@ -37,6 +37,7 @@ export const questions: Question[] = [
 		options: [
 			{ label: 'he/him', value: 'he/him' },
 			{ label: 'she/her', value: 'she/her' },
+			{ label: 'they/them', value: 'they/them' },
 			{ label: 'other', value: 'other' }
 		],
 		validationFunction: (value) => value !== '',
