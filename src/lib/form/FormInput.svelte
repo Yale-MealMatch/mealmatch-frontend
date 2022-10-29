@@ -4,7 +4,7 @@
 	import { ExclamationCircle } from '@steeze-ui/heroicons';
 
 	export let question: FormInput;
-	export let value: string = '';
+	export let value = '';
 	$: isError = !question.validationFunction(value);
 
 	$: errorClasses = isError
