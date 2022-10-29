@@ -10,7 +10,7 @@
 			options: { redirectTo: `${window.location.origin}/form` }
 		});
 	};
-	let email: string = '';
+	let email = '';
 	const signInWithMagicLink = async () => {
 		await supabaseClient.auth.signInWithOtp({
 			email,
