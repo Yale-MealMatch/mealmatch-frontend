@@ -5,20 +5,7 @@
 	import FormInput from '$lib/form/FormInput.svelte';
 	import FormRadioGroup from '$lib/form/FormRadioGroup.svelte';
 	import FormTextArea from '$lib/form/FormTextArea.svelte';
-	let currentQuestion = {
-		type: 'radio',
-		name: 'year',
-		label: 'What year are you?',
-		description: '',
-		options: [
-			{ label: 'First-year', value: 2026 },
-			{ label: 'Sophomore', value: 2025 },
-			{ label: 'Junior', value: 2024 },
-			{ label: 'Senior', value: 2023 }
-		],
-		validationFunction: (value) => value > 0,
-		errorMessage: 'Please select a year'
-	};
+	import { questions } from '$lib/form/questions';
 </script>
 
 <div class="mt-10 sm:mt-0">
@@ -43,30 +30,24 @@
 			</nav> -->
 		</div>
 		<div class="space-y-6 bg-white px-4 py-5 sm:p-6">
-			<div class="rounded-lg border border-gray-200 p-6 shadow-md">
-				{#if responses}
+			{#each questions[0] as currentQuestion}
+				<div class="rounded-lg border border-gray-200 p-6 shadow-md">
 					<FormHeader title={currentQuestion.label} description={currentQuestion.description} />
 					{#if currentQuestion.type === 'radio'}
-						<FormRadioGroup
-							question={currentQuestion}
-							bind:value={responses[currentQuestion.name]}
-						/>
+						<FormRadioGroup question={currentQuestion} />
 					{/if}
 					{#if currentQuestion.type === 'checkboxes'}
-						<FormCheckboxes
-							question={currentQuestion}
-							bind:value={responses[currentQuestion.name]}
-						/>
+						<FormCheckboxes question={currentQuestion} />
 					{/if}
 					{#if currentQuestion.type === 'input'}
-						<FormInput question={currentQuestion} bind:value={responses[currentQuestion.name]} />
+						<FormInput question={currentQuestion} />
 					{/if}
 					{#if currentQuestion.type === 'textarea'}
-						<FormTextArea question={currentQuestion} bind:value={responses[currentQuestion.name]} />
+						<FormTextArea question={currentQuestion} />
 					{/if}
-				{/if}
-			</div>
-			<FormDivider />
+				</div>
+				<FormDivider />
+			{/each}
 		</div>
 	</div>
 </div>
