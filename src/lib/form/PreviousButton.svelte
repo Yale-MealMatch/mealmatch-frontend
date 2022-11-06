@@ -1,9 +1,9 @@
 <script lang="ts">
-	export let currentQuestionIndex: number;
+	export let currentIndex: number;
 	export let previousSlide: () => void;
 </script>
 
-{#if currentQuestionIndex === 0}
+{#if currentIndex === 0}
 	<div class="-mb-px flex w-0 flex-1" />
 {:else}
 	<div class="-mb-px flex w-0 flex-1">
