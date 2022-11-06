@@ -123,5 +123,6 @@ export const questions: Question[][] = [
 			validationFunction: () => true,
 			errorMessage: ''
 		}
-	]
+	],
+	[]
 ];
