@@ -3,9 +3,9 @@
 	import { Icon } from '@steeze-ui/svelte-icon';
 
 	const steps = [
-		{ id: '01', name: 'Basic information', href: '#', status: 'complete' },
-		{ id: '02', name: 'Preferences', href: '#', status: 'current' },
-		{ id: '03', name: 'Submit', href: '#', status: 'upcoming' }
+		{ id: '01', name: 'Basic information', href: '/form/1', status: 'complete' },
+		{ id: '02', name: 'Preferences', href: '/form/2', status: 'current' },
+		{ id: '03', name: 'Submit', href: '#/form/3', status: 'upcoming' }
 	];
 </script>
 
