@@ -7,7 +7,7 @@
 	import FormTextArea from '$lib/form/FormTextArea.svelte';
 	import NextButton from '$lib/form/NextButton.svelte';
 	import PreviousButton from '$lib/form/PreviousButton.svelte';
-	import { questions } from '$lib/form/questions';
+	import { questions } from '$lib/form/questions_old';
 	import { postUserResponses } from './+page';
 	import type { PageData } from './$types';
 
