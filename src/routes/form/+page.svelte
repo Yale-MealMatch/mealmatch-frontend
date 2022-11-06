@@ -7,6 +7,14 @@
 	import FormTextArea from '$lib/form/FormTextArea.svelte';
 	import { questions } from '$lib/form/questions';
 	import ProgressBar from './ProgressBar.svelte';
+
+	let currentPageIndex = 0;
+	$: currentPage = questions[currentPageIndex];
+
+	let isError = false;
+	const previousSlide = () => (isError ? '' : currentPageIndex--);
+	const nextSlide = () => (isError ? '' : currentPageIndex++);
+	// const jumpSlide = (index: number) => (isError ? '' : (currentPageIndex = index));
 </script>
 
 <div class="mt-10 sm:mt-0">
@@ -33,20 +41,20 @@
 			<ProgressBar />
 		</div>
 		<div class="space-y-6 bg-white px-4 py-5 sm:p-6">
-			{#each questions[0] as currentQuestion}
+			{#each currentPage as question}
 				<div class="rounded-lg border border-gray-200 p-6 shadow-md">
-					<FormHeader title={currentQuestion.label} description={currentQuestion.description} />
-					{#if currentQuestion.type === 'radio'}
-						<FormRadioGroup question={currentQuestion} />
+					<FormHeader title={question.label} description={question.description} />
+					{#if question.type === 'radio'}
+						<FormRadioGroup {question} />
 					{/if}
-					{#if currentQuestion.type === 'checkboxes'}
-						<FormCheckboxes question={currentQuestion} />
+					{#if question.type === 'checkboxes'}
+						<FormCheckboxes {question} />
 					{/if}
-					{#if currentQuestion.type === 'input'}
-						<FormInput question={currentQuestion} />
+					{#if question.type === 'input'}
+						<FormInput {question} />
 					{/if}
-					{#if currentQuestion.type === 'textarea'}
-						<FormTextArea question={currentQuestion} />
+					{#if question.type === 'textarea'}
+						<FormTextArea {question} />
 					{/if}
 				</div>
 				<FormDivider />
