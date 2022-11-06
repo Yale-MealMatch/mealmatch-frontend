@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { questions } from '$lib/form/questions';
 
-	export let currentQuestionIndex: number;
+	export let currentIndex: number;
 	export let nextSlide: () => void;
 </script>
 
-{#if currentQuestionIndex === questions.length - 1}
+{#if currentIndex === questions.length - 1}
 	<div class="-mb-px flex w-0 flex-1 justify-end">
 		<button
 			type="submit"

@@ -32,7 +32,7 @@
 	<div class="overflow-hidden shadow sm:rounded-md">
 		<div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
 			<nav class="flex items-center justify-between border-b border-gray-200 px-4 sm:px-0">
-				<PreviousButton {currentQuestionIndex} {previousSlide} />
+				<PreviousButton currentIndex={currentQuestionIndex} {previousSlide} />
 
 				<div class="hidden md:-mb-px md:flex">
 					{#each questions as _question, index}
@@ -46,7 +46,7 @@
 						</button>
 					{/each}
 				</div>
-				<NextButton {currentQuestionIndex} {nextSlide} />
+				<NextButton currentIndex={currentQuestionIndex} {nextSlide} />
 			</nav>
 		</div>
 		<div class="space-y-6 bg-white px-4 py-5 sm:p-6">
