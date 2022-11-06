@@ -20,7 +20,7 @@
 					<a href={step.href} class="group flex w-full items-center">
 						<span class="flex items-center px-6 py-4 text-sm font-medium">
 							<span
-								class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-indigo-600 group-hover:bg-indigo-800"
+								class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-rose-600 group-hover:bg-rose-800"
 							>
 								<Icon src={Check} class="h-6 w-6 text-white" aria-hidden="true" />
 							</span>
@@ -34,11 +34,11 @@
 						aria-current="step"
 					>
 						<span
-							class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 border-indigo-600"
+							class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 border-rose-600"
 						>
-							<span class="text-indigo-600">{step.id}</span>
+							<span class="text-rose-600">{step.id}</span>
 						</span>
-						<span class="ml-4 text-sm font-medium text-indigo-600">{step.name}</span>
+						<span class="ml-4 text-sm font-medium text-rose-600">{step.name}</span>
 					</a>
 				{:else}
 					<a href={step.href} class="group flex items-center">
