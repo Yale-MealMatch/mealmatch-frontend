@@ -4,7 +4,7 @@
       <!-- Completed Step -->
       <a href="#" class="group flex w-full items-center">
         <span class="flex items-center px-6 py-4 text-sm font-medium">
-          <span class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-indigo-600 group-hover:bg-indigo-800">
+          <span class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-rose-600 group-hover:bg-rose-800">
             <!-- Heroicon name: solid/check -->
             <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.493-12.739a.75.75 0 011.04-.208z" clip-rule="evenodd" />
@@ -25,10 +25,10 @@
     <li class="relative md:flex md:flex-1">
       <!-- Current Step -->
       <a href="#" class="flex items-center px-6 py-4 text-sm font-medium" aria-current="step">
-        <span class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 border-indigo-600">
-          <span class="text-indigo-600">02</span>
+        <span class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 border-rose-600">
+          <span class="text-rose-600">02</span>
         </span>
-        <span class="ml-4 text-sm font-medium text-indigo-600">Matching Preferences</span>
+        <span class="ml-4 text-sm font-medium text-rose-600">Matching Preferences</span>
       </a>
 
       <!-- Arrow separator for lg screens and up -->
