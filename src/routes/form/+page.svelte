@@ -1,6 +1,10 @@
 <script>
+	import FormCheckboxes from '$lib/form/FormCheckboxes.svelte';
+	import FormDivider from '$lib/form/FormDivider.svelte';
 	import FormHeader from '$lib/form/FormHeader.svelte';
+	import FormInput from '$lib/form/FormInput.svelte';
 	import FormRadioGroup from '$lib/form/FormRadioGroup.svelte';
+	import FormTextArea from '$lib/form/FormTextArea.svelte';
 	let currentQuestion = {
 		type: 'radio',
 		name: 'year',
@@ -38,15 +42,31 @@
 				<NextButton {currentQuestionIndex} {nextSlide} />
 			</nav> -->
 		</div>
-					<FormHeader title={currentQuestion.label} description={currentQuestion.description} />
-						<FormRadioGroup question={currentQuestion} />
-						<FormRadioGroup question={currentQuestion} />
-					<FormHeader title={currentQuestion.label} description={currentQuestion.description} />
-						<FormRadioGroup question={currentQuestion} />
-						<FormRadioGroup question={currentQuestion} />
 		<div class="space-y-6 bg-white px-4 py-5 sm:p-6">
-			<div class="rounded-lg border border-gray-200 p-6 shadow-md" />
+			<div class="rounded-lg border border-gray-200 p-6 shadow-md">
+				{#if responses}
+					<FormHeader title={currentQuestion.label} description={currentQuestion.description} />
+					{#if currentQuestion.type === 'radio'}
+						<FormRadioGroup
+							question={currentQuestion}
+							bind:value={responses[currentQuestion.name]}
+						/>
+					{/if}
+					{#if currentQuestion.type === 'checkboxes'}
+						<FormCheckboxes
+							question={currentQuestion}
+							bind:value={responses[currentQuestion.name]}
+						/>
+					{/if}
+					{#if currentQuestion.type === 'input'}
+						<FormInput question={currentQuestion} bind:value={responses[currentQuestion.name]} />
+					{/if}
+					{#if currentQuestion.type === 'textarea'}
+						<FormTextArea question={currentQuestion} bind:value={responses[currentQuestion.name]} />
+					{/if}
+				{/if}
+			</div>
+			<FormDivider />
 		</div>
 	</div>
 </div>
-
