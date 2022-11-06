@@ -49,7 +49,6 @@
 					</div>
 				</div>
 			</div>
-			<!--
 			<div class="flex flex-1 justify-center px-2 lg:ml-6 lg:justify-end">
 				<div class="w-full max-w-lg lg:max-w-xs">
 					<label for="search" class="sr-only">Search</label>
@@ -72,10 +71,8 @@
 					</div>
 				</div>
 			</div>
-		-->
-			<!--
 			<div class="flex lg:hidden">
-				<!- - Mobile menu button - ->
+				<!-- Mobile menu button -->
 				<DisclosureButton
 					class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-neutral-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
 				>
@@ -97,7 +94,7 @@
 						<Icon src={BellAlert} theme="solid" class="h-6 w-6" aria-hidden="true" />
 					</button>
 
-					<!- - Profile dropdown - ->
+					<!-- Profile dropdown -->
 					<Menu as="div" class="relative ml-4 flex-shrink-0">
 						<div>
 							<MenuButton
@@ -148,10 +145,8 @@
 					</Menu>
 				</div>
 			</div>
-		-->
 		</div>
 	</div>
-	<!--
 	<DisclosurePanel class="lg:hidden">
 		<div class="space-y-1 px-2 pt-2 pb-3">
 			{#each navigation as item (item.name)}
@@ -185,7 +180,7 @@
 				>
 					<span class="sr-only">View notifications</span>
 					<Icon src={BellAlert} class="h-6 w-6" aria-hidden="true" />
-					<!- - <BellIcon class="h-6 w-6" aria-hidden="true" /> - ->
+					<!-- <BellIcon class="h-6 w-6" aria-hidden="true" /> -->
 				</button>
 			</div>
 			<div class="mt-3 space-y-1 px-2">
@@ -210,5 +205,4 @@
 			</div>
 		</div>
 	</DisclosurePanel>
--->
 </Disclosure>

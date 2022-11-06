@@ -20,7 +20,7 @@ export const postUserResponses = async (
 export const load: PageLoad = async (event) => {
 	const { session } = await getSupabase(event);
 	if (!session) {
-		throw redirect(303, '/');
+		throw redirect(303, '/login');
 	}
 	const responses = await getUserResponses();
 	return {
