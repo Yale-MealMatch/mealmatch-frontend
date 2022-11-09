@@ -18,12 +18,10 @@
 	const jumpSlide = (index: number) => (isError ? '' : (currentPageIndex = index));
 </script>
 
-<div class="mt-10 sm:mt-0">
+<div class="mt-10 sm:mt-4">
 	<div class="flex flex-col gap-4">
 		<div class="overflow-hidden shadow sm:rounded-md">
-			<div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
-				<ProgressBar currentStepIndex={currentPageIndex} {jumpSlide} />
-			</div>
+		<ProgressBar currentStepIndex={currentPageIndex} {jumpSlide} />
 		</div>
 		{#each currentPage as question}
 			<div class="rounded-lg border border-gray-200 p-6 shadow-md">
