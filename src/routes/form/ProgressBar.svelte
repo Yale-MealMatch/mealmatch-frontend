@@ -12,10 +12,7 @@
 </script>
 
 <nav aria-label="Progress">
-	<ol
-		role="list"
-		class="divide-y divide-gray-300 rounded-md border border-gray-300 md:flex md:divide-y-0"
-	>
+	<ol class="divide-y divide-gray-300 rounded-md border border-gray-300 md:flex md:divide-y-0">
 		{#each steps as step, stepIdx (step.name)}
 			<li class="relative md:flex md:flex-1" data-sveltekit-noscroll>
 				{#if stepIdx < currentStepIndex}
