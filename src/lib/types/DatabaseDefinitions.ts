@@ -6,36 +6,39 @@ export interface Database {
 			responses: {
 				Row: {
 					id: string;
-					phone: string;
-					year: number;
-					pronouns: string;
 					timestamp: string;
-					pronouns_match: string[];
-					bio: string;
+					year: number;
 					year_match: number[];
+					pronouns: string;
+					pronouns_match: string[];
+					phone: string;
 					nickname: string;
+					bio: string;
+					email: string;
 				};
 				Insert: {
 					id: string;
-					phone: string;
-					year: number;
-					pronouns: string;
 					timestamp?: string;
-					pronouns_match: string[];
-					bio: string;
+					year: number;
 					year_match: number[];
+					pronouns: string;
+					pronouns_match: string[];
+					phone: string;
 					nickname: string;
+					bio: string;
+					email: string;
 				};
 				Update: {
 					id?: string;
-					phone?: string;
-					year?: number;
-					pronouns?: string;
 					timestamp?: string;
-					pronouns_match?: string[];
-					bio?: string;
+					year?: number;
 					year_match?: number[];
+					pronouns?: string;
+					pronouns_match?: string[];
+					phone?: string;
 					nickname?: string;
+					bio?: string;
+					email?: string;
 				};
 			};
 		};
