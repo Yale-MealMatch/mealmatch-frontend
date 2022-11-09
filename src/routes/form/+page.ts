@@ -4,7 +4,7 @@ import type { PageLoad } from './$types';
 import type { Database } from '$lib/types/DatabaseDefinitions';
 
 const getUserResponses = async () => {
-	const { data, error } = await supabaseClient.from('responses').select('*').maybeSingle();
+	const { data, error } = await supabaseClient.from('responses').select('*').single();
 	if (error) throw new Error(error.message);
 	return data;
 };
