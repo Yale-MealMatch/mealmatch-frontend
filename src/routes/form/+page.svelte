@@ -14,7 +14,7 @@
 	export let data: PageData;
 	let responses = data.responses;
 
-	let currentPageIndex = 0;
+	let currentPageIndex = 2;
 	$: currentPage = questions[currentPageIndex];
 
 	let isError = false;
@@ -47,9 +47,11 @@
 			</div>
 			<!-- <FormDivider /> -->
 		{/each}
-		{#if currentPageIndex === 0}
-			<div class="flex justify-between">
-				<div class="flex-1"></div>
+		<nav
+			class="flex items-center justify-between border-gray-200 bg-white px-4 shadow sm:px-4 md:rounded-md"
+		>
+			{#if currentPageIndex === 0}
+				<div class="flex-1" />
 				<div class="hidden md:-mb-px md:flex">
 					{#each questions as _question, index}
 						<button
@@ -63,9 +65,7 @@
 					{/each}
 				</div>
 				<NextButton currentIndex={currentPageIndex} {nextSlide} />
-			</div>
-		{:else if currentPageIndex === questions.length - 1}
-			<div class="flex justify-between">
+			{:else if currentPageIndex === questions.length - 1}
 				<PreviousButton currentIndex={currentPageIndex} {previousSlide} />
 				<div class="hidden md:-mb-px md:flex">
 					{#each questions as _question, index}
@@ -80,16 +80,15 @@
 					{/each}
 				</div>
 				<button
-					class="rounded bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700"
+					type="submit"
+					class="flex justify-center rounded-md border border-transparent bg-rose-600 py-2 px-4 font-bold text-white shadow-sm hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2"
 					on:click={() => {
 						postUserResponses(responses);
 					}}
 				>
 					Submit
 				</button>
-			</div>
-		{:else}
-			<div class="flex justify-between">
+			{:else}
 				<PreviousButton currentIndex={currentPageIndex} {previousSlide} />
 				<div class="hidden md:-mb-px md:flex">
 					{#each questions as _question, index}
@@ -104,11 +103,11 @@
 					{/each}
 				</div>
 				<NextButton currentIndex={currentPageIndex} {nextSlide} />
-			</div>
-		{/if}
+			{/if}
+		</nav>
 	</div>
 
-	<nav class="flex items-center justify-between border-gray-200 px-4 sm:px-0">
+	<!-- <nav class="flex items-center justify-between border-gray-200 px-4 sm:px-0">
 		<PreviousButton currentIndex={currentPageIndex} {previousSlide} />
 		<div class="hidden md:-mb-px md:flex">
 			{#each questions as _question, index}
@@ -123,5 +122,5 @@
 			{/each}
 		</div>
 		<NextButton currentIndex={currentPageIndex} {nextSlide} />
-	</nav>
+	</nav> -->
 </div>
