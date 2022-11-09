@@ -18,7 +18,7 @@ export const postUserResponses = async (
 
 export const load: PageLoad = async (event) => {
 	const { session } = await getSupabase(event);
-	if (!session) return { responses: {} } as { responses: ReturnType<typeof getUserResponses> };
+	if (!session) return { responses: {} as ReturnType<typeof getUserResponses> };
 	const responses = await getUserResponses();
 	return { responses };
 };
