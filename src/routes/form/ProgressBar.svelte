@@ -2,6 +2,7 @@
 	import { Check } from '@steeze-ui/heroicons';
 	import { Icon } from '@steeze-ui/svelte-icon';
 
+  export let currentStepIndex: number;
 	const steps = [
 		{ id: '01', name: 'Basic information', href: '/form/1', status: 'complete' },
 		{ id: '02', name: 'Preferences', href: '/form/2', status: 'current' },
@@ -15,8 +16,8 @@
 		class="divide-y divide-gray-300 rounded-md border border-gray-300 md:flex md:divide-y-0"
 	>
 		{#each steps as step, stepIdx (step.name)}
-			<li class="relative md:flex md:flex-1">
-				{#if step.status === 'complete'}
+			<li class="relative md:flex md:flex-1" data-sveltekit-noscroll>
+				{#if stepIdx < currentStepIndex}
 					<a href={step.href} class="group flex w-full items-center">
 						<span class="flex items-center px-6 py-4 text-sm font-medium">
 							<span
@@ -27,7 +28,7 @@
 							<span class="ml-4 text-sm font-medium text-gray-900">{step.name}</span>
 						</span>
 					</a>
-				{:else if step.status === 'current'}
+				{:else if stepIdx === currentStepIndex}
 					<a
 						href={step.href}
 						class="flex items-center px-6 py-4 text-sm font-medium"
