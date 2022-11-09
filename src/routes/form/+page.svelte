@@ -47,63 +47,30 @@
 			</div>
 			<!-- <FormDivider /> -->
 		{/each}
-		<nav
-			class="flex items-center justify-between border-gray-200 bg-white px-4 shadow sm:px-4 md:rounded-md"
-		>
-			{#if currentPageIndex === 0}
-				<div class="flex-1" />
-				<div class="hidden md:-mb-px md:flex">
-					{#each questions as _question, index}
-						<button
-							class="{index === currentPageIndex
-								? 'border-rose-500 text-rose-600'
-								: ''} inline-flex items-center border-t-2 border-transparent px-4 py-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-							on:click={() => jumpSlide(index)}
-						>
-							{index + 1}
-						</button>
-					{/each}
-				</div>
-				<NextButton currentIndex={currentPageIndex} {nextSlide} />
-			{:else if currentPageIndex === questions.length - 1}
-				<PreviousButton currentIndex={currentPageIndex} {previousSlide} />
-				<div class="hidden md:-mb-px md:flex">
-					{#each questions as _question, index}
-						<button
-							class="{index === currentPageIndex
-								? 'border-rose-500 text-rose-600'
-								: ''} inline-flex items-center border-t-2 border-transparent px-4 py-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-							on:click={() => jumpSlide(index)}
-						>
-							{index + 1}
-						</button>
-					{/each}
-				</div>
-				<button
-					type="submit"
-					class="flex justify-center rounded-md border border-transparent bg-rose-600 py-2 px-4 font-bold text-white shadow-sm hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2"
-					on:click={() => {
-						postUserResponses(responses);
-					}}
-				>
-					Submit
-				</button>
-			{:else}
-				<PreviousButton currentIndex={currentPageIndex} {previousSlide} />
-				<div class="hidden md:-mb-px md:flex">
-					{#each questions as _question, index}
-						<button
-							class="{index === currentPageIndex
-								? 'border-rose-500 text-rose-600'
-								: ''} inline-flex items-center border-t-2 border-transparent px-4 py-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-							on:click={() => jumpSlide(index)}
-						>
-							{index + 1}
-						</button>
-					{/each}
-				</div>
-				<NextButton currentIndex={currentPageIndex} {nextSlide} />
-			{/if}
+		<nav class="flex justify-end gap-2">
+			<button
+				type="submit"
+				class="rounded-md bg-white py-2 px-6 font-bold text-rose-500 shadow-sm hover:shadow-inner"
+				on:click={previousSlide}
+			>
+				Previous
+			</button>
+			<button
+				type="submit"
+				class="rounded-md bg-white py-2 px-6 font-bold text-rose-500 shadow-sm hover:shadow-inner"
+				on:click={nextSlide}
+			>
+				Next
+			</button>
+			<button
+				type="submit"
+				class="flex justify-center rounded-md border border-transparent bg-rose-600 py-2 px-4 font-bold text-white shadow-sm hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2"
+				on:click={() => {
+					postUserResponses(responses);
+				}}
+			>
+				Submit
+			</button>
 		</nav>
 	</div>
 
