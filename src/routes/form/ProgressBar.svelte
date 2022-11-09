@@ -2,7 +2,8 @@
 	import { Check } from '@steeze-ui/heroicons';
 	import { Icon } from '@steeze-ui/svelte-icon';
 
-  export let currentStepIndex: number;
+	export let currentStepIndex: number;
+	export let jumpSlide: (index: number) => number | '';
 	const steps = [
 		{ id: '01', name: 'Basic information', href: '/form/1', status: 'complete' },
 		{ id: '02', name: 'Preferences', href: '/form/2', status: 'current' },
@@ -18,7 +19,7 @@
 		{#each steps as step, stepIdx (step.name)}
 			<li class="relative md:flex md:flex-1" data-sveltekit-noscroll>
 				{#if stepIdx < currentStepIndex}
-					<a href={step.href} class="group flex w-full items-center">
+					<button on:click={() => jumpSlide(stepIdx)} class="group flex w-full items-center">
 						<span class="flex items-center px-6 py-4 text-sm font-medium">
 							<span
 								class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-rose-600 group-hover:bg-rose-800"
@@ -27,10 +28,10 @@
 							</span>
 							<span class="ml-4 text-sm font-medium text-gray-900">{step.name}</span>
 						</span>
-					</a>
+					</button>
 				{:else if stepIdx === currentStepIndex}
-					<a
-						href={step.href}
+					<button
+						on:click={() => jumpSlide(stepIdx)}
 						class="flex items-center px-6 py-4 text-sm font-medium"
 						aria-current="step"
 					>
@@ -40,9 +41,9 @@
 							<span class="text-rose-600">{step.id}</span>
 						</span>
 						<span class="ml-4 text-sm font-medium text-rose-600">{step.name}</span>
-					</a>
+					</button>
 				{:else}
-					<a href={step.href} class="group flex items-center">
+					<button on:click={() => jumpSlide(stepIdx)} class="group flex items-center">
 						<span class="flex items-center px-6 py-4 text-sm font-medium">
 							<span
 								class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 border-gray-300 group-hover:border-gray-400"
@@ -53,7 +54,7 @@
 								>{step.name}</span
 							>
 						</span>
-					</a>
+					</button>
 				{/if}
 
 				{#if stepIdx !== steps.length - 1}
