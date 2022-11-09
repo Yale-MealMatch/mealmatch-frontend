@@ -32,15 +32,15 @@
 	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 	<link rel="icon" href="/favicon.png" />
 </svelte:head>
-<Header />
+<!-- <Header /> -->
 
-<main class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+<main class="mx-auto max-w-4xl sm:px-6 lg:px-8">
 	<QueryClientProvider client={queryClient}>
-		{#if !$page.data.session}
+		<!-- {#if !$page.data.session}
 			<h1>I am not logged in</h1>
 		{:else}
 			<h1>Welcome {$page.data.session.user.email}</h1>
-		{/if}
+		{/if} -->
 		<slot />
 	</QueryClientProvider>
 </main>
