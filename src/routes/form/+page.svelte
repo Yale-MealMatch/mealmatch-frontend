@@ -23,7 +23,7 @@
 	<div class="overflow-hidden shadow sm:rounded-md">
 		<!-- svelte-ignore missing-declaration -->
 		<div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
-			<ProgressBar {jumpSlide}/>
+			<ProgressBar currentStepIndex={currentPageIndex} {jumpSlide}/>
 		</div>
 		<div class="space-y-6 bg-white px-4 py-5 sm:p-6">
 			{#each currentPage as question}
