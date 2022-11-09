@@ -23,7 +23,7 @@
 	const jumpSlide = (index: number) => (isError ? '' : (currentPageIndex = index));
 </script>
 
-<div class="mt-10 sm:mt-4">
+<div class="mt-10 sm:my-4">
 	{JSON.stringify(responses)}
 	<div class="flex flex-col gap-4">
 		<div class="overflow-hidden bg-white shadow sm:rounded-md">
