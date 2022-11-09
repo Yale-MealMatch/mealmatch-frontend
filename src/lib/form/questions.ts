@@ -3,24 +3,6 @@ import type { Question } from './types';
 export const questions: Question[][] = [
 	[
 		{
-			type: 'input',
-			name: 'email',
-			label: 'What is email address? (Yale)',
-			description: 'Please make sure that this is correct',
-			placeholder: 'jane.doe@yale.edu',
-			validationFunction: (value) => /@yale.edu$/.test(value),
-			errorMessage: 'Please enter 10 digits in the form 1234567890'
-		},
-		{
-			type: 'input',
-			name: 'phone',
-			label: 'What is your phone number? (Ten digits, no special characters)',
-			description: 'Your number will be provided to your match for ease of communication.',
-			placeholder: '1234567890',
-			validationFunction: (value) => /^\d{10}$/.test(value),
-			errorMessage: 'Please enter 10 digits in the form 1234567890'
-		},
-		{
 			type: 'radio',
 			name: 'year',
 			label: 'What year are you?',
@@ -47,16 +29,6 @@ export const questions: Question[][] = [
 			],
 			validationFunction: (value) => value !== '',
 			errorMessage: 'Please select your pronouns'
-		},
-		{
-			type: 'input',
-			name: 'nickname',
-			label: 'Create a nickname:',
-			description:
-				"Your match will refer to you by your nickname before meeting in person. Don't use your real name. ",
-			placeholder: 'Your answer',
-			validationFunction: (value) => value.length > 0,
-			errorMessage: 'Please enter a nickname.'
 		}
 	],
 	[
@@ -124,5 +96,34 @@ export const questions: Question[][] = [
 			errorMessage: ''
 		}
 	],
-	[]
+	[
+		{
+			type: 'input',
+			name: 'email',
+			label: 'What is email address? (Yale)',
+			description: 'Please make sure that this is correct',
+			placeholder: 'jane.doe@yale.edu',
+			validationFunction: (value) => /@yale.edu$/.test(value),
+			errorMessage: 'Please enter 10 digits in the form 1234567890'
+		},
+		{
+			type: 'input',
+			name: 'phone',
+			label: 'What is your phone number? (Ten digits, no special characters)',
+			description: 'Your number will be provided to your match for ease of communication.',
+			placeholder: '1234567890',
+			validationFunction: (value) => /^\d{10}$/.test(value),
+			errorMessage: 'Please enter 10 digits in the form 1234567890'
+		},
+		{
+			type: 'input',
+			name: 'nickname',
+			label: 'Create a nickname:',
+			description:
+				"Your match will refer to you by your nickname before meeting in person. Don't use your real name. ",
+			placeholder: 'Your answer',
+			validationFunction: (value) => value.length > 0,
+			errorMessage: 'Please enter a nickname.'
+		}
+	]
 ];
