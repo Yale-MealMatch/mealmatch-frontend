@@ -69,10 +69,7 @@
 				<Icon src={XCircle} con class="h-5 w-5 text-error-400" aria-hidden="true" />
 			</div>
 			<div class="ml-3">
-				<h3 class="text-sm font-medium text-error-800">Error</h3>
-				<div class="mt-2 text-sm text-error-700">
-					{question.errorMessage}
-				</div>
+				<h3 class="text-sm font-medium text-error-800">{question.errorMessage}</h3>
 			</div>
 		</div>
 	</div>
