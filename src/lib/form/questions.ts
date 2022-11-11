@@ -92,10 +92,14 @@ export const questions: Question[][] = [
 		{
 			type: 'input',
 			name: 'keywords',
-			label: 'List specific keywords, artists, communities that describe you',
-			description: 'For instance, "Philosophical, "',
-			placeholder: 'Your answer',
-			validationFunction: (value) => /(\d+)(,\s*\d+)*/.test(value),
+			label: 'List keywords that describe you (hobbies, interest groups, personality traits, etc.)',
+			// description:
+			// 'For instance, "literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious"',
+			description:
+				'Example response: <em>literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious</em>',
+			placeholder:
+				'Your answer',
+			validationFunction: (value) => /,\s*/.test(value),
 			errorMessage: 'Please enter a comma separated list of keywords'
 		},
 		{
@@ -105,7 +109,7 @@ export const questions: Question[][] = [
 			description:
 				'To preserve anonymity, your match will refer to you by your nickname before meeting in person.',
 			placeholder: 'Your answer',
-			validationFunction: (value) => /(\d+)(,\s*\d+)*/.test(value),
+			validationFunction: (value) => /,\s*/.test(value),
 			errorMessage: 'Please enter a comma separated list of keywords'
 		}
 	]
