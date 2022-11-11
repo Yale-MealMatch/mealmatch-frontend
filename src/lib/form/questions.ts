@@ -88,6 +88,25 @@ export const questions: Question[][] = [
 			placeholder: '1234567890',
 			validationFunction: (value) => /^\d{10}$/.test(value),
 			errorMessage: 'Please enter 10 digits in the form 1234567890'
+		},
+		{
+			type: 'input',
+			name: 'keywords',
+			label: 'List specific keywords, artists, communities that describe you',
+			description: 'For instance, "Philosophical, "',
+			placeholder: 'Your answer',
+			validationFunction: (value) => value.length > 0,
+			errorMessage: 'Please enter a nickname.'
+		},
+		{
+			type: 'input',
+			name: 'keywords_match',
+			label: 'Create a nickname:',
+			description:
+				'To preserve anonymity, your match will refer to you by your nickname before meeting in person.',
+			placeholder: 'Your answer',
+			validationFunction: (value) => value.length > 0,
+			errorMessage: 'Please enter a nickname.'
 		}
 	]
 ];
