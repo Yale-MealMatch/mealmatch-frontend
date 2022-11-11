@@ -93,10 +93,10 @@ export const questions: Question[][] = [
 			type: 'input',
 			name: 'keywords',
 			label:
-				'<span class="text-slate-500">(Recommended)</span> List keywords that describe you (hobbies, interest groups, personality traits, etc.):',
+				'<span class="text-slate-500">(Recommended)</span> List keywords that describe you, such as hobbies, interest groups, personality traits, etc.:',
 			// description:
 			description:
-				'Example response: <em>literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious</em> <br /> Your keywords will be shown to your match.',
+				'Example response: <em>literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious</ em > <br /> Your keywords will be shown to your match.',
 			placeholder: 'List keywords separated by commas',
 			// validationFunction: (value) => /,\s*/.test(value),
 			// eslint-disable-next-line @typescript-eslint/no-unused-vars
