@@ -49,32 +49,19 @@ export const questions: Question[][] = [
 		{
 			type: 'radio',
 			name: 'pronouns_match',
-			label: 'Match me with someone with ___ pronouns.',
+			label: 'Match me with someone with ____ pronouns.',
 			description: 'We will try our best!',
 			options: [
-				{ label: 'Any', value: 'any' },
-				{ label: 'Same', value: 'same' },
-				{ label: 'Different', value: 'different' }
-			],
-			validationFunction: (value) => value !== '',
-			errorMessage: 'Please select an option'
-		},
-		{
-			type: 'radio',
-			name: 'pronouns_match',
-			label: 'Match me with someone with...',
-			description: 'We will try our best!',
-			options: [
-				{ label: 'Similar keywords as me', value: 'any' },
-				{ label: 'Different keywords as me', value: 'same' },
-				{ label: 'With these specific keywords', value: 'different' }
+				{ label: 'any', value: 'any' },
+				{ label: 'same', value: 'same' },
+				{ label: 'different', value: 'different' }
 			],
 			validationFunction: (value) => value !== '',
 			errorMessage: 'Please select an option'
 		}
 	],
 	[
-				{
+		{
 			type: 'input',
 			name: 'nickname',
 			label: 'Create a nickname:',
