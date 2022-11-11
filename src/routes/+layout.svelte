@@ -32,7 +32,7 @@
 	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 	<link rel="icon" href="/favicon.png" />
 </svelte:head>
-<!-- <Header /> -->
+<Header />
 
 <main class="mx-auto max-w-4xl sm:px-6 lg:px-8">
 	<QueryClientProvider client={queryClient}>
