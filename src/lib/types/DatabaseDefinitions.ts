@@ -54,6 +54,7 @@ export interface Database {
 					keywords: string;
 					keywords_match: string;
 					id: number;
+					confirm: number[] | null;
 				};
 				Insert: {
 					timestamp?: string;
@@ -67,6 +68,7 @@ export interface Database {
 					keywords: string;
 					keywords_match: string;
 					id?: number;
+					confirm?: number[] | null;
 				};
 				Update: {
 					timestamp?: string;
@@ -80,6 +82,7 @@ export interface Database {
 					keywords?: string;
 					keywords_match?: string;
 					id?: number;
+					confirm?: number[] | null;
 				};
 			};
 		};
