@@ -93,11 +93,11 @@ export const questions: Question[][] = [
 			type: 'input',
 			name: 'keywords',
 			label:
-				'List keywords that describe you (hobbies, interest groups, personality traits, etc.):',
+				'(Optional) List keywords that describe you (hobbies, interest groups, personality traits, etc.):',
 			// description:
 			// 'For instance, "literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious"',
 			description:
-				'Example response: <em>literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious</em>',
+				'Example response: <em>literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious</em>. \n Your keywords will be used to match you with someone with similar interests.',
 			placeholder: 'Your answer',
 			validationFunction: (value) => /,\s*/.test(value),
 			errorMessage: 'Please enter a comma separated list of keywords'
@@ -105,10 +105,11 @@ export const questions: Question[][] = [
 		{
 			type: 'input',
 			name: 'keywords_match',
-			label: 'List keywords that describe your ideal match:',
+			label: '(Optional) List keywords that describe your ideal match:',
 			// description:
 			// 'For instance, "literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious"',
-			description: 'They can be the same as yours, or different. We will do our best to match you to someone with similar interests!',
+			description:
+				'They can be the same as yours, or different. We will do our best to match you to someone with similar interests!',
 			placeholder: 'Your answer',
 			validationFunction: (value) => /,\s*/.test(value),
 			errorMessage: 'Please enter a comma separated list of keywords'
