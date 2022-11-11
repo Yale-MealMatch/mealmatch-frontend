@@ -22,8 +22,8 @@ export const questions: Question[][] = [
 			label: 'What are your pronouns?',
 			description: 'Your pronouns will be provided to your match for ease of communication.',
 			options: [
-				{ label: 'he/him', value: 'he/him' },
 				{ label: 'she/her', value: 'she/her' },
+				{ label: 'he/him', value: 'he/him' },
 				{ label: 'they/them', value: 'they/them' },
 				{ label: 'other', value: 'other' }
 			],
@@ -93,11 +93,10 @@ export const questions: Question[][] = [
 			type: 'input',
 			name: 'keywords',
 			label:
-				'(Recommended) List keywords that describe you (hobbies, interest groups, personality traits, etc.):',
+				'<span class="text-gray-500">[Recommended]</span> List keywords that describe you (hobbies, interest groups, personality traits, etc.):',
 			// description:
-			// 'For instance, "literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious"',
 			description:
-				'Example response: <em>literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious</em>. <br /> Your keywords will be shown to your match.',
+				'Example response: <em>literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious</em> <br /> Your keywords will be shown to your match.',
 			placeholder: 'List keywords separated by commas',
 			// validationFunction: (value) => /,\s*/.test(value),
 			// eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -107,7 +106,8 @@ export const questions: Question[][] = [
 		{
 			type: 'input',
 			name: 'keywords_match',
-			label: '(Recommended) List keywords that describe your ideal match:',
+			label:
+				'<span class="text-gray-500">[Recommended]</span> List keywords that describe your ideal match:',
 			// description:
 			// 'For instance, "literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious"',
 			description:
