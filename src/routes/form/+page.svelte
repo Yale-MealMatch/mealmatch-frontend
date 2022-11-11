@@ -12,12 +12,11 @@
 	let currentPageIndex = 0;
 	$: currentPage = questions[currentPageIndex];
 
-	const isError = () => currentPage.some(
-		(question) => !question.validationFunction($responses[question.name])
-	);
-	const previousSlide = () => (isError() ? '' : currentPageIndex--);
+	const isError = () =>
+		currentPage.some((question) => !question.validationFunction($responses[question.name]));
+	const previousSlide = () => currentPageIndex--;
 	const nextSlide = () => (isError() ? '' : currentPageIndex++);
-	const jumpSlide = (index: number) => (isError() ? '' : (currentPageIndex = index));
+	const jumpSlide = (index: number) => ((index > currentPageIndex && isError()) ? '' : (currentPageIndex = index));
 </script>
 
 <div class="mt-10 sm:my-4">
