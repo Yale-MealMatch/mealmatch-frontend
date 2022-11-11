@@ -5,7 +5,8 @@
 
 	export let question: FormCheckboxes;
 	export let value: string[] | number[] = [];
-	$: isError = !question.validationFunction(value);
+	export let showErrors: boolean;
+	$: isError = !question.validationFunction(value) && showErrors;
 </script>
 
 <fieldset class="space-y-5">

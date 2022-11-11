@@ -5,7 +5,8 @@
 
 	export let question: FormInput;
 	export let value = '';
-	$: isError = !question.validationFunction(value);
+	export let showErrors: boolean;
+	$: isError = !question.validationFunction(value) && showErrors;
 
 	$: errorClasses = isError
 		? 'border-error-300 text-error-900 placeholder-error-300 focus:border-error-500 focus:outline-none focus:ring-error-500'

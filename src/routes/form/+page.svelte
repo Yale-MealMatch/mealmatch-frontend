@@ -31,7 +31,7 @@
 	};
 </script>
 
-{showErrors}
+
 <div class="mt-10 sm:my-4">
 	<div class="flex flex-col gap-4">
 		<div class="overflow-hidden bg-white shadow sm:rounded-md">
@@ -41,16 +41,16 @@
 			<div class="rounded-lg border border-gray-200 bg-white p-6 shadow-md">
 				<FormHeader title={question.label} description={question.description} />
 				{#if question.type === 'radio'}
-					<FormRadioGroup {question} bind:value={$responses[question.name]} />
+					<FormRadioGroup {showErrors} {question} bind:value={$responses[question.name]} />
 				{/if}
 				{#if question.type === 'checkboxes'}
-					<FormCheckboxes {question} bind:value={$responses[question.name]} />
+					<FormCheckboxes {showErrors} {question} bind:value={$responses[question.name]} />
 				{/if}
 				{#if question.type === 'input'}
-					<FormInput {question} bind:value={$responses[question.name]} />
+					<FormInput {showErrors} {question} bind:value={$responses[question.name]} />
 				{/if}
 				{#if question.type === 'textarea'}
-					<FormTextArea {question} bind:value={$responses[question.name]} />
+					<FormTextArea {showErrors} {question} bind:value={$responses[question.name]} />
 				{/if}
 			</div>
 			<!-- <FormDivider /> -->
