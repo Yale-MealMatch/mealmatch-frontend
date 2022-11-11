@@ -9,7 +9,7 @@
 	$: isError = !question.validationFunction(value) && showErrors;
 </script>
 
-<fieldset class="space-y-5">
+<fieldset class="space-y-5 -mt-4">
 	<legend class="sr-only">Notifications</legend>
 	{#each question.options as option, index}
 		<div class="relative flex items-start">
