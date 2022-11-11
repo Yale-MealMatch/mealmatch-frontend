@@ -109,7 +109,7 @@ export const questions: Question[][] = [
 			// description:
 			// 'For instance, "literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious"',
 			description:
-				'They can be the same as yours, or different. We will do our best to match you to someone with these keywords!',
+				'They can be the same as yours, or different. We will try our best to match you to someone with these keywords!',
 			placeholder: 'Your answer',
 			validationFunction: (value) => /,\s*/.test(value),
 			errorMessage: 'Please enter a comma separated list of keywords'
