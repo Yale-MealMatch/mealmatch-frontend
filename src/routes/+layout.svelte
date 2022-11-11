@@ -24,7 +24,7 @@
 
 <!-- TODO: Update Head -->
 <svelte:head>
-	<title>Yale MealMatch</title>
+	<title>MealMatch</title>
 	<meta name="description" content="Find Yalies to grab a meal with!" />
 	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 	<link rel="icon" href="/favicon.png" />
