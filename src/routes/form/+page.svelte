@@ -8,6 +8,7 @@
 	import ProgressBar from './ProgressBar.svelte';
 	import { postUserResponses } from './+page';
 	import { responses } from './+page';
+	import { goto } from '$app/navigation';
 
 	let currentPageIndex = 0;
 	$: currentPage = questions[currentPageIndex];
@@ -29,11 +30,17 @@
 		currentPageIndex = index;
 		showErrors = false;
 	};
+
+	const submit = () => {
+		if (isError()) return (showErrors = true);
+		postUserResponses($responses);
+		goto('/form/confirmation');
+	};
 </script>
 
 <div class="mt-10 sm:my-4">
-	<div class="flex flex-col gap-4">
-		<div class="overflow-hidden bg-white shadow sm:rounded-md">
+	<div class="flex flex-col gap-4 px-4 sm:px-0">
+		<div class="-mt-6 overflow-hidden bg-white shadow sm:mt-0">
 			<ProgressBar currentStepIndex={currentPageIndex} {jumpSlide} />
 		</div>
 		{#each currentPage as question}
@@ -76,9 +83,7 @@
 				<button
 					type="submit"
 					class="flex justify-center rounded-md border border-transparent bg-rose-600 py-2 px-4 font-bold text-white shadow-sm hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2"
-					on:click={() => {
-						postUserResponses($responses);
-					}}
+					on:click={submit}
 				>
 					Submit
 				</button>

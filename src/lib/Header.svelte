@@ -35,7 +35,7 @@
 					<Logo class="hidden h-12 w-auto lg:block" />
 				</div>
 				<a href="/form">
-					<div class="hidden sm:block">
+					<div class="block">
 						<!-- Hidden, lg:block -->
 						<h2 class="ml-4 block text-4xl font-bold text-amber-900 md:text-3xl">MealMatch</h2>
 					</div>

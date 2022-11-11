@@ -22,8 +22,8 @@ export const questions: Question[][] = [
 			label: 'What are your pronouns?',
 			description: 'Your pronouns will be provided to your match for ease of communication.',
 			options: [
-				{ label: 'he/him', value: 'he/him' },
 				{ label: 'she/her', value: 'she/her' },
+				{ label: 'he/him', value: 'he/him' },
 				{ label: 'they/them', value: 'they/them' },
 				{ label: 'other', value: 'other' }
 			],
@@ -75,7 +75,7 @@ export const questions: Question[][] = [
 			name: 'phone',
 			label: 'What is your phone number? (10 digits, no special characters)',
 			description: 'Your number will be provided to your match for ease of communication.',
-			placeholder: 'XXXYYYZZZZ',
+			placeholder: 'Your number',
 			validationFunction: (value) => /^\d{10}$/.test(value),
 			errorMessage: 'Please enter 10 digits in the form XXXYYYZZZZ'
 		},
@@ -85,7 +85,7 @@ export const questions: Question[][] = [
 			label: 'Create a nickname:',
 			description:
 				'For privacy, your match will refer to you by your nickname before meeting in person.',
-			placeholder: 'Your answer',
+			placeholder: 'Your nickname',
 			validationFunction: (value) => value.length > 0,
 			errorMessage: 'Please enter a nickname'
 		},
@@ -93,25 +93,29 @@ export const questions: Question[][] = [
 			type: 'input',
 			name: 'keywords',
 			label:
-				'(Optional) List keywords that describe you (hobbies, interest groups, personality traits, etc.):',
+				'<span class="text-slate-500">(Recommended)</span> List keywords that describe you, such as hobbies, interest groups, personality traits, etc.:',
 			// description:
-			// 'For instance, "literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious"',
 			description:
-				'Example response: <em>literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious</em>. <br /> Your keywords will be shown to your match.',
-			placeholder: 'Your answer',
-			validationFunction: (value) => /,\s*/.test(value),
+				'Example response: <em>literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious</ em > <br /> Your keywords will be shown to your match.',
+			placeholder: 'List keywords separated by commas',
+			// validationFunction: (value) => /,\s*/.test(value),
+			// eslint-disable-next-line @typescript-eslint/no-unused-vars
+			validationFunction: (value) => true,
 			errorMessage: 'Please enter a comma separated list of keywords'
 		},
 		{
 			type: 'input',
 			name: 'keywords_match',
-			label: '(Optional) List keywords that describe your ideal match:',
+			label:
+				'<span class="text-slate-500">(Recommended)</span> List keywords that describe your ideal match:',
 			// description:
 			// 'For instance, "literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious"',
 			description:
 				'They can be the same as yours, or different. We will try our best to match you to someone with these keywords!',
-			placeholder: 'Your answer',
-			validationFunction: (value) => /,\s*/.test(value),
+			placeholder: 'List keywords separated by commas',
+			// validationFunction: (value) => /,\s*/.test(value),
+			// eslint-disable-next-line @typescript-eslint/no-unused-vars
+			validationFunction: (value) => true,
 			errorMessage: 'Please enter a comma separated list of keywords'
 		},
 		{
@@ -137,7 +141,7 @@ export const questions: Question[][] = [
 				}
 			],
 			validationFunction: (value) => value.length === 3,
-			errorMessage: 'Please select at least one year'
+			errorMessage: 'Please accept all three statements'
 		}
 	]
 ];
