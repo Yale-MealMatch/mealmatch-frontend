@@ -12,7 +12,7 @@ type KeyOfType<T, V> = { [K in keyof T]: T[K] extends V ? K : never }[keyof T];
 
 type FormRadio = {
 	type: 'radio';
-	name: KeyOfType<Database['public']['Tables']['responses']['Row'], string>;
+	name: KeyOfType<Database['public']['Tables']['responses']['Row'], string | number>;
 	label: string;
 	description: string;
 	options: FormRadioSelectOption[];
@@ -22,7 +22,7 @@ type FormRadio = {
 
 type FormCheckboxes = {
 	type: 'checkboxes';
-	name: KeyOfType<Database['public']['Tables']['responses']['Row'], string[]>;
+	name: KeyOfType<Database['public']['Tables']['responses']['Row'], string[] | number[]>;
 	label: string;
 	description: string;
 	options: FormCheckboxesOption[];
