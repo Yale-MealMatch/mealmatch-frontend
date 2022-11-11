@@ -8,9 +8,11 @@ type SelectOption = {
 type FormCheckboxesOption = SelectOption;
 type FormRadioSelectOption = SelectOption;
 
+type KeyOfType<T, V> = { [K in keyof T]: T[K] extends V ? K : never }[keyof T];
+
 type FormRadio = {
 	type: 'radio';
-	name: keyof Database['public']['Tables']['responses']['Row'];
+	name: KeyOfType<Database['public']['Tables']['responses']['Row'], string>;
 	label: string;
 	description: string;
 	options: FormRadioSelectOption[];
@@ -20,7 +22,7 @@ type FormRadio = {
 
 type FormCheckboxes = {
 	type: 'checkboxes';
-	name: keyof Database['public']['Tables']['responses']['Row'];
+	name: KeyOfType<Database['public']['Tables']['responses']['Row'], string[]>;
 	label: string;
 	description: string;
 	options: FormCheckboxesOption[];
@@ -30,7 +32,7 @@ type FormCheckboxes = {
 
 type FormInput = {
 	type: 'input';
-	name: keyof Database['public']['Tables']['responses']['Row'];
+	name: KeyOfType<Database['public']['Tables']['responses']['Row'], string>;
 	label: string;
 	description: string;
 	placeholder: string;
@@ -41,7 +43,7 @@ type FormInput = {
 // Description can be a string or a Svelte component
 type FormTextArea = {
 	type: 'textarea';
-	name: keyof Database['public']['Tables']['responses']['Row'];
+	name: KeyOfType<Database['public']['Tables']['responses']['Row'], string>;
 	label: string;
 	description: string | typeof SvelteComponent;
 	placeholder: string;
