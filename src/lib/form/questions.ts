@@ -97,7 +97,7 @@ export const questions: Question[][] = [
 			// description:
 			// 'For instance, "literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious"',
 			description:
-				'Example response: <em>literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious</em>. \n Your keywords will be used to match you with someone with similar interests.',
+				'Example response: <em>literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious</em>. <br /> Your keywords will be shown to your match.',
 			placeholder: 'Your answer',
 			validationFunction: (value) => /,\s*/.test(value),
 			errorMessage: 'Please enter a comma separated list of keywords'
@@ -109,7 +109,7 @@ export const questions: Question[][] = [
 			// description:
 			// 'For instance, "literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious"',
 			description:
-				'They can be the same as yours, or different. We will do our best to match you to someone with similar interests!',
+				'They can be the same as yours, or different. We will do our best to match you to someone with these keywords!',
 			placeholder: 'Your answer',
 			validationFunction: (value) => /,\s*/.test(value),
 			errorMessage: 'Please enter a comma separated list of keywords'
