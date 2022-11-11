@@ -122,14 +122,21 @@ export const questions: Question[][] = [
 			options: [
 				{
 					label:
-						'I will not ghost my match, and understand that doing so may ban me from using MealMatch in the future',
+						'I will not ghost my match, and understand that doing so may ban me from using MealMatch in the future.',
 					value: 1
 				},
-				{ label: 'I will not ask for any identity revealing information about my match before meeting', value: 2 },
-				{ label: 'Junior', value: 'yes' },
-				{ label: 'Senior', value: 'yes' }
+				{
+					label:
+						'I will not ask for any identity-revealing information (real name, Instagram, etc.) from my match before meeting them in person unless they volunteer to do so.',
+					value: 2
+				},
+				{
+					label:
+						'I certify that my email and phone number are correct, and that I will opt in via weekly confirmation texts to be matched.',
+					value: 3
+				}
 			],
-			validationFunction: (value) => value.length === 4,
+			validationFunction: (value) => value.length === 3,
 			errorMessage: 'Please select at least one year'
 		}
 	]
