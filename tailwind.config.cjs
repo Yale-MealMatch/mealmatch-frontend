@@ -7,7 +7,7 @@ const config = {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ['Open Sans', ...defaultTheme.fontFamily.sans]
+				sans: ['Nunito', ...defaultTheme.fontFamily.sans]
 			},
 			colors: {
 				error: colors.red
