@@ -26,15 +26,21 @@
 	};
 </script>
 
-<Disclosure as="nav" class="bg-neutral-700" let:open>
+<Disclosure as="nav" class="bg-rose-300" let:open>
 	<div class="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
 		<div class="relative flex h-16 items-center justify-between">
 			<div class="flex items-center px-2 lg:px-0">
 				<div class="flex-shrink-0">
-					<Logo class="block h-8 w-auto lg:hidden" />
-					<Logo class="hidden h-8 w-auto lg:block" />
+					<Logo class="block h-10 w-auto lg:hidden" />
+					<Logo class="hidden h-10 w-auto lg:block" />
 				</div>
-				<div class="hidden lg:ml-6 lg:block">
+				<a href="/">
+					<div class="hidden sm:block">
+						<!-- Hidden, lg:block -->
+						<h2 class="ml-4 block text-4xl font-bold md:text-4xl text-slate-800">MealMatch</h2>
+					</div>
+				</a>
+				<!-- <div class="hidden lg:ml-6 lg:block">
 					<div class="flex space-x-4">
 						{#each navigation as item (item.name)}
 							<a
@@ -47,7 +53,7 @@
 							</a>
 						{/each}
 					</div>
-				</div>
+				</div> -->
 			</div>
 			<div class="flex flex-1 justify-center px-2 lg:ml-6 lg:justify-end">
 				<div class="w-full max-w-lg lg:max-w-xs">
