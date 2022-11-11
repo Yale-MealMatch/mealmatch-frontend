@@ -8,7 +8,7 @@ export const responses = writable({} as Database['public']['Tables']['responses'
 
 export const load: PageLoad = async (event) => {
 	const { session } = await getSupabase(event);
-	if (!session) return 
+	if (!session) return;
 	responses.set(await getUserResponses());
 };
 
