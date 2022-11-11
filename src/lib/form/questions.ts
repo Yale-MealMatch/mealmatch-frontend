@@ -63,6 +63,24 @@ export const questions: Question[][] = [
 	[
 		{
 			type: 'input',
+			name: 'email',
+			label: 'What is your Yale email?',
+			description: '',
+			placeholder: 'Your email',
+			validationFunction: (value) => /@yale.edu$/.test(value),
+			errorMessage: 'Please enter your Yale email address (@yale.edu)'
+		},
+		{
+			type: 'input',
+			name: 'phone',
+			label: 'What is your phone number? (10 digits, no special characters)',
+			description: 'Your number will be provided to your match for ease of communication.',
+			placeholder: 'XXXYYYZZZZ',
+			validationFunction: (value) => /^\d{10}$/.test(value),
+			errorMessage: 'Please enter 10 digits in the form XXXYYYZZZZ'
+		},
+		{
+			type: 'input',
 			name: 'nickname',
 			label: 'Create a nickname:',
 			description:
@@ -73,47 +91,53 @@ export const questions: Question[][] = [
 		},
 		{
 			type: 'input',
-			name: 'email',
-			label: 'What is email address?',
-			description: 'Please make sure that this is correct',
-			placeholder: 'jane.doe@yale.edu',
-			validationFunction: (value) => /@yale.edu$/.test(value),
-			errorMessage: 'Please enter your Yale email address (@yale.edu)'
-		},
-		{
-			type: 'input',
-			name: 'phone',
-			label: 'What is your phone number? (Ten digits, no special characters)',
-			description: 'Your number will be provided to your match for ease of communication.',
-			placeholder: '1234567890',
-			validationFunction: (value) => /^\d{10}$/.test(value),
-			errorMessage: 'Please enter 10 digits in the form 1234567890'
-		},
-		{
-			type: 'input',
 			name: 'keywords',
-			label: 'List keywords that describe you (hobbies, interest groups, personality traits, etc.):',
+			label:
+				'(Optional) List keywords that describe you (hobbies, interest groups, personality traits, etc.):',
 			// description:
 			// 'For instance, "literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious"',
 			description:
-				'Example response: <em>literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious</em>',
-			placeholder:
-				'Your answer',
+				'Example response: <em>literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious</em>. <br /> Your keywords will be shown to your match.',
+			placeholder: 'Your answer',
 			validationFunction: (value) => /,\s*/.test(value),
 			errorMessage: 'Please enter a comma separated list of keywords'
 		},
 		{
 			type: 'input',
 			name: 'keywords_match',
-			label: 'List keywords that describe your ideal match:',
+			label: '(Optional) List keywords that describe your ideal match:',
 			// description:
 			// 'For instance, "literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious"',
 			description:
-				'They can be the same as yours, or different.',
-			placeholder:
-				'Your answer',
+				'They can be the same as yours, or different. We will try our best to match you to someone with these keywords!',
+			placeholder: 'Your answer',
 			validationFunction: (value) => /,\s*/.test(value),
 			errorMessage: 'Please enter a comma separated list of keywords'
 		},
+		{
+			type: 'checkboxes',
+			name: 'confirm',
+			label: 'By submitting this form, I agree to the following:',
+			description: '',
+			options: [
+				{
+					label:
+						'I will not ghost my match, and understand that doing so may ban me from using MealMatch in the future.',
+					value: 1
+				},
+				{
+					label:
+						'I will not ask for any identity-revealing information (real name, Instagram, etc.) from my match before meeting them in person unless they volunteer to do so.',
+					value: 2
+				},
+				{
+					label:
+						'I certify that my email and phone number are correct, and that I will opt in via weekly confirmation texts to be matched.',
+					value: 3
+				}
+			],
+			validationFunction: (value) => value.length === 3,
+			errorMessage: 'Please select at least one year'
+		}
 	]
 ];

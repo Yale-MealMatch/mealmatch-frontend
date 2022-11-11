@@ -11,7 +11,8 @@
 
 	export let question: FormRadio;
 	export let value: string | number = '';
-	$: isError = !question.validationFunction(value);
+	export let showErrors: boolean;
+	$: isError = !question.validationFunction(value) && showErrors;
 	const roundTopAndBottom = (index: number) => {
 		if (index === 0) return 'rounded-tl-md rounded-tr-md';
 		if (index === question.options.length - 1) return 'rounded-bl-md rounded-br-md';

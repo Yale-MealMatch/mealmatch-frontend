@@ -4,11 +4,22 @@ import type { PageLoad } from './$types';
 import type { Database } from '$lib/types/DatabaseDefinitions';
 import { writable } from 'svelte/store';
 
-export const responses = writable({} as Database['public']['Tables']['responses']['Row']);
+export const responses = writable<Database['public']['Tables']['responses']['Insert']>({
+	year_match: [],
+	pronouns: '',
+	pronouns_match: '',
+	phone: '',
+	nickname: '',
+	email: '',
+	keywords: '',
+	keywords_match: '',
+	confirm: [],
+	year: 0
+} as Database['public']['Tables']['responses']['Insert']);
 
 export const load: PageLoad = async (event) => {
 	const { session } = await getSupabase(event);
-	if (!session) return 
+	if (!session) return;
 	responses.set(await getUserResponses());
 };
 

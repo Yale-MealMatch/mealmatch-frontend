@@ -7,19 +7,31 @@
 	import { questions } from '$lib/form/questions';
 	import ProgressBar from './ProgressBar.svelte';
 	import { postUserResponses } from './+page';
-	import {responses} from './+page';
+	import { responses } from './+page';
 
 	let currentPageIndex = 0;
 	$: currentPage = questions[currentPageIndex];
 
-	let isError = false;
-	const previousSlide = () => (isError ? '' : currentPageIndex--);
-	const nextSlide = () => (isError ? '' : currentPageIndex++);
-	const jumpSlide = (index: number) => (isError ? '' : (currentPageIndex = index));
+	const isError = () =>
+		currentPage.some((question) => !question.validationFunction($responses[question.name]));
+
+	let showErrors = false;
+	const previousSlide = () => {
+		return currentPageIndex--;
+	};
+	const nextSlide = () => {
+		if (isError()) return (showErrors = true);
+		currentPageIndex++;
+		showErrors = false;
+	};
+	const jumpSlide = (index: number) => {
+		if (index > currentPageIndex && isError()) return (showErrors = true);
+		currentPageIndex = index;
+		showErrors = false;
+	};
 </script>
 
 <div class="mt-10 sm:my-4">
-	{JSON.stringify($responses)}
 	<div class="flex flex-col gap-4">
 		<div class="overflow-hidden bg-white shadow sm:rounded-md">
 			<ProgressBar currentStepIndex={currentPageIndex} {jumpSlide} />
@@ -28,16 +40,16 @@
 			<div class="rounded-lg border border-gray-200 bg-white p-6 shadow-md">
 				<FormHeader title={question.label} description={question.description} />
 				{#if question.type === 'radio'}
-					<FormRadioGroup {question} bind:value={$responses[question.name]} />
+					<FormRadioGroup {showErrors} {question} bind:value={$responses[question.name]} />
 				{/if}
 				{#if question.type === 'checkboxes'}
-					<FormCheckboxes {question} bind:value={$responses[question.name]} />
+					<FormCheckboxes {showErrors} {question} bind:value={$responses[question.name]} />
 				{/if}
 				{#if question.type === 'input'}
-					<FormInput {question} bind:value={$responses[question.name]} />
+					<FormInput {showErrors} {question} bind:value={$responses[question.name]} />
 				{/if}
 				{#if question.type === 'textarea'}
-					<FormTextArea {question} bind:value={$responses[question.name]} />
+					<FormTextArea {showErrors} {question} bind:value={$responses[question.name]} />
 				{/if}
 			</div>
 			<!-- <FormDivider /> -->
