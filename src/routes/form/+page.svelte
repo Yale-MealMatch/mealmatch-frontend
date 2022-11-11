@@ -39,8 +39,8 @@
 </script>
 
 <div class="mt-10 sm:my-4">
-	<div class="flex flex-col gap-4">
-		<div class="overflow-hidden bg-white shadow sm:rounded-md">
+	<div class="flex flex-col gap-4 px-4 sm:px-0">
+		<div class="overflow-hidden bg-white shadow -mt-6 sm:mt-0">
 			<ProgressBar currentStepIndex={currentPageIndex} {jumpSlide} />
 		</div>
 		{#each currentPage as question}
