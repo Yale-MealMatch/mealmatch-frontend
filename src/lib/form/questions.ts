@@ -104,7 +104,7 @@ export const questions: Question[][] = [
 		},
 		{
 			type: 'input',
-			name: 'keywords',
+			name: 'keywords_match',
 			label: 'List keywords that describe your ideal match:',
 			// description:
 			// 'For instance, "literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious"',
