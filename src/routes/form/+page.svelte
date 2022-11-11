@@ -16,11 +16,11 @@
 		currentPage.some((question) => !question.validationFunction($responses[question.name]));
 	const previousSlide = () => currentPageIndex--;
 	const nextSlide = () => (isError() ? '' : currentPageIndex++);
-	const jumpSlide = (index: number) => ((index > currentPageIndex && isError()) ? '' : (currentPageIndex = index));
+	const jumpSlide = (index: number) =>
+		index > currentPageIndex && isError() ? '' : (currentPageIndex = index);
 </script>
 
 <div class="mt-10 sm:my-4">
-	{JSON.stringify($responses)}
 	<div class="flex flex-col gap-4">
 		<div class="overflow-hidden bg-white shadow sm:rounded-md">
 			<ProgressBar currentStepIndex={currentPageIndex} {jumpSlide} />
