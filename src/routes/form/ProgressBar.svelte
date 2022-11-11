@@ -3,7 +3,7 @@
 	import { Icon } from '@steeze-ui/svelte-icon';
 
 	export let currentStepIndex: number;
-	export let jumpSlide: (index: number) => number | '';
+	export let jumpSlide: (index: number) => true | undefined;
 	const steps = [
 		{ id: '01', name: 'Basic information', href: '/form/1', status: 'complete' },
 		{ id: '02', name: 'Preferences', href: '/form/2', status: 'current' },
