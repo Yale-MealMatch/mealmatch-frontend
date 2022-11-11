@@ -66,7 +66,7 @@ export const questions: Question[][] = [
 			name: 'nickname',
 			label: 'Create a nickname:',
 			description:
-				'To preserve anonymity, your match will refer to you by your nickname before meeting in person.',
+				'For privacy, your match will refer to you by your nickname before meeting in person.',
 			placeholder: 'Your answer',
 			validationFunction: (value) => value.length > 0,
 			errorMessage: 'Please enter a nickname'
@@ -104,13 +104,16 @@ export const questions: Question[][] = [
 		},
 		{
 			type: 'input',
-			name: 'keywords_match',
-			label: 'Create a nickname:',
+			name: 'keywords',
+			label: 'List keywords that describe your ideal match',
+			// description:
+			// 'For instance, "literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious"',
 			description:
-				'To preserve anonymity, your match will refer to you by your nickname before meeting in person.',
-			placeholder: 'Your answer',
+				'Example response: <em>literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious</em>',
+			placeholder:
+				'Your answer',
 			validationFunction: (value) => /,\s*/.test(value),
 			errorMessage: 'Please enter a comma separated list of keywords'
-		}
+		},
 	]
 ];
