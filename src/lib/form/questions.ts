@@ -93,7 +93,7 @@ export const questions: Question[][] = [
 			type: 'input',
 			name: 'keywords',
 			label:
-				'<span class="text-slate-500">[Recommended]</span> List keywords that describe you (hobbies, interest groups, personality traits, etc.):',
+				'<span class="text-slate-500">(Recommended)</span> List keywords that describe you (hobbies, interest groups, personality traits, etc.):',
 			// description:
 			description:
 				'Example response: <em>literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious</em> <br /> Your keywords will be shown to your match.',
@@ -107,7 +107,7 @@ export const questions: Question[][] = [
 			type: 'input',
 			name: 'keywords_match',
 			label:
-				'<span class="text-slate-500">[Recommended]</span> List keywords that describe your ideal match:',
+				'<span class="text-slate-500">(Recommended)</span> List keywords that describe your ideal match:',
 			// description:
 			// 'For instance, "literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious"',
 			description:
