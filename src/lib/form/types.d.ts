@@ -16,7 +16,7 @@ type FormRadio = {
 	label: string;
 	description: string;
 	options: FormRadioSelectOption[];
-	validationFunction: (value: string | number) => boolean;
+	validationFunction: (value: unknown) => boolean;
 	errorMessage: string;
 };
 
@@ -26,7 +26,7 @@ type FormCheckboxes = {
 	label: string;
 	description: string;
 	options: FormCheckboxesOption[];
-	validationFunction: (value: string[] | number[]) => boolean;
+	validationFunction: (value: unknown) => boolean;
 	errorMessage: string;
 };
 
@@ -36,7 +36,7 @@ type FormInput = {
 	label: string;
 	description: string;
 	placeholder: string;
-	validationFunction: (value: string) => boolean;
+	validationFunction: (value: unknown) => boolean;
 	errorMessage: string;
 };
 
@@ -47,7 +47,7 @@ type FormTextArea = {
 	label: string;
 	description: string | typeof SvelteComponent;
 	placeholder: string;
-	validationFunction: (value: string) => boolean;
+	validationFunction: (value: unknown) => boolean;
 	errorMessage: string;
 };
 
