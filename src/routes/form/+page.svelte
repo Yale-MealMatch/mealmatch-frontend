@@ -8,6 +8,7 @@
 	import ProgressBar from './ProgressBar.svelte';
 	import { postUserResponses } from './+page';
 	import { responses } from './+page';
+	import {goto} from '$app/navigation';
 
 	let currentPageIndex = 0;
 	$: currentPage = questions[currentPageIndex];
@@ -33,6 +34,7 @@
 	const submit = () => {
 		if (isError()) return (showErrors = true);
 		postUserResponses($responses);
+		goto('/form/confirmation');
 	};
 </script>
 
