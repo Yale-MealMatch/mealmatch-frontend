@@ -40,7 +40,7 @@
 	<slot />
 </main>
 <footer>
-	<div class="flex flex-col justify-center my-2">
+	<div class="my-2 flex flex-col justify-center">
 		<p class="text-center">
 			Made with <span>❤️</span> by Yale students
 		</p>
