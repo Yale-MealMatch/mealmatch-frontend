@@ -113,6 +113,24 @@ export const questions: Question[][] = [
 			placeholder: 'Your answer',
 			validationFunction: (value) => /,\s*/.test(value),
 			errorMessage: 'Please enter a comma separated list of keywords'
+		},
+		{
+			type: 'checkboxes',
+			name: 'confirm',
+			label: 'By submitting this form, I agree to the following:',
+			description: '',
+			options: [
+				{
+					label:
+						'I will not ghost my match, and understand that doing so may ban me from using MealMatch in the future',
+					value: 1
+				},
+				{ label: 'I will not ask for any identity revealing information about my match before meeting', value: 2 },
+				{ label: 'Junior', value: 'yes' },
+				{ label: 'Senior', value: 'yes' }
+			],
+			validationFunction: (value) => value.length === 4,
+			errorMessage: 'Please select at least one year'
 		}
 	]
 ];
