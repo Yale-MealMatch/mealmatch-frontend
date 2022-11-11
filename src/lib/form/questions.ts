@@ -66,7 +66,7 @@ export const questions: Question[][] = [
 			name: 'email',
 			label: 'What is your Yale email?',
 			description: '',
-			placeholder: 'jane.doe@yale.edu',
+			placeholder: 'Your email',
 			validationFunction: (value) => /@yale.edu$/.test(value),
 			errorMessage: 'Please enter your Yale email address (@yale.edu)'
 		},
@@ -75,7 +75,7 @@ export const questions: Question[][] = [
 			name: 'phone',
 			label: 'What is your phone number? (10 digits, no special characters)',
 			description: 'Your number will be provided to your match for ease of communication.',
-			placeholder: '1234567890',
+			placeholder: 'XXXYYYZZZZ',
 			validationFunction: (value) => /^\d{10}$/.test(value),
 			errorMessage: 'Please enter 10 digits in the form XXXYYYZZZZ'
 		},
