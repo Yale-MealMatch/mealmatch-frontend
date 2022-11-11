@@ -14,12 +14,24 @@
 
 	const isError = () =>
 		currentPage.some((question) => !question.validationFunction($responses[question.name]));
-	const previousSlide = () => currentPageIndex--;
-	const nextSlide = () => (isError() ? '' : currentPageIndex++);
-	const jumpSlide = (index: number) =>
-		index > currentPageIndex && isError() ? '' : (currentPageIndex = index);
+
+	let showErrors = false;
+	const previousSlide = () => {
+		return currentPageIndex--;
+	};
+	const nextSlide = () => {
+		if (isError()) return (showErrors = true);
+		currentPageIndex++;
+		showErrors = false;
+	};
+	const jumpSlide = (index: number) => {
+		if (index > currentPageIndex && isError()) return (showErrors = true);
+		currentPageIndex = index;
+		showErrors = false;
+	};
 </script>
 
+{showErrors}
 <div class="mt-10 sm:my-4">
 	<div class="flex flex-col gap-4">
 		<div class="overflow-hidden bg-white shadow sm:rounded-md">
