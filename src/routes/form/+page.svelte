@@ -7,15 +7,17 @@
 	import { questions } from '$lib/form/questions';
 	import ProgressBar from './ProgressBar.svelte';
 	import { postUserResponses } from './+page';
-	import {responses} from './+page';
+	import { responses } from './+page';
 
 	let currentPageIndex = 0;
 	$: currentPage = questions[currentPageIndex];
 
-	let isError = false;
-	const previousSlide = () => (isError ? '' : currentPageIndex--);
-	const nextSlide = () => (isError ? '' : currentPageIndex++);
-	const jumpSlide = (index: number) => (isError ? '' : (currentPageIndex = index));
+	const isError = () => currentPage.some(
+		(question) => !question.validationFunction($responses[question.name])
+	);
+	const previousSlide = () => (isError() ? '' : currentPageIndex--);
+	const nextSlide = () => (isError() ? '' : currentPageIndex++);
+	const jumpSlide = (index: number) => (isError() ? '' : (currentPageIndex = index));
 </script>
 
 <div class="mt-10 sm:my-4">
