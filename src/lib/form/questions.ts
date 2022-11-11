@@ -87,7 +87,7 @@ export const questions: Question[][] = [
 			description: 'Your number will be provided to your match for ease of communication.',
 			placeholder: '1234567890',
 			validationFunction: (value) => /^\d{10}$/.test(value),
-			errorMessage: 'Please enter 10 digits in the form 1234567890'
+			errorMessage: 'Please enter 10 digits in the form xxxyyyzzzz'
 		},
 		{
 			type: 'input',
