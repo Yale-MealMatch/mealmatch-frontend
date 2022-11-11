@@ -6,7 +6,7 @@
 	$: isError = !question.validationFunction(value);
 
 	$: errorClasses = isError
-		? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500'
+		? 'border-error-300 text-error-900 placeholder-error-300 focus:border-error-500 focus:outline-none focus:ring-error-500'
 		: 'bg-gray-50 focus:border-rose-600';
 </script>
 
@@ -25,6 +25,6 @@
 		/>
 	</div>
 	{#if isError}
-		<p class="mt-2 text-sm text-red-600" id="email-error">{question.errorMessage}</p>
+		<p class="mt-2 text-sm text-error-600" id="email-error">{question.errorMessage}</p>
 	{/if}
 </div>

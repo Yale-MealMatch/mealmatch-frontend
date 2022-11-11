@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+const colors = require('tailwindcss/colors');
 
 const config = {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
@@ -6,7 +7,10 @@ const config = {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ['Open Sans', ...defaultTheme.fontFamily.sans]
+				sans: ['Nunito', ...defaultTheme.fontFamily.sans]
+			},
+			colors: {
+				error: colors.red
 			}
 		}
 	},

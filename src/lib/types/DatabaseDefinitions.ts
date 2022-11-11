@@ -3,39 +3,86 @@ export type Json = string | number | boolean | null | { [key: string]: Json } | 
 export interface Database {
 	public: {
 		Tables: {
-			responses: {
+			accounts: {
 				Row: {
 					id: string;
-					phone: string;
-					year: number;
-					pronouns: string;
-					timestamp: string;
-					pronouns_match: string[];
-					bio: string;
-					year_match: number[];
-					nickname: string;
+					timestamp: string | null;
+					year: number | null;
+					year_match: number[] | null;
+					pronouns: string | null;
+					pronouns_match: string[] | null;
+					phone: string | null;
+					nickname: string | null;
+					bio: string | null;
+					email: string | null;
 				};
 				Insert: {
 					id: string;
-					phone: string;
-					year: number;
-					pronouns: string;
-					timestamp?: string;
-					pronouns_match: string[];
-					bio: string;
-					year_match: number[];
-					nickname: string;
+					timestamp?: string | null;
+					year?: number | null;
+					year_match?: number[] | null;
+					pronouns?: string | null;
+					pronouns_match?: string[] | null;
+					phone?: string | null;
+					nickname?: string | null;
+					bio?: string | null;
+					email?: string | null;
 				};
 				Update: {
 					id?: string;
-					phone?: string;
-					year?: number;
-					pronouns?: string;
+					timestamp?: string | null;
+					year?: number | null;
+					year_match?: number[] | null;
+					pronouns?: string | null;
+					pronouns_match?: string[] | null;
+					phone?: string | null;
+					nickname?: string | null;
+					bio?: string | null;
+					email?: string | null;
+				};
+			};
+			responses: {
+				Row: {
+					timestamp: string;
+					year: number;
+					year_match: number[];
+					pronouns: string;
+					pronouns_match: string[];
+					phone: string;
+					nickname: string;
+					bio: string;
+					email: string;
+					keywords: string;
+					keywords_match: string;
+					id: number;
+				};
+				Insert: {
 					timestamp?: string;
-					pronouns_match?: string[];
-					bio?: string;
+					year: number;
+					year_match: number[];
+					pronouns: string;
+					pronouns_match: string[];
+					phone: string;
+					nickname: string;
+					bio: string;
+					email: string;
+					keywords: string;
+					keywords_match: string;
+					id?: number;
+				};
+				Update: {
+					timestamp?: string;
+					year?: number;
 					year_match?: number[];
+					pronouns?: string;
+					pronouns_match?: string[];
+					phone?: string;
 					nickname?: string;
+					bio?: string;
+					email?: string;
+					keywords?: string;
+					keywords_match?: string;
+					id?: number;
 				};
 			};
 		};

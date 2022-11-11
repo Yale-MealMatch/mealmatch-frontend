@@ -26,15 +26,21 @@
 	};
 </script>
 
-<Disclosure as="nav" class="bg-neutral-700" let:open>
-	<div class="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
+<Disclosure as="nav" class="bg-rose-300" let:open>
+	<div class="mx-auto max-w-4xl px-2 sm:px-4 lg:px-8">
 		<div class="relative flex h-16 items-center justify-between">
 			<div class="flex items-center px-2 lg:px-0">
 				<div class="flex-shrink-0">
-					<Logo class="block h-8 w-auto lg:hidden" />
-					<Logo class="hidden h-8 w-auto lg:block" />
+					<Logo class="block h-12 w-auto lg:hidden" />
+					<Logo class="hidden h-12 w-auto lg:block" />
 				</div>
-				<div class="hidden lg:ml-6 lg:block">
+				<a href="/form">
+					<div class="hidden sm:block">
+						<!-- Hidden, lg:block -->
+						<h2 class="ml-4 block text-4xl font-bold md:text-3xl text-slate-600">MealMatch</h2>
+					</div>
+				</a>
+				<!-- <div class="hidden lg:ml-6 lg:block">
 					<div class="flex space-x-4">
 						{#each navigation as item (item.name)}
 							<a
@@ -47,9 +53,9 @@
 							</a>
 						{/each}
 					</div>
-				</div>
+				</div> -->
 			</div>
-			<div class="flex flex-1 justify-center px-2 lg:ml-6 lg:justify-end">
+			<!-- <div class="flex flex-1 justify-center px-2 lg:ml-6 lg:justify-end">
 				<div class="w-full max-w-lg lg:max-w-xs">
 					<label for="search" class="sr-only">Search</label>
 					<div class="relative">
@@ -72,7 +78,7 @@
 				</div>
 			</div>
 			<div class="flex lg:hidden">
-				<!-- Mobile menu button -->
+				<!- - Mobile menu button - ->
 				<DisclosureButton
 					class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-neutral-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
 				>
@@ -94,7 +100,7 @@
 						<Icon src={BellAlert} theme="solid" class="h-6 w-6" aria-hidden="true" />
 					</button>
 
-					<!-- Profile dropdown -->
+					<!- - Profile dropdown - ->
 					<Menu as="div" class="relative ml-4 flex-shrink-0">
 						<div>
 							<MenuButton
@@ -180,7 +186,7 @@
 				>
 					<span class="sr-only">View notifications</span>
 					<Icon src={BellAlert} class="h-6 w-6" aria-hidden="true" />
-					<!-- <BellIcon class="h-6 w-6" aria-hidden="true" /> -->
+					<!- - <BellIcon class="h-6 w-6" aria-hidden="true" /> - ->
 				</button>
 			</div>
 			<div class="mt-3 space-y-1 px-2">
@@ -205,4 +211,5 @@
 			</div>
 		</div>
 	</DisclosurePanel>
+	 -->
 </Disclosure>
