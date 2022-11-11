@@ -3,9 +3,46 @@ export type Json = string | number | boolean | null | { [key: string]: Json } | 
 export interface Database {
 	public: {
 		Tables: {
-			responses: {
+			accounts: {
 				Row: {
 					id: string;
+					timestamp: string | null;
+					year: number | null;
+					year_match: number[] | null;
+					pronouns: string | null;
+					pronouns_match: string[] | null;
+					phone: string | null;
+					nickname: string | null;
+					bio: string | null;
+					email: string | null;
+				};
+				Insert: {
+					id: string;
+					timestamp?: string | null;
+					year?: number | null;
+					year_match?: number[] | null;
+					pronouns?: string | null;
+					pronouns_match?: string[] | null;
+					phone?: string | null;
+					nickname?: string | null;
+					bio?: string | null;
+					email?: string | null;
+				};
+				Update: {
+					id?: string;
+					timestamp?: string | null;
+					year?: number | null;
+					year_match?: number[] | null;
+					pronouns?: string | null;
+					pronouns_match?: string[] | null;
+					phone?: string | null;
+					nickname?: string | null;
+					bio?: string | null;
+					email?: string | null;
+				};
+			};
+			responses: {
+				Row: {
 					timestamp: string;
 					year: number;
 					year_match: number[];
@@ -15,9 +52,11 @@ export interface Database {
 					nickname: string;
 					bio: string;
 					email: string;
+					keywords: string;
+					keywords_match: string;
+					id: number;
 				};
 				Insert: {
-					id: string;
 					timestamp?: string;
 					year: number;
 					year_match: number[];
@@ -27,9 +66,11 @@ export interface Database {
 					nickname: string;
 					bio: string;
 					email: string;
+					keywords: string;
+					keywords_match: string;
+					id?: number;
 				};
 				Update: {
-					id?: string;
 					timestamp?: string;
 					year?: number;
 					year_match?: number[];
@@ -39,6 +80,9 @@ export interface Database {
 					nickname?: string;
 					bio?: string;
 					email?: string;
+					keywords?: string;
+					keywords_match?: string;
+					id?: number;
 				};
 			};
 		};
