@@ -3,16 +3,6 @@ import type { Question } from './types';
 export const questions: Question[][] = [
 	[
 		{
-			type: 'input',
-			name: 'nickname',
-			label: 'Create a nickname:',
-			description:
-				"Your match will refer to you by your nickname before meeting in person. Don't use your real name. ",
-			placeholder: 'Your answer',
-			validationFunction: (value) => value.length > 0,
-			errorMessage: 'Please enter a nickname.'
-		},
-		{
 			type: 'radio',
 			name: 'year',
 			label: 'What year are you?',
@@ -84,14 +74,24 @@ export const questions: Question[][] = [
 		}
 	],
 	[
+				{
+			type: 'input',
+			name: 'nickname',
+			label: 'Create a nickname:',
+			description:
+				"Your match will refer to you by your nickname before meeting in person. Don't use your real name. ",
+			placeholder: 'Your answer',
+			validationFunction: (value) => value.length > 0,
+			errorMessage: 'Please enter a nickname.'
+		},
 		{
 			type: 'input',
 			name: 'email',
-			label: 'What is email address? (Yale)',
+			label: 'What is email address?',
 			description: 'Please make sure that this is correct',
 			placeholder: 'jane.doe@yale.edu',
 			validationFunction: (value) => /@yale.edu$/.test(value),
-			errorMessage: 'Please enter 10 digits in the form 1234567890'
+			errorMessage: 'Please enter your Yale email address (@yale.edu)'
 		},
 		{
 			type: 'input',
