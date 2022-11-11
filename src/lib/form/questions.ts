@@ -63,19 +63,9 @@ export const questions: Question[][] = [
 	[
 		{
 			type: 'input',
-			name: 'nickname',
-			label: 'Create a nickname:',
-			description:
-				'For privacy, your match will refer to you by your nickname before meeting in person.',
-			placeholder: 'Your answer',
-			validationFunction: (value) => value.length > 0,
-			errorMessage: 'Please enter a nickname'
-		},
-		{
-			type: 'input',
 			name: 'email',
-			label: 'What is email address?',
-			description: 'Please make sure that this is correct',
+			label: 'What is your Yale email?',
+			description: '',
 			placeholder: 'jane.doe@yale.edu',
 			validationFunction: (value) => /@yale.edu$/.test(value),
 			errorMessage: 'Please enter your Yale email address (@yale.edu)'
@@ -83,11 +73,21 @@ export const questions: Question[][] = [
 		{
 			type: 'input',
 			name: 'phone',
-			label: 'What is your phone number? (Ten digits, no special characters)',
+			label: 'What is your phone number? (10 digits, no special characters)',
 			description: 'Your number will be provided to your match for ease of communication.',
 			placeholder: '1234567890',
 			validationFunction: (value) => /^\d{10}$/.test(value),
 			errorMessage: 'Please enter 10 digits in the form XXXYYYZZZZ'
+		},
+		{
+			type: 'input',
+			name: 'nickname',
+			label: 'Create a nickname:',
+			description:
+				'For privacy, your match will refer to you by your nickname before meeting in person.',
+			placeholder: 'Your answer',
+			validationFunction: (value) => value.length > 0,
+			errorMessage: 'Please enter a nickname'
 		},
 		{
 			type: 'input',
@@ -108,7 +108,7 @@ export const questions: Question[][] = [
 			label: 'List keywords that describe your ideal match:',
 			// description:
 			// 'For instance, "literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious"',
-			description: 'They can be the same as yours, or different.',
+			description: 'They can be the same as yours, or different. We will do our best to match you to someone with similar interests!',
 			placeholder: 'Your answer',
 			validationFunction: (value) => /,\s*/.test(value),
 			errorMessage: 'Please enter a comma separated list of keywords'
