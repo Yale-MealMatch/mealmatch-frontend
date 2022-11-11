@@ -69,7 +69,7 @@ export const questions: Question[][] = [
 				'To preserve anonymity, your match will refer to you by your nickname before meeting in person.',
 			placeholder: 'Your answer',
 			validationFunction: (value) => value.length > 0,
-			errorMessage: 'Please enter a nickname.'
+			errorMessage: 'Please enter a nickname'
 		},
 		{
 			type: 'input',
@@ -95,8 +95,8 @@ export const questions: Question[][] = [
 			label: 'List specific keywords, artists, communities that describe you',
 			description: 'For instance, "Philosophical, "',
 			placeholder: 'Your answer',
-			validationFunction: (value) => value.length > 0,
-			errorMessage: 'Please enter a nickname.'
+			validationFunction: (value) => /(\d+)(,\s*\d+)*/.test(value),
+			errorMessage: 'Please enter a comma separated list of keywords'
 		},
 		{
 			type: 'input',
@@ -105,8 +105,8 @@ export const questions: Question[][] = [
 			description:
 				'To preserve anonymity, your match will refer to you by your nickname before meeting in person.',
 			placeholder: 'Your answer',
-			validationFunction: (value) => value.length > 0,
-			errorMessage: 'Please enter a nickname.'
+			validationFunction: (value) => /(\d+)(,\s*\d+)*/.test(value),
+			errorMessage: 'Please enter a comma separated list of keywords'
 		}
 	]
 ];
