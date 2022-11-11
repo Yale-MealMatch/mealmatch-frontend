@@ -44,4 +44,11 @@
 		<slot />
 	</QueryClientProvider>
 </main>
+<footer>
+	<div class="flex flex-col justify-center">
+		<p class="text-center">
+			Made with <span>❤️</span> by Yale students
+		</p>
+	</div>
+</footer>
 <Footer />
