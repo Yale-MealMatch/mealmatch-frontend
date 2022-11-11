@@ -31,13 +31,13 @@
 		<div class="relative flex h-16 items-center justify-between">
 			<div class="flex items-center px-2 lg:px-0">
 				<div class="flex-shrink-0">
-					<Logo class="block h-10 w-auto lg:hidden" />
-					<Logo class="hidden h-10 w-auto lg:block" />
+					<Logo class="block h-12 w-auto lg:hidden" />
+					<Logo class="hidden h-12 w-auto lg:block" />
 				</div>
 				<a href="/form">
 					<div class="hidden sm:block">
 						<!-- Hidden, lg:block -->
-						<h2 class="ml-4 block text-4xl font-bold md:text-4xl text-slate-800">MealMatch</h2>
+						<h2 class="ml-4 block text-4xl font-bold md:text-3xl text-slate-600">MealMatch</h2>
 					</div>
 				</a>
 				<!-- <div class="hidden lg:ml-6 lg:block">
