@@ -47,10 +47,9 @@ export interface Database {
 					year: number;
 					year_match: number[];
 					pronouns: string;
-					pronouns_match: string[];
+					pronouns_match: string;
 					phone: string;
 					nickname: string;
-					bio: string;
 					email: string;
 					keywords: string;
 					keywords_match: string;
@@ -61,10 +60,9 @@ export interface Database {
 					year: number;
 					year_match: number[];
 					pronouns: string;
-					pronouns_match: string[];
+					pronouns_match: string;
 					phone: string;
 					nickname: string;
-					bio: string;
 					email: string;
 					keywords: string;
 					keywords_match: string;
@@ -75,10 +73,9 @@ export interface Database {
 					year?: number;
 					year_match?: number[];
 					pronouns?: string;
-					pronouns_match?: string[];
+					pronouns_match?: string;
 					phone?: string;
 					nickname?: string;
-					bio?: string;
 					email?: string;
 					keywords?: string;
 					keywords_match?: string;
