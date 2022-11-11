@@ -66,7 +66,7 @@ export const questions: Question[][] = [
 			name: 'nickname',
 			label: 'Create a nickname:',
 			description:
-				"Your match will refer to you by your nickname before meeting in person. Don't use your real name. ",
+				'To preserve anonymity, your match will refer to you by your nickname before meeting in person.',
 			placeholder: 'Your answer',
 			validationFunction: (value) => value.length > 0,
 			errorMessage: 'Please enter a nickname.'
