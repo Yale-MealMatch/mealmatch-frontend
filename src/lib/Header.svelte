@@ -27,7 +27,7 @@
 </script>
 
 <Disclosure as="nav" class="bg-rose-300" let:open>
-	<div class="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
+	<div class="mx-auto max-w-4xl px-2 sm:px-4 lg:px-8">
 		<div class="relative flex h-16 items-center justify-between">
 			<div class="flex items-center px-2 lg:px-0">
 				<div class="flex-shrink-0">
