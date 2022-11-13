@@ -25,7 +25,8 @@ export const questions: Question[][] = [
 				{ label: 'she/her', value: 'she/her' },
 				{ label: 'he/him', value: 'he/him' },
 				{ label: 'they/them', value: 'they/them' },
-				{ label: 'other', value: 'other' }
+				{ label: 'other', value: 'other' },
+				{ label: 'prefer not to say', value: 'prefer not to say' }
 			],
 			validationFunction: (value) => value !== '',
 			errorMessage: 'Please select your pronouns'
