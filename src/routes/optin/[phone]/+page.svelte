@@ -4,7 +4,7 @@
 	import { supabaseClient } from '$lib/db';
 
 	let optIn = supabaseClient.from('opt_ins').insert({
-		phone: $page.params.number,
+		phone: $page.params.phone,
 		week: 1
 	});
 </script>
