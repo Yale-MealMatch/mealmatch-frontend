@@ -5,7 +5,7 @@
 
 	let optIn = supabaseClient.from('opt_ins').insert({
 		phone: $page.params.phone,
-		week: 1
+		week: 2
 	});
 </script>
 
