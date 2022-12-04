@@ -16,7 +16,7 @@
 {:then data}
 	{#if data.error}
 		<!-- Error -->
-		<div>{data.error}</div>
+		<div>{JSON.stringify(data.error)}</div>
 	{:else}
 		<!-- Success -->
 		<div>Success! You are opted into matching for this week</div>
