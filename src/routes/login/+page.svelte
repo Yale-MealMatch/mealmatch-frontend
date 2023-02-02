@@ -33,30 +33,7 @@
 
 	<div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
 		<div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-			<div class="gap-3">
-				<div>
-					<button
-						on:click={signInWithGoogle}
-						class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50"
-					>
-						<GoogleIcon />
-						<span>Sign in with Google</span>
-					</button>
-				</div>
-			</div>
-
-			<div class="mt-6">
-				<div class="relative">
-					<div class="absolute inset-0 flex items-center">
-						<div class="w-full border-t border-gray-300" />
-					</div>
-					<div class="relative flex justify-center text-sm">
-						<span class="bg-white px-2 text-gray-500">Or continue with</span>
-					</div>
-				</div>
-			</div>
-
-			<form class="mt-6 space-y-6" action="#" method="POST">
+			<form class="space-y-6" action="#" method="POST">
 				<div>
 					<label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
 					<div class="mt-1">
@@ -84,6 +61,29 @@
 					</button>
 				</div>
 			</form>
+
+			<div class="mt-6">
+				<div class="relative">
+					<div class="absolute inset-0 flex items-center">
+						<div class="w-full border-t border-gray-300" />
+					</div>
+					<div class="relative flex justify-center text-sm">
+						<span class="bg-white px-2 text-gray-500">Or continue with</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="mt-6 gap-3">
+				<div>
+					<button
+						on:click={signInWithGoogle}
+						class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50"
+					>
+						<GoogleIcon />
+						<span>Sign in with Google</span>
+					</button>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
