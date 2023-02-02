@@ -1,7 +1,7 @@
 import { supabaseClient } from '$lib/db';
 import { getSupabase } from '@supabase/auth-helpers-sveltekit';
 import type { PageLoad } from './$types';
-import type { Database } from '$lib/types/DatabaseDefinitions';
+import type { Database } from 'types/supabase';
 import { writable } from 'svelte/store';
 import { redirect } from '@sveltejs/kit';
 

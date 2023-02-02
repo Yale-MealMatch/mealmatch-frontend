@@ -1,4 +1,4 @@
-import type { Database } from '$lib/types/DatabaseDefinitions';
+import type { Database } from 'types/supabase';
 type SelectOption = {
 	label: string;
 	value: string | number;

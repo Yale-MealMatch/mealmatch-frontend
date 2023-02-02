@@ -2,7 +2,7 @@ import { supabaseClient } from '$lib/db';
 import { getSupabase } from '@supabase/auth-helpers-sveltekit';
 import type { PageLoad } from './$types';
 import { redirect } from '@sveltejs/kit';
-import type { Database } from '$lib/types/DatabaseDefinitions';
+import type { Database } from 'types/supabase';
 
 const getUserResponses = async () => {
 	const { data, error } = await supabaseClient.from('responses').select('*').maybeSingle();
