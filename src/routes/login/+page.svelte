@@ -35,14 +35,16 @@
 		<div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
 			<form class="space-y-6" action="#" method="POST">
 				<div>
-					<label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
+					<label for="email" class="block text-sm font-medium text-gray-700">
+						Yale Email address
+					</label>
 					<div class="mt-1">
 						<input
 							id="email"
 							name="email"
 							type="email"
 							autocomplete="email"
-							placeholder="Your email address"
+							placeholder="Your yale.edu email address"
 							required
 							class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-rose-500 focus:outline-none focus:ring-rose-500 sm:text-sm"
 							bind:value={email}
@@ -62,7 +64,7 @@
 				</div>
 			</form>
 
-			<div class="mt-6">
+			<!-- <div class="mt-6">
 				<div class="relative">
 					<div class="absolute inset-0 flex items-center">
 						<div class="w-full border-t border-gray-300" />
@@ -83,7 +85,7 @@
 						<span>Sign in with Google</span>
 					</button>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </div>
