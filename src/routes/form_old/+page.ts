@@ -5,15 +5,15 @@ import { redirect } from '@sveltejs/kit';
 import type { Database } from 'types/supabase';
 
 const getUserResponses = async () => {
-	const { data, error } = await supabaseClient.from('responses').select('*').maybeSingle();
+	const { data, error } = await supabaseClient.from('profiles').select('*').maybeSingle();
 	if (error) throw new Error(error.message);
 	return data;
 };
 
 export const postUserResponses = async (
-	data: Database['public']['Tables']['responses']['Insert']
+	data: Database['public']['Tables']['profiles']['Insert']
 ) => {
-	const { error } = await supabaseClient.from('responses').upsert(data);
+	const { error } = await supabaseClient.from('profiles').upsert(data);
 	if (error) throw new Error(error.message);
 };
 
