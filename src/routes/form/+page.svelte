@@ -6,8 +6,7 @@
 	import FormTextArea from '$lib/form/FormTextArea.svelte';
 	import { questions } from '$lib/form/questions';
 	import ProgressBar from './ProgressBar.svelte';
-	import { postUserResponses } from './+page';
-	import { responses } from './+page';
+	import { postUserResponses, responses } from './+page';
 	import { goto } from '$app/navigation';
 
 	let currentPageIndex = 0;
@@ -40,7 +39,7 @@
 
 <div class="mt-10 sm:my-4">
 	<div class="flex flex-col gap-4 px-4 sm:px-0">
-		<div class="-mt-6 overflow-hidden bg-white shadow sm:mt-0">
+		<div class="-mt-6 overflow-hidden rounded-md bg-white shadow sm:mt-0">
 			<ProgressBar currentStepIndex={currentPageIndex} {jumpSlide} />
 		</div>
 		{#each currentPage as question}
