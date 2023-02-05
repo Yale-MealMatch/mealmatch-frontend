@@ -72,7 +72,7 @@ export interface Database {
 					email: string;
 					keywords_match: string;
 					nickname: string;
-					opt_in: boolean;
+					opt_in: Database['public']['Enums']['opt_in_enum'] | null;
 					phone: string;
 					pronouns: string;
 					pronouns_match: string;
@@ -86,7 +86,7 @@ export interface Database {
 					email: string;
 					keywords_match: string;
 					nickname: string;
-					opt_in?: boolean;
+					opt_in?: Database['public']['Enums']['opt_in_enum'] | null;
 					phone: string;
 					pronouns: string;
 					pronouns_match: string;
@@ -100,7 +100,7 @@ export interface Database {
 					email?: string;
 					keywords_match?: string;
 					nickname?: string;
-					opt_in?: boolean;
+					opt_in?: Database['public']['Enums']['opt_in_enum'] | null;
 					phone?: string;
 					pronouns?: string;
 					pronouns_match?: string;
@@ -341,7 +341,7 @@ export interface Database {
 			[_ in never]: never;
 		};
 		Enums: {
-			[_ in never]: never;
+			opt_in_enum: 'SENT' | 'OPTED_IN' | '';
 		};
 	};
 }
