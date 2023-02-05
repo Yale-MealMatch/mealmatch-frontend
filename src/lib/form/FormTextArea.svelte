@@ -13,7 +13,7 @@
 
 <div>
 	<label for={question.name} class="sr-only block text-sm font-medium text-gray-700">
-		{question.label}
+		{@html question.label}
 	</label>
 	<div class="mt-1">
 		<textarea

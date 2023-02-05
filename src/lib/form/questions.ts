@@ -96,13 +96,22 @@ export const questions: Question[][] = [
 			label: '<span class="text-slate-500">(Recommended)</span> Personal description',
 			// description:
 			description: `Based on your answer to this question, we will try to match you with someone you are compatible with. If you choose not to answer it, we will match you randomly.
-
+<br />
+<br />
 If you answer this question, your response will be shown to your match.
-
+<br />
+<br />
 Some things you can talk about:
-- Your interests
-- Your goals
-- What you hope to find in the person you match with
+<ul class="list-disc list-inside">
+<li>What you're looking for in a match</li>
+<li>What you're interested in</li>
+<li>What you're passionate about</li>
+<li>What you're looking forward to in college</li>
+<li>Your interests</li>
+<li>Your goals</li>
+<li>What you hope to find in the person you match with</li>
+</ul>
+<br />
 Please don't include any information that directly reveals who you are.`,
 			placeholder: 'List keywords separated by commas',
 			// validationFunction: (value) => /,\s*/.test(value),
