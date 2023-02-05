@@ -15,7 +15,6 @@ const getUserResponses = async (email: string) => {
 		.select('*')
 		.eq('email', email)
 		.single();
-	console.log('🚀 ~ file: +page.ts:19 ~ getUserResponses ~ data', data);
 	if (error) throw new Error(error.message);
 	return data;
 };
