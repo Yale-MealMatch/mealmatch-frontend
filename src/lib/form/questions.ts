@@ -44,7 +44,7 @@ export const questions: Question[][] = [
 				{ label: 'Junior', value: '2024' },
 				{ label: 'Senior', value: '2023' }
 			],
-			validationFunction: (value) => !!value,
+			validationFunction: (value) => value.length > 0,
 			errorMessage: 'Please select at least one year'
 		},
 		{
