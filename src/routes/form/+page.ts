@@ -5,21 +5,17 @@ import type { Database } from 'types/supabase';
 import { writable } from 'svelte/store';
 import { redirect } from '@sveltejs/kit';
 
-export const responses = writable<Database['public']['Tables']['profiles']['Insert']>({
-	year_match: [],
-	pronouns: '',
-	pronouns_match: '',
-	phone: '',
-	nickname: '',
-	email: '',
-	keywords: '',
-	keywords_match: '',
-	confirm: [],
-	year: 0
-} as Database['public']['Tables']['profiles']['Insert']);
+export const responses = writable<Database['public']['Tables']['profiles']['Insert']>(
+	{} as Database['public']['Tables']['profiles']['Insert']
+);
 
-const getUserResponses = async () => {
-	const { data, error } = await supabaseClient.from('profiles').select('*').single();
+const getUserResponses = async (email: string) => {
+	const { data, error } = await supabaseClient
+		.from('responses')
+		.select('*')
+		.eq('email', email)
+		.single();
+	console.log('🚀 ~ file: +page.ts:19 ~ getUserResponses ~ data', data);
 	if (error) throw new Error(error.message);
 	return data;
 };
@@ -33,8 +29,8 @@ export const postUserResponses = async (
 
 export const load: PageLoad = async (event) => {
 	const { session } = await getSupabase(event);
-	if (!session) {
+	if (!session?.user.email) {
 		throw redirect(303, '/login');
 	}
-	responses.set(await getUserResponses());
+	responses.set(await getUserResponses(session.user.email));
 };

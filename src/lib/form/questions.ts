@@ -62,15 +62,15 @@ export const questions: Question[][] = [
 		}
 	],
 	[
-		{
-			type: 'input',
-			name: 'email',
-			label: 'What is your Yale email?',
-			description: '',
-			placeholder: 'Your email',
-			validationFunction: (value) => /@yale.edu$/.test(value),
-			errorMessage: 'Please enter your Yale email address (@yale.edu)'
-		},
+		// {
+		// 	type: 'input',
+		// 	name: 'email',
+		// 	label: 'What is your Yale email?',
+		// 	description: '',
+		// 	placeholder: 'Your email',
+		// 	validationFunction: (value) => /@yale.edu$/.test(value),
+		// 	errorMessage: 'Please enter your Yale email address (@yale.edu)'
+		// },
 		{
 			type: 'input',
 			name: 'phone',
@@ -91,19 +91,39 @@ export const questions: Question[][] = [
 			errorMessage: 'Please enter a nickname'
 		},
 		{
-			type: 'input',
-			name: 'keywords',
-			label:
-				'<span class="text-slate-500">(Recommended)</span> List keywords that describe you, such as hobbies, interest groups, personality traits, etc.:',
+			type: 'textarea',
+			name: 'bio',
+			label: '<span class="text-slate-500">(Recommended)</span> Personal description',
 			// description:
-			description:
-				'Example response: <em>literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious</ em > <br /> Your keywords will be shown to your match.',
+			description: `Based on your answer to this question, we will try to match you with someone you are compatible with. If you choose not to answer it, we will match you randomly.
+
+If you answer this question, your response will be shown to your match.
+
+Some things you can talk about:
+- Your interests
+- Your goals
+- What you hope to find in the person you match with
+Please don't include any information that directly reveals who you are.`,
 			placeholder: 'List keywords separated by commas',
 			// validationFunction: (value) => /,\s*/.test(value),
 			// eslint-disable-next-line @typescript-eslint/no-unused-vars
 			validationFunction: (value) => true,
 			errorMessage: 'Please enter a comma separated list of keywords'
 		},
+		// {
+		// 	type: 'input',
+		// 	name: 'keywords',
+		// 	label:
+		// 		'<span class="text-slate-500">(Recommended)</span> List keywords that describe you, such as hobbies, interest groups, personality traits, etc.:',
+		// 	// description:
+		// 	description:
+		// 		'Example response: <em>literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious</ em > <br /> Your keywords will be shown to your match.',
+		// 	placeholder: 'List keywords separated by commas',
+		// 	// validationFunction: (value) => /,\s*/.test(value),
+		// 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+		// 	validationFunction: (value) => true,
+		// 	errorMessage: 'Please enter a comma separated list of keywords'
+		// },
 		{
 			type: 'input',
 			name: 'keywords_match',
