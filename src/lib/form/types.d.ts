@@ -1,7 +1,7 @@
 import type { Database } from 'types/supabase';
 type SelectOption = {
 	label: string;
-	value: string | number;
+	value: string;
 	subtitle?: string;
 };
 
@@ -12,21 +12,21 @@ type KeyOfType<T, V> = { [K in keyof T]: T[K] extends V ? K : never }[keyof T];
 
 type FormRadio = {
 	type: 'radio';
-	name: KeyOfType<Database['public']['Tables']['profiles']['Row'], string | number>;
+	name: KeyOfType<Database['public']['Tables']['profiles']['Row'], string>;
 	label: string;
 	description: string;
 	options: FormRadioSelectOption[];
-	validationFunction: (value: string | number) => boolean;
+	validationFunction: (value: string) => boolean;
 	errorMessage: string;
 };
 
 type FormCheckboxes = {
 	type: 'checkboxes';
-	name: KeyOfType<Database['public']['Tables']['profiles']['Row'], string[] | number[]>;
+	name: KeyOfType<Database['public']['Tables']['profiles']['Row'], string[]>;
 	label: string;
 	description: string;
 	options: FormCheckboxesOption[];
-	validationFunction: (value: string[] | number[]) => boolean;
+	validationFunction: (value: string[]) => boolean;
 	errorMessage: string;
 };
 
