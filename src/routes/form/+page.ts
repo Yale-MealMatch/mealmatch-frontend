@@ -11,7 +11,7 @@ export const responses = writable<Database['public']['Tables']['profiles']['Inse
 
 const getUserResponses = async (email: string) => {
 	const { data, error } = await supabaseClient
-		.from('responses')
+		.from('profiles')
 		.select('*')
 		.eq('email', email)
 		.single();
