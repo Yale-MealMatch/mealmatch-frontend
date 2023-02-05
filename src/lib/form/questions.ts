@@ -44,7 +44,7 @@ export const questions: Question[][] = [
 				{ label: 'Junior', value: '2024' },
 				{ label: 'Senior', value: '2023' }
 			],
-			validationFunction: (value) => value.length > 0,
+			validationFunction: (value) => !!value && value.length > 0,
 			errorMessage: 'Please select at least one year'
 		},
 		{
@@ -170,7 +170,7 @@ Please don't include any information that directly reveals who you are.`,
 					value: '3'
 				}
 			],
-			validationFunction: (value) => value.length === 3,
+			validationFunction: (value) => !!value && value.length === 3,
 			errorMessage: 'Please accept all three statements'
 		}
 	]

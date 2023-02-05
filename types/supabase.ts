@@ -76,7 +76,7 @@ export interface Database {
 					phone: string;
 					pronouns: string;
 					pronouns_match: string;
-					signed_confirmation: string[] | null;
+					signed_confirmation: string[];
 					timestamp: string;
 					year: string;
 					year_match: string[];
@@ -90,7 +90,7 @@ export interface Database {
 					phone: string;
 					pronouns: string;
 					pronouns_match: string;
-					signed_confirmation?: string[] | null;
+					signed_confirmation?: string[];
 					timestamp?: string;
 					year: string;
 					year_match: string[];
@@ -104,7 +104,7 @@ export interface Database {
 					phone?: string;
 					pronouns?: string;
 					pronouns_match?: string;
-					signed_confirmation?: string[] | null;
+					signed_confirmation?: string[];
 					timestamp?: string;
 					year?: string;
 					year_match?: string[];
