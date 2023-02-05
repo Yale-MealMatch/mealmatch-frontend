@@ -51,7 +51,7 @@
 								href={item.href}
 								class="rounded-md px-3 py-2 text-sm font-medium {$page.url.pathname === item.href
 									? 'bg-neutral-800 text-white'
-									: 'text-gray-300 hover:bg-neutral-800 hover:text-white'}"
+									: 'text-rose-600 hover:bg-neutral-800 hover:text-white'}"
 							>
 								{item.name}
 							</a>
@@ -67,14 +67,14 @@
 							<Icon
 								src={MagnifyingGlass}
 								theme="solid"
-								class="h-5 w-5 text-gray-400"
+								class="h-5 w-5 text-slate-700"
 								aria-hidden="true"
 							/>
 						</div>
 						<input
 							id="search"
 							name="search"
-							class="block w-full rounded-md border border-transparent bg-neutral-800 py-2 pl-10 pr-3 leading-5 text-gray-300 placeholder-gray-400 focus:border-white focus:bg-white focus:text-gray-900 focus:outline-none focus:ring-white sm:text-sm"
+							class="block w-full rounded-md border border-transparent bg-neutral-800 py-2 pl-10 pr-3 leading-5 text-rose-190 placeholder-gray-400 focus:border-white focus:bg-white focus:text-rose-790 focus:outline-none focus:ring-white sm:text-sm"
 							placeholder="Search"
 							type="search"
 						/>
@@ -83,7 +83,7 @@
 			</div> -->
 			<div class="flex lg:hidden">
 				<DisclosureButton
-					class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-neutral-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+					class="inline-flex items-center justify-center rounded-md p-2 text-slate-700 hover:bg-neutral-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
 				>
 					<span class="sr-only">Open main menu</span>
 					{#if open}
@@ -97,7 +97,7 @@
 				<div class="flex items-center">
 					<!-- <button
 						type="button"
-						class="flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+						class="flex-shrink-0 rounded-full bg-gray-800 p-1 text-slate-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
 					>
 						<span class="sr-only">View notifications</span>
 						<Icon src={BellAlert} theme="solid" class="h-6 w-6" aria-hidden="true" />
@@ -127,21 +127,21 @@
 									<a
 										href="/form"
 										class:bg-gray-100={active}
-										class="block px-4 py-2 text-sm text-gray-700">Your Profile</a
+										class="text-rose-590 block px-4 py-2 text-sm">Your Profile</a
 									>
 								</MenuItem>
 								<!-- <MenuItem let:active>
 									<a
 										href="#"
 										class:bg-gray-100={active}
-										class="block px-4 py-2 text-sm text-gray-700">Settings</a
+										class="block px-4 py-2 text-sm text-rose-590">Settings</a
 									>
 								</MenuItem> -->
 								<MenuItem let:active>
 									<button
 										on:click={signOut}
 										class:bg-gray-100={active}
-										class="block px-4 py-2 text-sm text-gray-700">Sign out</button
+										class="text-rose-590 block px-4 py-2 text-sm">Sign out</button
 									>
 								</MenuItem>
 							</MenuItems>
@@ -152,56 +152,52 @@
 		</div>
 	</div>
 	<DisclosurePanel class="lg:hidden">
-		<div class="space-y-1 px-2 pt-2 pb-3">
+		<!-- <div class="space-y-1 px-2 pt-2 pb-3">
 			{#each navigation as item (item.name)}
 				<DisclosureButton
 					as="a"
 					href={item.href}
 					class="block rounded-md px-3 py-2 text-base font-medium {$page.url.pathname === item.href
 						? 'bg-neutral-800 text-white'
-						: 'text-gray-300 hover:bg-neutral-800 hover:text-white'}"
+						: 'text-rose-190 hover:bg-neutral-800 hover:text-white'}"
 				>
 					{item.name}
 				</DisclosureButton>
 			{/each}
-		</div>
+		</div> -->
 		<div class="border-t border-gray-700 pt-4 pb-3">
 			<div class="flex items-center px-5">
 				<div class="flex-shrink-0">
 					<img class="h-10 w-10 rounded-full" src={profilePicture} alt="" />
 				</div>
-				<div class="ml-3">
+				<!-- <div class="ml-3">
 					<div class="text-base font-medium text-white">Tom Cook</div>
-					<div class="text-sm font-medium text-gray-400">tom@example.com</div>
-				</div>
-				<button
+					<div class="text-sm font-medium text-slate-700">tom@example.com</div>
+				</div> -->
+				<!-- <button
 					type="button"
-					class="ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+					class="ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-slate-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
 				>
 					<span class="sr-only">View notifications</span>
 					<Icon src={BellAlert} class="h-6 w-6" aria-hidden="true" />
-					<!-- <BellIcon class="h-6 w-6" aria-hidden="true" /> -->
-				</button>
+					<BellIcon class="h-6 w-6" aria-hidden="true" />
+				</button> -->
 			</div>
 			<div class="mt-3 space-y-1 px-2">
 				<DisclosureButton
 					as="a"
 					href="#"
-					class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-neutral-800 hover:text-white"
-					>Your Profile</DisclosureButton
+					class="block rounded-md px-3 py-2 text-base font-medium text-slate-700 hover:bg-neutral-800 hover:text-white"
 				>
+					Form
+				</DisclosureButton>
 				<DisclosureButton
 					as="a"
 					href="#"
-					class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-neutral-800 hover:text-white"
-					>Settings</DisclosureButton
+					class="block rounded-md px-3 py-2 text-base font-medium text-slate-700 hover:bg-neutral-800 hover:text-white"
 				>
-				<DisclosureButton
-					as="a"
-					href="#"
-					class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-neutral-800 hover:text-white"
-					>Sign out</DisclosureButton
-				>
+					Sign out
+				</DisclosureButton>
 			</div>
 		</div>
 	</DisclosurePanel>
