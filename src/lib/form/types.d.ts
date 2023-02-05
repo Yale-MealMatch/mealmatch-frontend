@@ -1,4 +1,4 @@
-import type { Database } from '$lib/types/DatabaseDefinitions';
+import type { Database } from 'types/supabase';
 type SelectOption = {
 	label: string;
 	value: string | number;
@@ -12,7 +12,7 @@ type KeyOfType<T, V> = { [K in keyof T]: T[K] extends V ? K : never }[keyof T];
 
 type FormRadio = {
 	type: 'radio';
-	name: KeyOfType<Database['public']['Tables']['responses']['Row'], string | number>;
+	name: KeyOfType<Database['public']['Tables']['profiles']['Row'], string | number>;
 	label: string;
 	description: string;
 	options: FormRadioSelectOption[];
@@ -22,7 +22,7 @@ type FormRadio = {
 
 type FormCheckboxes = {
 	type: 'checkboxes';
-	name: KeyOfType<Database['public']['Tables']['responses']['Row'], string[] | number[]>;
+	name: KeyOfType<Database['public']['Tables']['profiles']['Row'], string[] | number[]>;
 	label: string;
 	description: string;
 	options: FormCheckboxesOption[];
@@ -32,7 +32,7 @@ type FormCheckboxes = {
 
 type FormInput = {
 	type: 'input';
-	name: KeyOfType<Database['public']['Tables']['responses']['Row'], string>;
+	name: KeyOfType<Database['public']['Tables']['profiles']['Row'], string>;
 	label: string;
 	description: string;
 	placeholder: string;
@@ -43,7 +43,7 @@ type FormInput = {
 // Description can be a string or a Svelte component
 type FormTextArea = {
 	type: 'textarea';
-	name: KeyOfType<Database['public']['Tables']['responses']['Row'], string>;
+	name: KeyOfType<Database['public']['Tables']['profiles']['Row'], string>;
 	label: string;
 	description: string | typeof SvelteComponent;
 	placeholder: string;
