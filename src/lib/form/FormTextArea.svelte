@@ -2,7 +2,7 @@
 	import type { FormTextArea } from '$lib/form/types';
 
 	export let question: FormTextArea;
-	export let value = '';
+	export let value: any = '';
 	export let showErrors: boolean;
 	$: isError = !question.validationFunction(value) && showErrors;
 

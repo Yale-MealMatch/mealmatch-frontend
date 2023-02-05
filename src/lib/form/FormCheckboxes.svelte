@@ -4,7 +4,7 @@
 	import { Icon } from '@steeze-ui/svelte-icon';
 
 	export let question: FormCheckboxes;
-	export let value: string[] | number[] = [];
+	export let value: any = '';
 	export let showErrors: boolean;
 	$: isError = !question.validationFunction(value) && showErrors;
 </script>
