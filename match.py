@@ -1,3 +1,4 @@
+WEEK = 3
 # -*- coding: utf-8 -*-
 """algo2023.ipynb
 
@@ -7,9 +8,8 @@ Original file is located at
     https://colab.research.google.com/drive/1iGwsg6CCeUh44IE3q_fht3nKU3bcEPWQ
 """
 
-!pip3 install supabase
-
 # collect all emails from supabase
+import csv
 from supabase import create_client, Client
 
 url: str = 'https://gfmcdqiayiitfofbxgme.supabase.co'
@@ -40,18 +40,17 @@ email_to_index_b = {}
 for i in range(len(group_b)):
     email_to_index_b[group_b.iloc[i]["email"]] = i
 
-!pip3 install nltk
-nltk.download('punkt')
-nltk.download('wordnet')
-nltk.download('omw-1.4')
-nltk.download('stopwords')
-
 import nltk
 import string
 from nltk.corpus import stopwords
 from nltk.stem import SnowballStemmer
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
+
+nltk.download('punkt')
+nltk.download('wordnet')
+nltk.download('omw-1.4')
+nltk.download('stopwords')
 
 def process_bio(bio):
   # remove punctuations
@@ -168,3 +167,18 @@ def get_pairs(row, col):
 row, col = get_matches(compatibility)
 get_pairs(row, col)
 print(matches)
+
+# For each dictionary element in matches, add a key "week" with value WEEK
+matches = [{"from_email": pair[0], "to_email": pair[1], "week": WEEK} for pair in matches]
+
+# Export matches to a CSV file
+with open(f'matches-{WEEK}.csv', 'w') as f:
+  writer = csv.writer(f)
+  for pair in matches:
+    writer.writerow([pair["from_email"], pair["to_email"], pair["week"]])
+
+# For each pair, upload the pair to the "matches" table in the database
+# for pair in matches:
+#   supabase.table("matches").upsert([
+    
+#   ]).execute()
