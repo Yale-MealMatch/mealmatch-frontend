@@ -3,6 +3,29 @@ export type Json = string | number | boolean | null | { [key: string]: Json } | 
 export interface Database {
 	public: {
 		Tables: {
+			matches: {
+				Row: {
+					created_at: string | null;
+					from_email: string | null;
+					id: number;
+					to_email: string | null;
+					week: number | null;
+				};
+				Insert: {
+					created_at?: string | null;
+					from_email?: string | null;
+					id?: number;
+					to_email?: string | null;
+					week?: number | null;
+				};
+				Update: {
+					created_at?: string | null;
+					from_email?: string | null;
+					id?: number;
+					to_email?: string | null;
+					week?: number | null;
+				};
+			};
 			opt_ins: {
 				Row: {
 					created_at: string | null;
@@ -47,11 +70,13 @@ export interface Database {
 				Row: {
 					bio: string;
 					email: string;
-					keywords_match: string[];
+					keywords_match: string;
 					nickname: string;
+					opt_in_status: Database['public']['Enums']['opt_in_enum'] | null;
 					phone: string;
 					pronouns: string;
-					pronouns_match: string[];
+					pronouns_match: string;
+					signed_confirmation: string[];
 					timestamp: string;
 					year: string;
 					year_match: string[];
@@ -59,11 +84,13 @@ export interface Database {
 				Insert: {
 					bio: string;
 					email: string;
-					keywords_match: string[];
+					keywords_match: string;
 					nickname: string;
+					opt_in_status?: Database['public']['Enums']['opt_in_enum'] | null;
 					phone: string;
 					pronouns: string;
-					pronouns_match: string[];
+					pronouns_match: string;
+					signed_confirmation?: string[];
 					timestamp?: string;
 					year: string;
 					year_match: string[];
@@ -71,14 +98,57 @@ export interface Database {
 				Update: {
 					bio?: string;
 					email?: string;
-					keywords_match?: string[];
+					keywords_match?: string;
 					nickname?: string;
+					opt_in_status?: Database['public']['Enums']['opt_in_enum'] | null;
 					phone?: string;
 					pronouns?: string;
-					pronouns_match?: string[];
+					pronouns_match?: string;
+					signed_confirmation?: string[];
 					timestamp?: string;
 					year?: string;
 					year_match?: string[];
+				};
+			};
+			profiles2: {
+				Row: {
+					bio: string | null;
+					email: string | null;
+					keywords_match: string[] | null;
+					nickname: string | null;
+					opt_in: boolean | null;
+					phone: string | null;
+					pronouns: string | null;
+					pronouns_match: string | null;
+					timestamp: string | null;
+					year: string | null;
+					year_match: string[] | null;
+				};
+				Insert: {
+					bio?: string | null;
+					email?: string | null;
+					keywords_match?: string[] | null;
+					nickname?: string | null;
+					opt_in?: boolean | null;
+					phone?: string | null;
+					pronouns?: string | null;
+					pronouns_match?: string | null;
+					timestamp?: string | null;
+					year?: string | null;
+					year_match?: string[] | null;
+				};
+				Update: {
+					bio?: string | null;
+					email?: string | null;
+					keywords_match?: string[] | null;
+					nickname?: string | null;
+					opt_in?: boolean | null;
+					phone?: string | null;
+					pronouns?: string | null;
+					pronouns_match?: string | null;
+					timestamp?: string | null;
+					year?: string | null;
+					year_match?: string[] | null;
 				};
 			};
 			reminders: {
@@ -96,6 +166,50 @@ export interface Database {
 					created_at?: string | null;
 					id?: number;
 					message?: string | null;
+				};
+			};
+			responses: {
+				Row: {
+					confirm: number[] | null;
+					email: string;
+					id: number;
+					keywords: string;
+					keywords_match: string;
+					nickname: string;
+					phone: string;
+					pronouns: string;
+					pronouns_match: string;
+					timestamp: string;
+					year: number;
+					year_match: number[];
+				};
+				Insert: {
+					confirm?: number[] | null;
+					email: string;
+					id?: number;
+					keywords: string;
+					keywords_match: string;
+					nickname: string;
+					phone: string;
+					pronouns: string;
+					pronouns_match: string;
+					timestamp?: string;
+					year: number;
+					year_match: number[];
+				};
+				Update: {
+					confirm?: number[] | null;
+					email?: string;
+					id?: number;
+					keywords?: string;
+					keywords_match?: string;
+					nickname?: string;
+					phone?: string;
+					pronouns?: string;
+					pronouns_match?: string;
+					timestamp?: string;
+					year?: number;
+					year_match?: number[];
 				};
 			};
 			weeks: {
@@ -227,7 +341,7 @@ export interface Database {
 			[_ in never]: never;
 		};
 		Enums: {
-			[_ in never]: never;
+			opt_in_enum: 'SENT' | 'OPTED_IN' | '';
 		};
 	};
 }
