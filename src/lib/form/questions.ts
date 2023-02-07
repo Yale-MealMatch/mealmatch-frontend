@@ -93,7 +93,7 @@ export const questions: Question[][] = [
 		{
 			type: 'textarea',
 			name: 'bio',
-			label: '<span class="text-slate-500">(Recommended)</span> Personal Bio',
+			label: '<span class="text-slate-500">(Recommended)</span> Personal Bio (80 words max)',
 			// description:
 			description: `Based on your answer to this question, we will try to match you with someone you are compatible with. If you choose not to answer it, we will match you randomly.
 <br />
@@ -103,12 +103,9 @@ If you answer this question, your response will be shown to your match.
 <br />
 Some things you can talk about:
 <ul class="list-disc list-inside">
-<li>What you're looking for in a match</li>
-<li>What you're interested in</li>
-<li>What you're passionate about</li>
-<li>What you're looking forward to in college</li>
-<li>Your interests</li>
-<li>Your goals</li>
+<li>Your hobbies and interests</li>
+<li>Activities/groups you participate in</li>
+<li>Your future goals</li>
 <li>What you hope to find in the person you match with</li>
 </ul>
 <br />
@@ -137,16 +134,14 @@ Please don't include any information that directly reveals who you are.`,
 			type: 'input',
 			name: 'keywords_match',
 			label:
-				'<span class="text-slate-500">(Recommended)</span> List keywords that describe your ideal match:',
-			// description:
-			// 'For instance, "literature, philosophy, Led Zeppelin, entrepreneurship, swimming, curious"',
+				'<span class="text-slate-500">(Recommended)</span> List keywords you hope to find in the bio of the person you match with:',
 			description:
-				'They can be the same as yours, or different. We will try our best to match you to someone with these keywords in their description!',
+				'Example: music production, badminton, research, entrepreneurship, paramotor',
 			placeholder: 'List keywords separated by commas',
 			// validationFunction: (value) => /,\s*/.test(value),
 			// eslint-disable-next-line @typescript-eslint/no-unused-vars
 			validationFunction: () => true,
-			errorMessage: 'Please enter a comma separated list of keywords'
+			errorMessage: 'Please enter a comma-separated list of keywords'
 		},
 		{
 			type: 'checkboxes',
@@ -161,7 +156,7 @@ Please don't include any information that directly reveals who you are.`,
 				},
 				{
 					label:
-						'I will not ask for any identity-revealing information (real name, Instagram, etc.) from my match before meeting them in person unless they volunteer to do so.',
+						'I will not ask for any identity-revealing information (real name, Instagram, etc.) from my match before meeting them in person.',
 					value: '2'
 				},
 				{
