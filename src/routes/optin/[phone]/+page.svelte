@@ -3,10 +3,12 @@
 	import { page } from '$app/stores';
 	import { supabaseClient } from '$lib/db';
 
-	let optIn = supabaseClient.from('opt_ins').insert({
-		phone: $page.params.phone,
-		week: 2
-	});
+	let optIn = supabaseClient
+		.from('profiles')
+		.update({
+			opt_in_status: 'OPTED_IN'
+		})
+		.eq('phone', $page.params.phone);
 </script>
 
 <!-- Await optIn -->
