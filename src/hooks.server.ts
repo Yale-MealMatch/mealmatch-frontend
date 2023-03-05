@@ -1,5 +1,5 @@
 // From https://github.com/supabase/auth-helpers/blob/main/packages/sveltekit/README.md
-import '$lib/db';
+import '$lib/supabaseClient';
 import type { Handle } from '@sveltejs/kit';
 
 export const handle: Handle = async ({ event, resolve }) => {

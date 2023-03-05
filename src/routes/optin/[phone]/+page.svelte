@@ -1,7 +1,7 @@
 <script lang="ts">
 	// Grab the params
 	import { page } from '$app/stores';
-	import { supabaseClient } from '$lib/db';
+	import { supabaseClient } from '$lib/supabaseClient';
 
 	let optIn = supabaseClient
 		.from('profiles')

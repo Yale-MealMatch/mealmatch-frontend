@@ -1,4 +1,4 @@
-import { supabaseClient } from '$lib/db';
+import { supabaseClient } from '$lib/supabaseClient';
 import { getSupabase } from '@supabase/auth-helpers-sveltekit';
 import type { PageLoad } from './$types';
 import type { Database } from 'types/supabase';

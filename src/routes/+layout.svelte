@@ -7,7 +7,7 @@
 	// From https://github.com/supabase/auth-helpers/blob/main/packages/sveltekit/README.md
 	import { invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
-	import { supabaseClient } from '$lib/db';
+	import { supabaseClient } from '$lib/supabaseClient';
 
 	onMount(() => {
 		const {
