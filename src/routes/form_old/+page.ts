@@ -1,4 +1,4 @@
-import { supabaseClient } from '$lib/supabaseClient';
+import { supabaseClient } from '$lib/supabase';
 import { getSupabase } from '@supabase/auth-helpers-sveltekit';
 import type { PageLoad } from './$types';
 import { redirect } from '@sveltejs/kit';
