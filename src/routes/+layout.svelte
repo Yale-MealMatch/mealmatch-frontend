@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 	import Footer from '$lib/Footer.svelte';
 	import Header from '$lib/Header.svelte';
-	import '../app.postcss';
+	import '../app.css';
 
 	// From https://github.com/supabase/auth-helpers/blob/main/packages/sveltekit/README.md
 	import { invalidate } from '$app/navigation';
