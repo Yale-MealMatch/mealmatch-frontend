@@ -13,7 +13,7 @@
 	} from '@rgossiaux/svelte-headlessui';
 	import { Icon } from '@steeze-ui/svelte-icon';
 	import { Bars3, MagnifyingGlass, XMark, BellAlert, Bell } from '@steeze-ui/heroicons';
-	import { supabaseClient } from '$lib/db';
+	import { supabaseClient } from '$lib/supabase';
 
 	const navigation = [
 		{ name: 'Dashboard', href: '/' },
@@ -127,22 +127,26 @@
 									<a
 										href="/form"
 										class:bg-gray-100={active}
-										class="text-rose-590 block px-4 py-2 text-sm">Your Profile</a
+										class="block w-full px-4 py-2 text-left text-sm"
 									>
+										Your Profile
+									</a>
 								</MenuItem>
 								<!-- <MenuItem let:active>
 									<a
 										href="#"
 										class:bg-gray-100={active}
-										class="block px-4 py-2 text-sm text-rose-590">Settings</a
+										class="block w-full px-4 py-2 text-left text-sm">Settings</a
 									>
 								</MenuItem> -->
 								<MenuItem let:active>
 									<button
 										on:click={signOut}
 										class:bg-gray-100={active}
-										class="text-rose-590 block px-4 py-2 text-sm">Sign out</button
+										class="block w-full px-4 py-2 text-left text-sm"
 									>
+										Sign out
+									</button>
 								</MenuItem>
 							</MenuItems>
 						</transition>
