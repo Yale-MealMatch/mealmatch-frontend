@@ -29,7 +29,7 @@
 	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 	<link rel="icon" href="/favicon.png" />
 </svelte:head>
-{#if $page.url.pathname !== '/landing'}
+{#if $page.url.pathname !== '/'}
 	<Header />
 {/if}
 
