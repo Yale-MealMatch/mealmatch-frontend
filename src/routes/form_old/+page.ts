@@ -1,21 +1,7 @@
-import { supabaseClient } from '$lib/supabase';
 import { getSupabase } from '@supabase/auth-helpers-sveltekit';
 import type { PageLoad } from './$types';
 import { redirect } from '@sveltejs/kit';
-import type { Database } from 'types/supabase';
-
-const getUserResponses = async () => {
-	const { data, error } = await supabaseClient.from('profiles').select('*').maybeSingle();
-	if (error) throw new Error(error.message);
-	return data;
-};
-
-export const postUserResponses = async (
-	data: Database['public']['Tables']['profiles']['Insert']
-) => {
-	const { error } = await supabaseClient.from('profiles').upsert(data);
-	if (error) throw new Error(error.message);
-};
+import { getUserResponses } from '$lib/stores/userResponses';
 
 export const load: PageLoad = async (event) => {
 	const { session } = await getSupabase(event);

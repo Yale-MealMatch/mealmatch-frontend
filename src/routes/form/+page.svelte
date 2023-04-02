@@ -6,8 +6,8 @@
 	import FormTextArea from '$lib/form/FormTextArea.svelte';
 	import { questions } from '$lib/form/questions';
 	import ProgressBar from './ProgressBar.svelte';
-	import { postUserResponses, responses } from './+page';
 	import { goto } from '$app/navigation';
+	import { postUserResponses, responses } from '$lib/stores/userResponses';
 
 	let currentPageIndex = 0;
 	$: currentPage = questions[currentPageIndex];
