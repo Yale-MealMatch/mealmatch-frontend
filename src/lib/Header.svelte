@@ -1,7 +1,5 @@
 <script lang="ts">
 	import Logo from './Logo.svelte';
-	import { page } from '$app/stores';
-
 	import {
 		Disclosure,
 		DisclosureButton,

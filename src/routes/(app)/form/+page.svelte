@@ -64,7 +64,7 @@
 			{#if currentPageIndex > 0}
 				<button
 					type="submit"
-					class="rounded-md bg-white py-2 px-6 font-bold text-rose-500 shadow-sm hover:shadow-inner"
+					class="rounded-md bg-white px-6 py-2 font-bold text-rose-500 shadow-sm hover:shadow-inner"
 					on:click={previousSlide}
 				>
 					Previous
@@ -73,7 +73,7 @@
 			{#if currentPageIndex < questions.length - 1}
 				<button
 					type="submit"
-					class="rounded-md bg-white py-2 px-6 font-bold text-rose-500 shadow-sm hover:shadow-inner"
+					class="rounded-md bg-white px-6 py-2 font-bold text-rose-500 shadow-sm hover:shadow-inner"
 					on:click={nextSlide}
 				>
 					Next
@@ -81,7 +81,7 @@
 			{:else}
 				<button
 					type="submit"
-					class="flex justify-center rounded-md border border-transparent bg-rose-600 py-2 px-4 font-bold text-white shadow-sm hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2"
+					class="flex justify-center rounded-md border border-transparent bg-rose-600 px-4 py-2 font-bold text-white shadow-sm hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2"
 					on:click={submit}
 				>
 					Submit
