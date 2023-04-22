@@ -1,15 +1,13 @@
-import { supabaseClient } from '$lib/supabaseClient';
-import { getSupabase } from '@supabase/auth-helpers-sveltekit';
-import type { PageLoad } from './$types';
-import type { Database } from 'types/supabase';
+import { supabaseClient } from '$lib/supabase';
+import type { Database } from '$lib/types/DatabaseDefinitions';
+import type { Session } from '@supabase/supabase-js';
 import { writable } from 'svelte/store';
-import { redirect } from '@sveltejs/kit';
 
 export const responses = writable<Database['public']['Tables']['profiles']['Insert']>(
 	{} as Database['public']['Tables']['profiles']['Insert']
 );
 
-const getUserResponses = async (email: string) => {
+export const getUserResponses = async ({ user: { email } }: Session) => {
 	const { data, error } = await supabaseClient
 		.from('profiles')
 		.select('*')
@@ -24,12 +22,4 @@ export const postUserResponses = async (
 ) => {
 	const { error } = await supabaseClient.from('profiles').upsert(data);
 	if (error) throw new Error(error.message);
-};
-
-export const load: PageLoad = async (event) => {
-	const { session } = await getSupabase(event);
-	if (!session?.user.email) {
-		throw redirect(303, '/login');
-	}
-	responses.set(await getUserResponses(session.user.email));
 };

@@ -1,109 +1,64 @@
 <script lang="ts">
-	import FormCheckboxes from '$lib/form/FormCheckboxes.svelte';
-	import FormHeader from '$lib/form/FormHeader.svelte';
-	import FormInput from '$lib/form/FormInput.svelte';
-	import FormRadioGroup from '$lib/form/FormRadioGroup.svelte';
-	import FormTextArea from '$lib/form/FormTextArea.svelte';
-	import { questions } from '$lib/form/questions';
-	import ProgressBar from './form/ProgressBar.svelte';
-	import { postUserResponses, responses } from './form/+page';
 	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
+	import PlaceholderImage from '$lib/PlaceholderImage.svelte';
 
-	let currentPageIndex = 0;
-	$: currentPage = questions[currentPageIndex];
+	import { supabaseClient } from '$lib/supabase';
 
-	const isError = () =>
-		currentPage.some((question) => !question.validationFunction($responses[question.name]));
-
-	let showErrors = false;
-	const previousSlide = () => {
-		return currentPageIndex--;
+	const signInWithGoogle = async () => {
+		if (loggedIn) return goto('/form');
+		await supabaseClient.auth.signInWithOAuth({
+			provider: 'google',
+			options: { redirectTo: `${window.location.origin}/form` }
+		});
 	};
-	const nextSlide = () => {
-		if (isError()) return (showErrors = true);
-		currentPageIndex++;
-		showErrors = false;
-	};
-	const jumpSlide = (index: number) => {
-		if (index > currentPageIndex && isError()) return (showErrors = true);
-		currentPageIndex = index;
-		showErrors = false;
-	};
-
-	const submit = () => {
-		if (isError()) return (showErrors = true);
-		postUserResponses($responses);
-		goto('/form/confirmation');
-	};
+	let hover = false;
+	const NUMBER_BACKGROUND_IMAGES = 4;
+	let backgroundDiningHallIndex = 0;
+	$: loggedIn = $page.data.session;
 </script>
 
-<div class="mt-10 sm:my-4">
-	<div class="flex flex-col gap-4 px-4 sm:px-0">
-		<div class="-mt-6 overflow-hidden rounded-md bg-white shadow sm:mt-0">
-			<ProgressBar currentStepIndex={currentPageIndex} {jumpSlide} />
-		</div>
-		{#each currentPage as question}
-			<div class="rounded-lg border border-gray-200 bg-white p-6 shadow-md">
-				<FormHeader title={question.label} description={question.description} />
-				{#if question.type === 'radio'}
-					<FormRadioGroup {showErrors} {question} bind:value={$responses[question.name]} />
-				{/if}
-				{#if question.type === 'checkboxes'}
-					<FormCheckboxes {showErrors} {question} bind:value={$responses[question.name]} />
-				{/if}
-				{#if question.type === 'input'}
-					<FormInput {showErrors} {question} bind:value={$responses[question.name]} />
-				{/if}
-				{#if question.type === 'textarea'}
-					<FormTextArea {showErrors} {question} bind:value={$responses[question.name]} />
-				{/if}
+<div class="h-full w-full">
+	<div class="relative overflow-hidden">
+		<img
+			src={`/${backgroundDiningHallIndex}.png`}
+			alt={`${backgroundDiningHallIndex}`}
+			class="h-screen w-screen object-cover transition duration-150 ease-in-out {hover
+				? '-translate-y-1 scale-105'
+				: ''}"
+		/>
+		<div
+			class="absolute left-0 top-0 flex h-full w-full items-center justify-center bg-black"
+			class:bg-opacity-40={hover}
+			class:bg-opacity-50={!hover}
+		>
+			<div class="flex flex-col gap-4 p-8 text-white">
+				<h1 class="max-w-3xl text-3xl tracking-wide">MealMatch</h1>
+				<h2 class="sm:text-4xl">
+					Meet Yalies who you're more likely to vibe with based on who you are.
+				</h2>
+				<div class="flex gap-2 sm:gap-2">
+					<button
+						on:click={signInWithGoogle}
+						class="inline-flex w-fit items-center justify-center gap-1 rounded-lg bg-stone-200 px-6 py-3 text-stone-700 shadow-xl hover:shadow-2xl"
+						on:mouseover={() => (hover = true)}
+						on:mouseout={() => (hover = false)}
+						on:focus={() => (hover = true)}
+						on:blur={() => (hover = false)}
+					>
+						<span class="text-lg tracking-wider">Get Started</span>
+					</button>
+					<button
+						class="inline-flex w-fit items-center justify-center rounded-lg bg-stone-700 px-2 shadow-xl hover:shadow-2xl"
+						on:click={() => {
+							backgroundDiningHallIndex =
+								(backgroundDiningHallIndex + 1) % NUMBER_BACKGROUND_IMAGES;
+						}}
+					>
+						<PlaceholderImage />
+					</button>
+				</div>
 			</div>
-			<!-- <FormDivider /> -->
-		{/each}
-		<nav class="flex justify-end gap-2">
-			{#if currentPageIndex > 0}
-				<button
-					type="submit"
-					class="rounded-md bg-white py-2 px-6 font-bold text-rose-500 shadow-sm hover:shadow-inner"
-					on:click={previousSlide}
-				>
-					Previous
-				</button>
-			{/if}
-			{#if currentPageIndex < questions.length - 1}
-				<button
-					type="submit"
-					class="rounded-md bg-white py-2 px-6 font-bold text-rose-500 shadow-sm hover:shadow-inner"
-					on:click={nextSlide}
-				>
-					Next
-				</button>
-			{:else}
-				<button
-					type="submit"
-					class="flex justify-center rounded-md border border-transparent bg-rose-600 py-2 px-4 font-bold text-white shadow-sm hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2"
-					on:click={submit}
-				>
-					Submit
-				</button>
-			{/if}
-		</nav>
-	</div>
-
-	<!-- <nav class="flex items-center justify-between border-gray-200 px-4 sm:px-0">
-		<PreviousButton currentIndex={currentPageIndex} {previousSlide} />
-		<div class="hidden md:-mb-px md:flex">
-			{#each questions as _question, index}
-				<button
-					class="{index === currentPageIndex
-						? 'border-rose-500 text-rose-600'
-						: ''} inline-flex items-center border-t-2 border-transparent px-4 py-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-					on:click={() => jumpSlide(index)}
-				>
-					{index + 1}
-				</button>
-			{/each}
 		</div>
-		<NextButton currentIndex={currentPageIndex} {nextSlide} />
-	</nav> -->
+	</div>
 </div>

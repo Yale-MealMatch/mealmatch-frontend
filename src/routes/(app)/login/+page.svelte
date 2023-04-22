@@ -1,7 +1,7 @@
 <script lang="ts">
 	import GoogleIcon from '$lib/GoogleIcon.svelte';
 	import Logo from '$lib/Logo.svelte';
-	import { supabaseClient } from '$lib/supabaseClient';
+	import { supabaseClient } from '$lib/supabase';
 	import { Envelope } from '@steeze-ui/heroicons';
 	import { Icon } from '@steeze-ui/svelte-icon';
 	const signInWithGoogle = async () => {
