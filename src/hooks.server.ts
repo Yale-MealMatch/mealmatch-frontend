@@ -29,6 +29,13 @@ export const handle: Handle = async ({ event, resolve }) => {
 		}
 	}
 
+	if (event.url.pathname === '/') {
+		const session = await event.locals.getSession();
+		if (session) {
+			throw redirect(303, '/form');
+		}
+	}
+
 	return resolve(event, {
 		/**
 		 * There´s an issue with `filterSerializedResponseHeaders` not working when using `sequence`
