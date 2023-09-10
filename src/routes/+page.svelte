@@ -5,7 +5,6 @@
 	import { supabaseClient } from '$lib/supabase';
 
 	const signInWithGoogle = async () => {
-		if (loggedIn) return goto('/form');
 		await supabaseClient.auth.signInWithOAuth({
 			provider: 'google',
 			options: { redirectTo: `${$page.url.origin}/form` }
@@ -15,7 +14,6 @@
 	let hover = false;
 	const NUMBER_BACKGROUND_IMAGES = 4;
 	let backgroundDiningHallIndex = 0;
-	$: loggedIn = $page.data.session;
 </script>
 
 <div class="h-full w-full">
