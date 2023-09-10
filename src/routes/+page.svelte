@@ -33,32 +33,29 @@
 			class:bg-opacity-50={!hover}
 		>
 			<div class="flex flex-col gap-4 p-8 text-white">
-				<h1 class="max-w-3xl text-3xl tracking-wide">MealMatch</h1>
+				<h1 class="max-w-3xl text-7xl tracking-wide">MealMatch</h1>
 				<h2 class="sm:text-4xl">
 					Meet Yalies who you're more likely to vibe with based on who you are.
 				</h2>
-				<div class="flex gap-2 sm:gap-2">
-					<button
-						on:click={signInWithGoogle}
-						class="inline-flex w-fit items-center justify-center gap-1 rounded-lg bg-stone-200 px-6 py-3 text-stone-700 shadow-xl hover:shadow-2xl"
-						on:mouseover={() => (hover = true)}
-						on:mouseout={() => (hover = false)}
-						on:focus={() => (hover = true)}
-						on:blur={() => (hover = false)}
-					>
-						<span class="text-lg tracking-wider">Get Started</span>
-					</button>
-					<button
-						class="inline-flex w-fit items-center justify-center rounded-lg bg-stone-700 px-2 shadow-xl hover:shadow-2xl"
-						on:click={() => {
-							backgroundDiningHallIndex =
-								(backgroundDiningHallIndex + 1) % NUMBER_BACKGROUND_IMAGES;
-						}}
-					>
-						<PlaceholderImage />
-					</button>
-				</div>
+				<button
+					on:click={signInWithGoogle}
+					class="inline-flex w-fit items-center justify-center gap-1 rounded-lg bg-stone-200 px-6 py-3 text-stone-700 shadow-xl hover:shadow-2xl"
+					on:mouseover={() => (hover = true)}
+					on:mouseout={() => (hover = false)}
+					on:focus={() => (hover = true)}
+					on:blur={() => (hover = false)}
+				>
+					<span class="text-lg tracking-wider">Get Started</span>
+				</button>
 			</div>
 		</div>
+		<button
+			class="absolute bottom-4 right-4 inline-flex w-fit items-center justify-center rounded-lg bg-stone-700 p-2 text-stone-200 shadow-xl hover:shadow-2xl"
+			on:click={() => {
+				backgroundDiningHallIndex = (backgroundDiningHallIndex + 1) % NUMBER_BACKGROUND_IMAGES;
+			}}
+		>
+			<PlaceholderImage />
+		</button>
 	</div>
 </div>
