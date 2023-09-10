@@ -9,45 +9,37 @@ type SelectOption = {
 	subtitle?: string;
 };
 
-type FormRadio = {
-	type: 'radio';
-	name: keyof Row;
-	label: string;
-	description: string;
-	options: SelectOption[];
-	validationFunction: (value: string) => boolean;
-	errorMessage: string;
-};
+type ValidationFn<T> = (value: T) => boolean;
 
-type FormCheckboxes = {
-	type: 'checkboxes';
-	name: keyof Row;
-	label: string;
-	description: string;
-	options: SelectOption[];
-	validationFunction: (value: string[]) => boolean;
-	errorMessage: string;
-};
-
-type FormInput = {
-	type: 'input';
-	name: keyof Row;
-	label: string;
-	description: string;
-	placeholder: string;
-	validationFunction: (value: string) => boolean;
-	errorMessage: string;
-};
-
-// Description can be a string or a Svelte component
-type FormTextArea = {
-	type: 'textarea';
+type BaseQuestion = {
 	name: keyof Row;
 	label: string;
 	description: string | typeof SvelteComponent;
-	placeholder: string;
-	validationFunction: (value: string) => boolean;
 	errorMessage: string;
+};
+
+type FormRadio = BaseQuestion & {
+	type: 'radio';
+	options: SelectOption[];
+	validationFunction: ValidationFn<string>;
+};
+
+type FormCheckboxes = BaseQuestion & {
+	type: 'checkboxes';
+	options: SelectOption[];
+	validationFunction: ValidationFn<string[]>;
+};
+
+type FormInput = BaseQuestion & {
+	type: 'input';
+	placeholder: string;
+	validationFunction: ValidationFn<string>;
+};
+
+type FormTextArea = BaseQuestion & {
+	type: 'textarea';
+	placeholder: string;
+	validationFunction: ValidationFn<string>;
 };
 
 export type Question = FormRadio | FormCheckboxes | FormInput | FormTextArea;
