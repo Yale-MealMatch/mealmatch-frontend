@@ -1,15 +1,15 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import FormCheckboxes from '$lib/form/FormCheckboxes.svelte';
 	import FormHeader from '$lib/form/FormHeader.svelte';
 	import FormInput from '$lib/form/FormInput.svelte';
 	import FormRadioGroup from '$lib/form/FormRadioGroup.svelte';
 	import FormTextArea from '$lib/form/FormTextArea.svelte';
 	import { questions } from '$lib/form/questions';
-	import ProgressBar from './ProgressBar.svelte';
-	import { goto } from '$app/navigation';
 	import { responses } from '$lib/stores/userResponses';
 	import { supabaseClient } from '$lib/supabase';
 	import type { Database } from '$lib/types/supabase';
+	import ProgressBar from './ProgressBar.svelte';
 
 	let currentPageIndex = 0;
 	$: currentPage = questions[currentPageIndex];
