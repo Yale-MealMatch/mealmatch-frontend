@@ -7,7 +7,9 @@
 	import { questions } from '$lib/form/questions';
 	import ProgressBar from './ProgressBar.svelte';
 	import { goto } from '$app/navigation';
-	import { postUserResponses, responses } from '$lib/stores/userResponses';
+	import { responses } from '$lib/stores/userResponses';
+	import { supabaseClient } from '$lib/supabase';
+	import type { Database } from '$lib/types/supabase';
 
 	let currentPageIndex = 0;
 	$: currentPage = questions[currentPageIndex];
@@ -35,6 +37,11 @@
 		postUserResponses($responses);
 		goto('/form/confirmation');
 	};
+
+	async function postUserResponses(data: Database['public']['Tables']['profiles']['Insert']) {
+		const { error } = await supabaseClient.from('profiles').upsert(data);
+		if (error) throw new Error(error.message);
+	}
 </script>
 
 <div class="mt-10 sm:my-4">
