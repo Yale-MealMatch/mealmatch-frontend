@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { FormInput } from '$lib/form/types';
-	import { Icon } from '@steeze-ui/svelte-icon';
-	import { ExclamationCircle } from '@steeze-ui/heroicons';
+	import ExclamationCircle from '~icons/heroicons/exclamation-circle'
 
 	export let question: FormInput;
 	export let value: any = '';
@@ -28,7 +27,7 @@
 		/>
 		{#if isError}
 			<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
-				<Icon src={ExclamationCircle} class="h-5 w-5 text-error-500" aria-hidden="true" />
+				<ExclamationCircle class="h-5 w-5 text-error-500" aria-hidden="true" />
 			</div>
 		{/if}
 	</div>

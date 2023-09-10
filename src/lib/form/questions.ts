@@ -135,8 +135,7 @@ Please don't include any information that directly reveals who you are.`,
 			name: 'keywords_match',
 			label:
 				'<span class="text-slate-500">(Recommended)</span> List keywords you hope to find in the bio of the person you match with:',
-			description:
-				'Example: music production, badminton, research, entrepreneurship, paramotor',
+			description: 'Example: music production, badminton, research, entrepreneurship, paramotor',
 			placeholder: 'List keywords separated by commas',
 			// validationFunction: (value) => /,\s*/.test(value),
 			// eslint-disable-next-line @typescript-eslint/no-unused-vars

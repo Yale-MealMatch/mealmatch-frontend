@@ -18,25 +18,25 @@ type BaseQuestion = {
 	errorMessage: string;
 };
 
-type FormRadio = BaseQuestion & {
+export type FormRadio = BaseQuestion & {
 	type: 'radio';
 	options: SelectOption[];
 	validationFunction: ValidationFn<string>;
 };
 
-type FormCheckboxes = BaseQuestion & {
+export type FormCheckboxes = BaseQuestion & {
 	type: 'checkboxes';
 	options: SelectOption[];
 	validationFunction: ValidationFn<string[]>;
 };
 
-type FormInput = BaseQuestion & {
+export type FormInput = BaseQuestion & {
 	type: 'input';
 	placeholder: string;
 	validationFunction: ValidationFn<string>;
 };
 
-type FormTextArea = BaseQuestion & {
+export type FormTextArea = BaseQuestion & {
 	type: 'textarea';
 	placeholder: string;
 	validationFunction: ValidationFn<string>;

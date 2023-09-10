@@ -10,8 +10,11 @@
 		MenuItem,
 		MenuItems
 	} from '@rgossiaux/svelte-headlessui';
-	import { Icon } from '@steeze-ui/svelte-icon';
-	import { Bars3, MagnifyingGlass, XMark, BellAlert, Bell } from '@steeze-ui/heroicons';
+	import Bars3 from '~icons/heroicons/bars-3';
+	import MagnifyingGlass from '~icons/heroicons/magnifying-glass';
+	import XMark from '~icons/heroicons/x-mark';
+	import BellAlert from '~icons/heroicons/bell-alert';
+	import Bell from '~icons/heroicons/bell';
 
 	const navigation = [
 		{ name: 'Dashboard', href: '/' },
@@ -58,9 +61,7 @@
 					<label for="search" class="sr-only">Search</label>
 					<div class="relative">
 						<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-							<Icon
-								src={MagnifyingGlass}
-								theme="solid"
+							<MagnifyingGlass
 								class="h-5 w-5 text-slate-700"
 								aria-hidden="true"
 							/>
@@ -81,9 +82,9 @@
 				>
 					<span class="sr-only">Open main menu</span>
 					{#if open}
-						<Icon src={XMark} theme="outline" class="block h-6 w-6" aria-hidden="true" />
+						<XMark class="block h-6 w-6" aria-hidden="true" />
 					{:else}
-						<Icon src={Bars3} theme="outline" class="block h-6 w-6" aria-hidden="true" />
+						<Bars3 class="block h-6 w-6" aria-hidden="true" />
 					{/if}
 				</DisclosureButton>
 			</div>
@@ -94,7 +95,7 @@
 						class="flex-shrink-0 rounded-full bg-gray-800 p-1 text-slate-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
 					>
 						<span class="sr-only">View notifications</span>
-						<Icon src={BellAlert} theme="solid" class="h-6 w-6" aria-hidden="true" />
+						< BellAlert class="h-6 w-6" aria-hidden="true" />
 					</button> -->
 
 					<Menu as="div" class="relative ml-4 flex-shrink-0">
@@ -189,7 +190,7 @@
 					class="ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-slate-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
 				>
 					<span class="sr-only">View notifications</span>
-					<Icon src={BellAlert} class="h-6 w-6" aria-hidden="true" />
+					<BellAlert class="h-6 w-6" aria-hidden="true" />
 					<BellIcon class="h-6 w-6" aria-hidden="true" />
 				</button> -->
 			</div>

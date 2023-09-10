@@ -6,8 +6,7 @@
 		RadioGroupLabel,
 		RadioGroupOption
 	} from '@rgossiaux/svelte-headlessui';
-	import { XCircle } from '@steeze-ui/heroicons';
-	import { Icon } from '@steeze-ui/svelte-icon';
+	import XCircle from '~icons/heroicons/x-circle';
 
 	export let question: FormRadio;
 	export let value: any = '';
@@ -67,7 +66,7 @@
 	<div class="my-4 rounded-md bg-error-50 p-4">
 		<div class="flex">
 			<div class="flex-shrink-0">
-				<Icon src={XCircle} con class="h-5 w-5 text-error-400" aria-hidden="true" />
+				<XCircle class="h-5 w-5 text-error-400" aria-hidden="true" />
 			</div>
 			<div class="ml-3">
 				<h3 class="text-sm font-medium text-error-800">{question.errorMessage}</h3>

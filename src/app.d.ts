@@ -1,5 +1,6 @@
 import type { Database } from '$lib/types/supabase';
 import type { Session } from '@supabase/supabase-js';
+import 'unplugin-icons/types/svelte';
 
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces

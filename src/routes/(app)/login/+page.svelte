@@ -2,8 +2,9 @@
 	import GoogleIcon from '$lib/GoogleIcon.svelte';
 	import Logo from '$lib/Logo.svelte';
 	import { supabaseClient } from '$lib/supabase';
-	import { Envelope } from '@steeze-ui/heroicons';
-	import { Icon } from '@steeze-ui/svelte-icon';
+	import Envelope from '~icons/heroicons/envelope';
+
+	import { page } from '$app/stores';
 	const signInWithGoogle = async () => {
 		await supabaseClient.auth.signInWithOAuth({
 			provider: 'google',
@@ -58,7 +59,7 @@
 						class="flex w-full justify-center rounded-md border border-transparent bg-rose-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2"
 						on:click={signInWithMagicLink}
 					>
-						<Icon src={Envelope} theme="outline" class="block h-5 w-5" aria-hidden="true" />
+						<Envelope class="block h-5 w-5" aria-hidden="true" />
 						Send Magic Link
 					</button>
 				</div>

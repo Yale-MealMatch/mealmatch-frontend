@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { Check } from '@steeze-ui/heroicons';
-	import { Icon } from '@steeze-ui/svelte-icon';
+	import Check from '~icons/heroicons/check';
 
 	export let currentStepIndex: number;
 	export let jumpSlide: (index: number) => true | undefined;
@@ -21,7 +20,7 @@
 							<span
 								class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-slate-600 group-hover:bg-slate-800"
 							>
-								<Icon src={Check} class="h-6 w-6 text-white" aria-hidden="true" />
+								<Check class="h-6 w-6 text-white" aria-hidden="true" />
 							</span>
 							<span class="ml-4 text-sm font-medium text-gray-900">{step.name}</span>
 						</span>
