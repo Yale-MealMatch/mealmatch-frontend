@@ -2,7 +2,7 @@
 import { PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL } from '$env/static/public';
 import type { Database } from '$lib/types/supabase';
 import { createSupabaseServerClient } from '@supabase/auth-helpers-sveltekit';
-import { redirect, type Handle } from '@sveltejs/kit';
+// import { redirect, type Handle } from '@sveltejs/kit';
 
 export const handle: Handle = async ({ event, resolve }) => {
 	event.locals.supabase = createSupabaseServerClient<Database>({
@@ -23,15 +23,15 @@ export const handle: Handle = async ({ event, resolve }) => {
 		return session;
 	};
 
-	if (event.url.pathname !== '/') {
-		const session = await event.locals.getSession();
-		if (!session) throw redirect(303, '/');
-	}
+	// if (event.url.pathname !== '/') {
+	// 	const session = await event.locals.getSession();
+	// 	if (!session) throw redirect(303, '/');
+	// }
 
-	if (event.url.pathname === '/') {
-		const session = await event.locals.getSession();
-		if (session) throw redirect(303, '/form');
-	}
+	// if (event.url.pathname === '/') {
+	// 	const session = await event.locals.getSession();
+	// 	if (session) throw redirect(303, '/form');
+	// }
 
 	return resolve(event, {
 		/**
