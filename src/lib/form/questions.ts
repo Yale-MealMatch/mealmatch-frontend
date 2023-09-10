@@ -8,10 +8,10 @@ export const questions: Question[][] = [
 			label: 'What year are you?',
 			description: '',
 			options: [
-				{ label: 'First-year', value: '2026' },
-				{ label: 'Sophomore', value: '2025' },
-				{ label: 'Junior', value: '2024' },
-				{ label: 'Senior', value: '2023' }
+				{ label: 'First-year', value: '2027' },
+				{ label: 'Sophomore', value: '2026' },
+				{ label: 'Junior', value: '2025' },
+				{ label: 'Senior', value: '2024' }
 			],
 			validationFunction: (value) => !!value,
 			errorMessage: 'Please select a year'
@@ -20,7 +20,7 @@ export const questions: Question[][] = [
 			type: 'radio',
 			name: 'pronouns',
 			label: 'What are your pronouns?',
-			description: 'Your pronouns will be provided to your match for ease of communication.',
+			description: 'Your match will be shown your bio for ease of communication.',
 			options: [
 				{ label: 'she/her', value: 'she/her' },
 				{ label: 'he/him', value: 'he/him' },
@@ -37,12 +37,12 @@ export const questions: Question[][] = [
 			type: 'checkboxes',
 			name: 'year_match',
 			label: 'What year(s) would you like to match with?',
-			description: 'We will try to match you with someone within your preferences.',
+			description: 'We will try our best!',
 			options: [
-				{ label: 'First-year', value: '2026' },
-				{ label: 'Sophomore', value: '2025' },
-				{ label: 'Junior', value: '2024' },
-				{ label: 'Senior', value: '2023' }
+				{ label: 'First-year', value: '2027' },
+				{ label: 'Sophomore', value: '2026' },
+				{ label: 'Junior', value: '2025' },
+				{ label: 'Senior', value: '2024' }
 			],
 			validationFunction: (value) => !!value && value.length > 0,
 			errorMessage: 'Please select at least one year'
@@ -50,8 +50,8 @@ export const questions: Question[][] = [
 		{
 			type: 'radio',
 			name: 'pronouns_match',
-			label: 'Match me with someone with ____ pronouns.',
-			description: 'We will try our best!',
+			label: 'Match me with somebody with ____ pronouns.',
+			description: '',
 			options: [
 				{ label: 'any', value: 'any' },
 				{ label: 'same', value: 'same' },
@@ -75,7 +75,7 @@ export const questions: Question[][] = [
 			type: 'input',
 			name: 'phone',
 			label: 'What is your phone number? (10 digits, no special characters)',
-			description: 'Your number will be provided to your match for ease of communication.',
+			description: 'Your match will be given your number for ease of communication.',
 			placeholder: 'Your number',
 			validationFunction: (value) => /^\d{10}$/.test(value),
 			errorMessage: 'Please enter 10 digits in the form XXXYYYZZZZ'
@@ -85,7 +85,7 @@ export const questions: Question[][] = [
 			name: 'nickname',
 			label: 'Create a nickname:',
 			description:
-				'For privacy, your match will refer to you by your nickname before meeting in person.',
+				'For privacy, your match will know you by your nickname before meeting in person.',
 			placeholder: 'Your nickname',
 			validationFunction: (value) => !!value,
 			errorMessage: 'Please enter a nickname'
@@ -93,20 +93,19 @@ export const questions: Question[][] = [
 		{
 			type: 'textarea',
 			name: 'bio',
-			label: '<span class="text-slate-500">(Recommended)</span> Personal Bio (80 words max)',
+			label: '<span class="text-slate-500">(Recommended)</span> Short bio (80 words max)',
 			// description:
-			description: `Based on your answer to this question, we will try to match you with someone you are compatible with. If you choose not to answer it, we will match you randomly.
+			description: `Based on your bio, we'll try to provide a compatible match. If you choose not to answer, you will be matched randomly.
 <br />
 <br />
-If you answer this question, your response will be shown to your match.
+Your match will be shown your bio if you provide one.
 <br />
 <br />
-Some things you can talk about:
+Some possible topics:
 <ul class="list-disc list-inside">
-<li>Your hobbies and interests</li>
-<li>Activities/groups you participate in</li>
-<li>Your future goals</li>
-<li>What you hope to find in the person you match with</li>
+<li>Your interests and campus involvements</li>
+<li>Your aspirations</li>
+<li>Qualities you hope to find in a match</li>
 </ul>
 <br />
 Please don't include any information that directly reveals who you are.`,
@@ -151,17 +150,17 @@ Please don't include any information that directly reveals who you are.`,
 			options: [
 				{
 					label:
-						'I will not ghost my match, and understand that doing so may ban me from using MealMatch in the future.',
+						'I will not ghost my match. Ghosting may result in a ban from using MealMatch.',
 					value: '1'
 				},
 				{
 					label:
-						'I will not ask for any identity-revealing information (real name, Instagram, etc.) from my match before meeting them in person.',
+						'I will not ask for any identity-revealing information (real name, Instagram, etc.) from my match before meeting in person.',
 					value: '2'
 				},
 				{
 					label:
-						'I certify that my email and phone number are correct, and that I will opt in via weekly confirmation texts to be matched.',
+						'My email and phone number are correct, and I will opt-in via weekly confirmation texts to get matched.',
 					value: '3'
 				}
 			],
