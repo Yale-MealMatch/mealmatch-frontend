@@ -45,7 +45,7 @@
 					on:focus={() => (hover = true)}
 					on:blur={() => (hover = false)}
 				>
-					<span class="text-lg tracking-wider">Get Started</span>
+					<span class="text-lg tracking-wider">Get started with @yale.edu</span>
 				</button>
 			</div>
 		</div>
