@@ -9,7 +9,7 @@
 		if (loggedIn) return goto('/form');
 		await supabaseClient.auth.signInWithOAuth({
 			provider: 'google',
-			options: { redirectTo: `${window.location.origin}/form` }
+			options: { redirectTo: '/form' }
 		});
 	};
 	let hover = false;
