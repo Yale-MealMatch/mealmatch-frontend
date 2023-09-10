@@ -35,7 +35,7 @@
 			<div class="flex flex-col gap-4 p-8 text-white">
 				<h1 class="max-w-3xl text-7xl tracking-wide">MealMatch</h1>
 				<h2 class="sm:text-4xl">
-					Meet Yalies who you're more likely to vibe with based on who you are.
+					Meet other Yalies over a meal. Customize your preferences for who you'd like to meet.
 				</h2>
 				<button
 					on:click={signInWithGoogle}
