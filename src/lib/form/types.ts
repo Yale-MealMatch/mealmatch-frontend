@@ -1,4 +1,5 @@
-import type { Database } from 'types/supabase';
+import type { Database } from '$lib/types/supabase';
+import type { SvelteComponent } from 'svelte';
 
 export type Row = Database['public']['Tables']['profiles']['Row'];
 
