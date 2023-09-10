@@ -2,16 +2,16 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	import PlaceholderImage from '$lib/PlaceholderImage.svelte';
-
 	import { supabaseClient } from '$lib/supabase';
 
 	const signInWithGoogle = async () => {
 		if (loggedIn) return goto('/form');
 		await supabaseClient.auth.signInWithOAuth({
 			provider: 'google',
-			options: { redirectTo: '/form' }
+			options: { redirectTo: `${$page.url.origin}/form` }
 		});
 	};
+
 	let hover = false;
 	const NUMBER_BACKGROUND_IMAGES = 4;
 	let backgroundDiningHallIndex = 0;
